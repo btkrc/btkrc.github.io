@@ -1,0 +1,520 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>mysql入门 | 元気いっぱい</title><meta name="keywords" content="mysql"><meta name="author" content="btKrc1nx"><meta name="copyright" content="btKrc1nx"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="mysql的基本使用 登录指令   mysql ms命令 CRUD语句 插入 查找 update delete   创建表 创建 数据类型   xampp集成环境下修改密码   mysql的基本使用登录指令mysql -h -u root -p -h host主机如果直接在-p厚些密码就不要加空格，默认情况下-h后面就是本机 mysql ms命令 所有命令后面都要加分号      命令 描述">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql入门">
+<meta property="og:url" content="https://www.btkrc.com/posts/1a5d0cc2/index.html">
+<meta property="og:site_name" content="元気いっぱい">
+<meta property="og:description" content="mysql的基本使用 登录指令   mysql ms命令 CRUD语句 插入 查找 update delete   创建表 创建 数据类型   xampp集成环境下修改密码   mysql的基本使用登录指令mysql -h -u root -p -h host主机如果直接在-p厚些密码就不要加空格，默认情况下-h后面就是本机 mysql ms命令 所有命令后面都要加分号      命令 描述">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/img/1c2833555168faf494f478d3f9bf802a.jpg">
+<meta property="article:published_time" content="2020-11-01T19:23:15.000Z">
+<meta property="article:modified_time" content="2020-11-01T19:25:15.000Z">
+<meta property="article:author" content="btKrc1nx">
+<meta property="article:tag" content="mysql">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/img/1c2833555168faf494f478d3f9bf802a.jpg"><link rel="shortcut icon" href="/uploads/favicon.ico"><link rel="canonical" href="https://www.btkrc.com/posts/1a5d0cc2/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="preconnect" href="//zz.bdstatic.com"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/uploadsFile/butterfly/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":0,"languages":{"author":"作者: btKrc1nx","link":"链接: ","source":"来源: 元気いっぱい","info":"转载我的文章和笔记务必注明出处"}},
+  ClickShowText: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: undefined,
+  isToc: true,
+  postUpdate: '2020-11-02 03:25:15'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}})()</script><link rel="stylesheet" href="/uploadsFile/css/customCss.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/myIconFont/iconfont.css"><script src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/myIconFont/iconfont.js"></script><meta name="generator" content="Hexo 5.2.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/img/2a3b97dda144ad34e8b7b25bd2a20cf430ad85fe.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/./"><div class="headline">文章</div><div class="length-num">57</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">34</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/translation/"><i class="fa-fw iconfont iconfanyi"></i><span> 在线中英互译</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-image"></i><span> 画廊</span></a></div></div></div></div><div id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/img/1c2833555168faf494f478d3f9bf802a.jpg)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">元気いっぱい</a></span><span id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/translation/"><i class="fa-fw iconfont iconfanyi"></i><span> 在线中英互译</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-image"></i><span> 画廊</span></a></div></div><span class="close" id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><h1 class="post-title">mysql入门</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表</span><time class="post-meta-date-created" datetime="2020-11-01T19:23:15.000Z" title="发表 2020-11-02 03:23:15">2020-11-02</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新</span><time class="post-meta-date-updated" datetime="2020-11-01T19:25:15.000Z" title="更新 2020-11-02 03:25:15">2020-11-02</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></span></div><div class="meta-secondline"> </div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><!-- TOC -->
+
+<ul>
+<li><a href="#mysql%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8">mysql的基本使用</a><ul>
+<li><a href="#%E7%99%BB%E5%BD%95%E6%8C%87%E4%BB%A4">登录指令</a></li>
+</ul>
+</li>
+<li><a href="#mysql-ms%E5%91%BD%E4%BB%A4">mysql ms命令</a></li>
+<li><a href="#crud%E8%AF%AD%E5%8F%A5">CRUD语句</a><ul>
+<li><a href="#%E6%8F%92%E5%85%A5">插入</a></li>
+<li><a href="#%E6%9F%A5%E6%89%BE">查找</a></li>
+<li><a href="#update">update</a></li>
+<li><a href="#delete">delete</a></li>
+</ul>
+</li>
+<li><a href="#%E5%88%9B%E5%BB%BA%E8%A1%A8">创建表</a><ul>
+<li><a href="#%E5%88%9B%E5%BB%BA">创建</a></li>
+<li><a href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">数据类型</a></li>
+</ul>
+</li>
+<li><a href="#xampp%E9%9B%86%E6%88%90%E7%8E%AF%E5%A2%83%E4%B8%8B%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81">xampp集成环境下修改密码</a></li>
+</ul>
+<!-- /TOC -->
+<h1 id="mysql的基本使用"><a href="#mysql的基本使用" class="headerlink" title="mysql的基本使用"></a>mysql的基本使用</h1><h2 id="登录指令"><a href="#登录指令" class="headerlink" title="登录指令"></a>登录指令</h2><p>mysql -h -u root -p</p>
+<p>-h host主机<br>如果直接在-p厚些密码就不要加空格，默认情况下-h后面就是本机</p>
+<h1 id="mysql-ms命令"><a href="#mysql-ms命令" class="headerlink" title="mysql ms命令"></a>mysql ms命令</h1><blockquote>
+<p><strong>所有命令后面都要加分号</strong></p>
+</blockquote>
+<hr>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>show databases;</td>
+<td></td>
+</tr>
+<tr>
+<td>create database db1;</td>
+<td></td>
+</tr>
+<tr>
+<td>create database db2 character set utf8;</td>
+<td>创建一个使用utf-8字符集的db2数据库</td>
+</tr>
+<tr>
+<td>create database db3 character set outfit collate utf8_general_ci;</td>
+<td>创建一个使用utf-8字符集，并带校对规则(utf-8_general_ci)的mydb3数据库</td>
+</tr>
+<tr>
+<td>use db;</td>
+<td></td>
+</tr>
+<tr>
+<td>desc tablename</td>
+<td>查询表的结构,desc是description的意思</td>
+</tr>
+</tbody></table>
+<hr>
+<h1 id="CRUD语句"><a href="#CRUD语句" class="headerlink" title="CRUD语句"></a>CRUD语句</h1><p>CRUD(create,retrieve,update,delete)</p>
+<h2 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO table_name ( field1, field2,...fieldN )</span><br><span class="line">                       VALUES</span><br><span class="line">                       ( value1, value2,...valueN );</span><br></pre></td></tr></table></figure>
+<p>如果插入全部字段可以省略fieldr    </p>
+<h2 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h2><p>select * from db;<br>条件中的或与用and和or 非not<br>select * from db ORDER BY;排序 desc降序<br>模糊查询</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from students where name like &#39;%o%&#39;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="update"><a href="#update" class="headerlink" title="update"></a>update</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update employee set salary&#x3D;3000 where name&#x3D;&#39;tom&#39;;</span><br></pre></td></tr></table></figure>
+<p>还可以写成salary=salary+xxx；不能+=</p>
+<h2 id="delete"><a href="#delete" class="headerlink" title="delete"></a>delete</h2><p>delete from 表名 where 条件;<br>不加条件时删除所有数据，但不会删除表<br>删除表使用 DROP TABLE employee;</p>
+<h1 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h1><h2 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h2><p>create TABLE TB();如果数据库已经设置字符集就可以不用再设置了</p>
+<p>AUTO_INCREMENT定义列为自增的属性，一般用于主键，数值会自动加1。如果删除一行后，自增的id不会改变，需要重新设置:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">alter table 表名 AUTO_INCREMENT&#x3D;n；</span><br><span class="line">其中n代表是从哪个数字开始自增</span><br></pre></td></tr></table></figure>
+
+<p>PRIMARY KEY(‘’)设置主键，之后才能自增</p>
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p>MySQL中定义数据字段的类型对你数据库的优化是非常重要的。</p>
+<p>MySQL支持多种类型，大致可以分为三类：数值、日期/时间和字符串(字符)类型。</p>
+<p>数值类型<br>MySQL支持所有标准SQL数值数据类型。</p>
+<p>这些类型包括严格数值数据类型(INTEGER、SMALLINT、DECIMAL和NUMERIC)，以及近似数值数据类型(FLOAT、REAL和DOUBLE PRECISION)。</p>
+<p>关键字INT是INTEGER的同义词，关键字DEC是DECIMAL的同义词。</p>
+<p>BIT数据类型保存位字段值，并且支持MyISAM、MEMORY、InnoDB和BDB表。</p>
+<p>作为SQL标准的扩展，MySQL也支持整数类型TINYINT、MEDIUMINT和BIGINT。下面的表显示了需要的每个整数类型的存储和范围。</p>
+<p>unsigned创建无符号整型，类似于c++里的unsigned int</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>大小</th>
+<th>范围（有符号）</th>
+<th>范围（无符号）</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>TINYINT</td>
+<td>1 byte</td>
+<td>(-128，127)</td>
+<td>(0，255)</td>
+<td>小整数值</td>
+</tr>
+<tr>
+<td>SMALLINT</td>
+<td>2 bytes</td>
+<td>(-32 768，32 767)</td>
+<td>(0，65 535)</td>
+<td>大整数值</td>
+</tr>
+<tr>
+<td>MEDIUMINT</td>
+<td>3 bytes</td>
+<td>(-8 388 608，8 388 607)</td>
+<td>(0，16 777 215)</td>
+<td>大整数值</td>
+</tr>
+<tr>
+<td>INT或INTEGER</td>
+<td>4 bytes</td>
+<td>(-2 147 483 648，2 147 483 647)</td>
+<td>(0，4 294 967 295)</td>
+<td>大整数值</td>
+</tr>
+<tr>
+<td>BIGINT</td>
+<td>8 bytes</td>
+<td>(-9,223,372,036,854,775,808，9 223 372 036 854 775 807)</td>
+<td>(0，18 446 744 073 709 551 615)</td>
+<td>极大整数值</td>
+</tr>
+<tr>
+<td>FLOAT</td>
+<td>4 bytes</td>
+<td>(-3.402 823 466 E+38，-1.175 494 351 E-38)，0，(1.175 494 351 E-38，3.402 823 466 351 E+38)</td>
+<td>0，(1.175 494 351 E-38，3.402 823 466 E+38)</td>
+<td>单精度</td>
+</tr>
+<tr>
+<td>浮点数值</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>DOUBLE</td>
+<td>8 bytes</td>
+<td>(-1.797 693 134 862 315 7 E+308，-2.225 073 858 507 201 4 E-308)，0，(2.225 073 858 507 201 4 E-308，1.797 693 134 862 315 7 E+308)</td>
+<td>0，(2.225 073 858 507 201 4 E-308，1.797 693 134 862 315 7 E+308)</td>
+<td>双精度</td>
+</tr>
+<tr>
+<td>浮点数值</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>DECIMAL</td>
+<td>对DECIMAL(M,D) ，如果M&gt;D，为M+2否则为D+2</td>
+<td>依赖于M和D的值</td>
+<td>依赖于M和D的值</td>
+<td>小数值</td>
+</tr>
+</tbody></table>
+<hr>
+<p>日期和时间类型<br>表示时间值的日期和时间类型为DATETIME、DATE、TIMESTAMP、TIME和YEAR。</p>
+<p>每个时间类型有一个有效值范围和一个”零”值，当指定不合法的MySQL不能表示的值时使用”零”值。</p>
+<p>TIMESTAMP类型有专有的自动更新特性，将在后面描述。</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>大小( bytes)</th>
+<th>范围</th>
+<th>格式</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>DATE</td>
+<td>3</td>
+<td>1000-01-01/9999-12-31</td>
+<td>YYYY-MM-DD</td>
+<td>日期值</td>
+</tr>
+<tr>
+<td>TIME</td>
+<td>3</td>
+<td>‘-838:59:59’/‘838:59:59’</td>
+<td>HH:MM:SS</td>
+<td>时间值或持续时间</td>
+</tr>
+<tr>
+<td>YEAR</td>
+<td>1</td>
+<td>1901/2155</td>
+<td>YYYY</td>
+<td>年份值</td>
+</tr>
+<tr>
+<td>DATETIME</td>
+<td>8</td>
+<td>1000-01-01 00:00:00/9999-12-31 23:59:59</td>
+<td>YYYY-MM-DD HH:MM:SS</td>
+<td>混合日期和时间值</td>
+</tr>
+<tr>
+<td>TIMESTAMP</td>
+<td>4</td>
+<td>1970-01-01 00:00:00/2038结束时间是第 2147483647 秒，北京时间 2038-1-19 11:14:07，格林尼治时间 2038年1月19日 凌晨 03:14:07</td>
+<td>YYYYMMDD HHMMSS</td>
+<td>混合日期和时间值，时间戳</td>
+</tr>
+</tbody></table>
+<hr>
+<p>字符串类型<br>字符串类型指CHAR、VARCHAR、BINARY、VARBINARY、BLOB、TEXT、ENUM和SET。该节描述了这些类型如何工作以及如何在查询中使用这些类型。</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>大小</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>CHAR</td>
+<td>0-255 bytes</td>
+<td>定长字符串</td>
+</tr>
+<tr>
+<td>VARCHAR</td>
+<td>0-65535 bytes</td>
+<td>变长字符串</td>
+</tr>
+<tr>
+<td>TINYBLOB</td>
+<td>0-255 bytes</td>
+<td>不超过 255 个字符的二进制字符串</td>
+</tr>
+<tr>
+<td>TINYTEXT</td>
+<td>0-255 bytes</td>
+<td>短文本字符串</td>
+</tr>
+<tr>
+<td>BLOB</td>
+<td>0-65 535 bytes</td>
+<td>二进制形式的长文本数据</td>
+</tr>
+<tr>
+<td>TEXT</td>
+<td>0-65 535 bytes</td>
+<td>长文本数据</td>
+</tr>
+<tr>
+<td>MEDIUMBLOB</td>
+<td>0-16 777 215 bytes</td>
+<td>二进制形式的中等长度文本数据</td>
+</tr>
+<tr>
+<td>MEDIUMTEXT</td>
+<td>0-16 777 215 bytes</td>
+<td>中等长度文本数据</td>
+</tr>
+<tr>
+<td>LONGBLOB</td>
+<td>0-4 294 967 295 bytes</td>
+<td>二进制形式的极大文本数据</td>
+</tr>
+<tr>
+<td>LONGTEXT</td>
+<td>0-4 294 967 295 bytes</td>
+<td>极大文本数据</td>
+</tr>
+<tr>
+<td>注意：char(n) 和 varchar(n) 中括号中 n 代表字符的个数，并不代表字节个数，比如 CHAR(30) 就可以存储 30 个字符。</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>CHAR 和 VARCHAR 类型类似，但它们保存和检索的方式不同。它们的最大长度和是否尾部空格被保留等方面也不同。在存储或检索过程中不进行大小写转换。</p>
+<p>BINARY 和 VARBINARY 类似于 CHAR 和 VARCHAR，不同的是它们包含二进制字符串而不要非二进制字符串。也就是说，它们包含字节字符串而不是字符字符串。这说明它们没有字符集，并且排序和比较基于列值字节的数值值。</p>
+<p>BLOB 是一个二进制大对象，可以容纳可变数量的数据。有 4 种 BLOB 类型：TINYBLOB、BLOB、MEDIUMBLOB 和 LONGBLOB。它们区别在于可容纳存储范围不同。</p>
+<p>有 4 种 TEXT 类型：TINYTEXT、TEXT、MEDIUMTEXT 和 LONGTEXT。对应的这 4 种 BLOB 类型，可存储的最大长度不同，可根据实际情况选择。</p>
+<hr>
+<h1 id="xampp集成环境下修改密码"><a href="#xampp集成环境下修改密码" class="headerlink" title="xampp集成环境下修改密码"></a>xampp集成环境下修改密码</h1><p>xampp中安装的MariaDB默认密码为空<br>修改root密码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set password for &#39;root&#39;@&#39;localhost&#39;&#x3D;password(&#39;newpassword&#39;);</span><br><span class="line">flush privileges;</span><br></pre></td></tr></table></figure>
+
+<p>修改密码后phpmyadmin也需要配置登录密码，否则可视化界面进不去，<br>在xampp目录下的 phpMyAdmin目录下的config.inc.php中设置登录密码</p>
+<p>flush privileges 命令本质上的作用是将当前user和privilige表中的用户信息/权限设置从mysql库(MySQL数据库的内置库)中提取到内存里。MySQL用户数据和权限有修改后，希望在”不重启MySQL服务”的情况下直接生效，那么就需要执行这个命令。通常是在修改ROOT帐号的设置后，怕重启后无法再登录进来，那么直接flush之后就可以看权限设置是否生效。而不必冒太大风险。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="/">btKrc1nx</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://www.btkrc.com/posts/1a5d0cc2/">https://www.btkrc.com/posts/1a5d0cc2/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">许可协议: </span><span class="post-copyright-info">署名-非商业性使用 本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 协议进行许可</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/mysql/">mysql</a></div><div class="post_share"></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 请我恰杯咖啡吧<div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/uploads/wechat.png" target="_blank"><img class="post-qr-code-img" src="/uploads/wechat.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li></ul></div></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/7152007c/"><img class="prev-cover" src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/img/bd3b946cb2966ed17ebb4c364cc02075-1536x864.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">jq的事件委托</div></div></a></div><div class="next-post pull-right"><a href="/posts/675c368e/"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/img/6a2nrShfpb.png" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">修改数据库密码</div></div></a></div></nav></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/img/2a3b97dda144ad34e8b7b25bd2a20cf430ad85fe.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">btKrc1nx</div><div class="author-info__description">鹦鹉铲屎官 & 刀剑爱好者 & BugBuilder & 前端狗 & 脚本小子</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/./"><div class="headline">文章</div><div class="length-num">57</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">34</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div></div><a class="button--animated" id="card-info-btn" href="/"><i class="iconfont iconai-home"></i><span>どうもありがと</span></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="card-content"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#mysql%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-number">1.</span> <span class="toc-text">mysql的基本使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%99%BB%E5%BD%95%E6%8C%87%E4%BB%A4"><span class="toc-number">1.1.</span> <span class="toc-text">登录指令</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#mysql-ms%E5%91%BD%E4%BB%A4"><span class="toc-number">2.</span> <span class="toc-text">mysql ms命令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CRUD%E8%AF%AD%E5%8F%A5"><span class="toc-number">3.</span> <span class="toc-text">CRUD语句</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%92%E5%85%A5"><span class="toc-number">3.1.</span> <span class="toc-text">插入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E6%89%BE"><span class="toc-number">3.2.</span> <span class="toc-text">查找</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#update"><span class="toc-number">3.3.</span> <span class="toc-text">update</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#delete"><span class="toc-number">3.4.</span> <span class="toc-text">delete</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E8%A1%A8"><span class="toc-number">4.</span> <span class="toc-text">创建表</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA"><span class="toc-number">4.1.</span> <span class="toc-text">创建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">4.2.</span> <span class="toc-text">数据类型</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#xampp%E9%9B%86%E6%88%90%E7%8E%AF%E5%A2%83%E4%B8%8B%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81"><span class="toc-number">5.</span> <span class="toc-text">xampp集成环境下修改密码</span></a></li></ol></div></div></div></div></div></main><footer id="footer" style="background-image: url(https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/img/ixcxhNPRQk.png)"><div id="footer-wrap"><div class="copyright">&copy;2020 By btKrc1nx</div><div class="footer_custom_text"><i class="fas fa-user"></i> 访问用户：<span id="busuanzi_value_site_uv"></span> 人<br/><i class="fas fa-eye"></i> 访问量：<span id="busuanzi_value_site_pv"></span> 次</div><div class="icp"><a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/"><img class="icp-icon" src="/img/icp.png" alt="ICP"/><span>鄂ICP备2020021450号</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="hide-aside-btn" type="button"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="chat_btn" type="button" title="rightside.chat_btn"><i class="fas fa-sms"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/uploadsFile/butterfly/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',()=> {preloader.endLoading()})</script><div class="js-pjax"><script async src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/uploadsFile/butterfly/busuanzi.pure.mini.js"></script></div><script src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/uploadsFile/APlayer.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/uploadsFile/APlayer.min.css"><div id="aplayer" class="aplayer no-destroy"></div><script src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/uploadsFile/music2.js"></script><script src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/uploadsFile/translation/mJsonp.js" data-pjax></script><script src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/uploadsFile/mouse_snow.min.js"></script><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/uploadsFile/canvas-ribbon.min.js" size="150" alpha="1" zIndex="-1" mobile="true" data-click="true"></script><script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/454c1c1e.js","daovoice")
+</script><script>var isChatBtn = true
+daovoice('init', {
+  app_id: '454c1c1e',},{
+  launcher: { 
+     disableLauncherIcon: isChatBtn // 悬浮 ICON 是否显示
+  },
+});
+daovoice('update');
+
+if (isChatBtn) {
+  var chatBtnFn = () => {
+    var chatBtn = document.getElementById("chat_btn")
+    chatBtn.addEventListener("click", function(){
+      daovoice('show')
+    });
+  }
+  chatBtnFn()
+} else {
+  if (false) {
+    function chatBtnHide () {
+      daovoice('update', {},{
+        launcher: { 
+        disableLauncherIcon: true // 悬浮 ICON 是否显示
+        },
+      });
+    }
+    function chatBtnShow () {
+      daovoice('update', {},{
+        launcher: { 
+        disableLauncherIcon: false // 悬浮 ICON 是否显示
+        },
+      });
+    }
+  }
+}</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/uploadsFile/APlayer.min.css"><script src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/uploadsFile/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/uploadsFile/butterfly/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/uploadsFile/butterfly/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config_change',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  $('script[data-pjax]').each(function () {
+    $(this).parent().append($(this).remove())
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  if (typeof gtag === 'function') {
+    gtag('config', '', {'page_path': window.location.pathname});
+  }
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+
+document.addEventListener('pjax:send', function () {
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  $(window).off('scroll')
+
+  //reset readmode
+  $('body').hasClass('read-mode') && $('body').removeClass('read-mode')
+
+})</script><script>(function(){
+  const bp = document.createElement('script');
+  const curProtocol = window.location.protocol.split(':')[0];
+  if (curProtocol === 'https'){
+  bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else{
+  bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+  bp.dataset.pjax = ''
+  const s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})()</script></div><script src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/live2dw/lib/L2Dwidget.min.js"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"live2dw/lib/","pluginModelPath":"live2dw/assets/","tagMode":false,"debug":false,"model":{"scale":1,"jsonPath":"/live2dw/live2dw/assets/assets/shizuku.model.json"},"display":{"position":"right","width":200,"height":300,"hOffset":-40,"vOffset":-30},"mobile":{"show":true},"react":{"opacity":0.6},"log":false});</script></body></html>

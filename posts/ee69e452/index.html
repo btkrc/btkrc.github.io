@@ -1,0 +1,973 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CSS | 元気いっぱい</title><meta name="keywords" content="CSS"><meta name="author" content="btKrc1nx"><meta name="copyright" content="btKrc1nx"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="CSS简介 CSS 属性 CSS3 动画属性 （Animation） CSS 背景属性（Background） background复合写法   [CSS 边框属性（Border 和 Outline）](#CSS 边框属性（Border 和 Outline）) Box 属性 Color 属性 CSS 尺寸属性（Dimension） [可伸缩框属性（Flexible Box）](#可伸缩框属性">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS">
+<meta property="og:url" content="https://www.btkrc.com/posts/ee69e452/index.html">
+<meta property="og:site_name" content="元気いっぱい">
+<meta property="og:description" content="CSS简介 CSS 属性 CSS3 动画属性 （Animation） CSS 背景属性（Background） background复合写法   [CSS 边框属性（Border 和 Outline）](#CSS 边框属性（Border 和 Outline）) Box 属性 Color 属性 CSS 尺寸属性（Dimension） [可伸缩框属性（Flexible Box）](#可伸缩框属性">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/img/T7YR5ZCJ4Z.jpg">
+<meta property="article:published_time" content="2020-04-20T05:20:15.000Z">
+<meta property="article:modified_time" content="2020-06-15T05:25:15.000Z">
+<meta property="article:author" content="btKrc1nx">
+<meta property="article:tag" content="CSS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/img/T7YR5ZCJ4Z.jpg"><link rel="shortcut icon" href="/uploads/favicon.ico"><link rel="canonical" href="https://www.btkrc.com/posts/ee69e452/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="preconnect" href="//zz.bdstatic.com"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/uploadsFile/butterfly/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":0,"languages":{"author":"作者: btKrc1nx","link":"链接: ","source":"来源: 元気いっぱい","info":"转载我的文章和笔记务必注明出处"}},
+  ClickShowText: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: undefined,
+  isToc: true,
+  postUpdate: '2020-06-15 13:25:15'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}})()</script><link rel="stylesheet" href="/uploadsFile/css/customCss.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/myIconFont/iconfont.css"><script src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/myIconFont/iconfont.js"></script><meta name="generator" content="Hexo 5.2.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/img/2a3b97dda144ad34e8b7b25bd2a20cf430ad85fe.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/./"><div class="headline">文章</div><div class="length-num">57</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">34</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/translation/"><i class="fa-fw iconfont iconfanyi"></i><span> 在线中英互译</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-image"></i><span> 画廊</span></a></div></div></div></div><div id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/img/T7YR5ZCJ4Z.jpg)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">元気いっぱい</a></span><span id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/translation/"><i class="fa-fw iconfont iconfanyi"></i><span> 在线中英互译</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-image"></i><span> 画廊</span></a></div></div><span class="close" id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><h1 class="post-title">CSS</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表</span><time class="post-meta-date-created" datetime="2020-04-20T05:20:15.000Z" title="发表 2020-04-20 13:20:15">2020-04-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新</span><time class="post-meta-date-updated" datetime="2020-06-15T05:25:15.000Z" title="更新 2020-06-15 13:25:15">2020-06-15</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/web%E5%89%8D%E7%AB%AF/">web前端</a></span></div><div class="meta-secondline"> </div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><!-- TOC -->
+
+<ul>
+<li><a href="#CSS%E7%AE%80%E4%BB%8B">CSS简介</a><ul>
+<li><a href="#CSS-%E5%B1%9E%E6%80%A7">CSS 属性</a><ul>
+<li><a href="#CSS3-%E5%8A%A8%E7%94%BB%E5%B1%9E%E6%80%A7-%EF%BC%88Animation%EF%BC%89">CSS3 动画属性 （Animation）</a></li>
+<li><a href="#CSS-%E8%83%8C%E6%99%AF%E5%B1%9E%E6%80%A7%EF%BC%88Background%EF%BC%89">CSS 背景属性（Background）</a><ul>
+<li><a href="#background%E5%A4%8D%E5%90%88%E5%86%99%E6%B3%95">background复合写法</a></li>
+</ul>
+</li>
+<li>[CSS 边框属性（Border 和 Outline）](#CSS 边框属性（Border 和 Outline）)</li>
+<li><a href="#Box-%E5%B1%9E%E6%80%A7">Box 属性</a></li>
+<li><a href="#Color-%E5%B1%9E%E6%80%A7">Color 属性</a></li>
+<li><a href="#CSS-%E5%B0%BA%E5%AF%B8%E5%B1%9E%E6%80%A7%EF%BC%88Dimension%EF%BC%89">CSS 尺寸属性（Dimension）</a></li>
+<li>[可伸缩框属性（Flexible Box）](#可伸缩框属性（Flexible Box）)</li>
+<li><a href="#CSS-%E5%AD%97%E4%BD%93%E5%B1%9E%E6%80%A7%EF%BC%88Font%EF%BC%89">CSS 字体属性（Font）</a></li>
+<li><a href="#CSS-%E5%88%97%E8%A1%A8%E5%B1%9E%E6%80%A7%EF%BC%88List%EF%BC%89">CSS 列表属性（List）</a></li>
+<li><a href="#CSS-%E6%96%87%E5%AD%97%E5%B1%9E%E6%80%A7">CSS 文字属性</a></li>
+<li><a href="#CSS3-%E6%B8%90%E5%8F%98">CSS3 渐变</a><ul>
+<li><a href="#%E7%BA%BF%E6%80%A7%E6%B8%90%E5%8F%98">线性渐变</a></li>
+<li><a href="#%E5%BE%84%E5%90%91%E6%B8%90%E5%8F%98">径向渐变</a></li>
+</ul>
+</li>
+<li><a href="#%E5%85%B6%E4%BB%96%E5%B1%9E%E6%80%A7">其他属性</a></li>
+</ul>
+</li>
+<li><a href="#%E6%B5%AE%E5%8A%A8%E5%92%8C%E5%AE%9A%E4%BD%8D">浮动和定位</a><ul>
+<li><a href="#%E6%B5%AE%E5%8A%A8">浮动</a><ul>
+<li><a href="#%E8%AF%B4%E6%98%8E">说明</a></li>
+<li><a href="#%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8">清除浮动</a></li>
+</ul>
+</li>
+<li><a href="#%E5%AE%9A%E4%BD%8D">定位</a><ul>
+<li><a href="#position">position</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E5%B8%83%E5%B1%80">布局</a><ul>
+<li><a href="#%E5%88%86%E6%A0%8F%E5%B8%83%E5%B1%80">分栏布局</a></li>
+<li><a href="#%E7%AD%89%E9%AB%98%E5%B8%83%E5%B1%80">等高布局</a></li>
+<li><a href="#%E4%B8%89%E5%88%97%E5%B8%83%E5%B1%80%E5%B7%A6%E5%8F%B3%E5%9B%BA%E5%AE%9A%E4%B8%AD%E9%97%B4%E8%87%AA%E9%80%82%E5%BA%94">三列布局，左右固定，中间自适应</a></li>
+<li><a href="#flex%E5%BC%B9%E6%80%A7%E7%9B%92%E6%A8%A1%E5%9E%8B%EF%BC%88flex%E5%B8%83%E5%B1%80%EF%BC%89">flex弹性盒模型（flex布局）</a><ul>
+<li><a href="#%E4%BD%9C%E7%94%A8%E5%9C%A8flex%E5%AD%90%E9%A1%B9%E4%B8%8A%E7%9A%84CSS%E5%B1%9E%E6%80%A7">作用在flex子项上的CSS属性</a></li>
+</ul>
+</li>
+<li><a href="#%E7%BD%91%E6%A0%BC%E5%B8%83%E5%B1%80">网格布局</a><ul>
+<li><a href="#%E4%BD%9C%E7%94%A8%E5%9C%A8grid%E5%AE%B9%E5%99%A8%E4%B8%8A">作用在grid容器上</a></li>
+<li><a href="#%E4%BD%9C%E7%94%A8%E5%9C%A8grid%E5%AD%90%E9%A1%B9%E4%B8%8A">作用在grid子项上</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#CSSHack%EF%BC%88%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%EF%BC%89">CSSHack（浏览器兼容）</a></li>
+<li><a href="#%E7%9B%92%E6%A8%A1%E5%9E%8B">盒模型</a></li>
+<li><a href="#CSS-%E5%8A%A8%E7%94%BB">CSS 动画</a><ul>
+<li><a href="#transition">transition</a></li>
+<li><a href="#transform">transform</a></li>
+<li><a href="#animation%E5%8A%A8%E7%94%BB">animation动画</a><ul>
+<li><a href="#%E5%B1%9E%E6%80%A7">属性</a></li>
+<li><a href="#%E5%9C%A8js%E4%B8%AD%E5%8A%A8%E6%80%81%E4%BD%BF%E7%94%A8animation">在js中动态使用animation</a></li>
+</ul>
+</li>
+<li><a href="#transform3D">transform3D</a><ul>
+<li><a href="#%E5%B1%9E%E6%80%A7-1">属性</a></li>
+<li><a href="#%E5%A4%8D%E5%90%88%E5%86%99%E6%B3%95">复合写法</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#CSS-%E4%BC%AA%E7%B1%BB">CSS 伪类</a><ul>
+<li><a href="#%E4%BC%AA%E7%B1%BB">伪类</a></li>
+<li><a href="#%E4%BC%AA%E5%85%83%E7%B4%A0">伪元素</a></li>
+</ul>
+</li>
+<li><a href="#%E9%80%89%E6%8B%A9%E5%99%A8">选择器</a><ul>
+<li><a href="#%E6%A0%B7%E5%BC%8F%E8%A1%A8%E4%BC%98%E5%85%88%E7%BA%A7">样式表优先级</a></li>
+<li><a href="#%E9%80%89%E6%8B%A9%E5%99%A8%E6%9D%83%E9%87%8D">选择器权重</a></li>
+<li><a href="#nth-child">nth-child</a></li>
+<li><a href="#%E9%80%89%E6%8B%A9%E5%99%A8%E5%88%97%E8%A1%A8">选择器列表</a></li>
+</ul>
+</li>
+<li><a href="#BFC%E8%A7%84%E8%8C%83">BFC规范</a><ul>
+<li><a href="#BFC">BFC</a></li>
+<li><a href="#%E8%A7%A6%E5%8F%91BFC">触发BFC</a><ul>
+<li><a href="#float">float</a></li>
+<li><a href="#display">display</a></li>
+<li><a href="#overflow">overflow</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E4%BD%93">自定义字体</a><ul>
+<li><a href="#font-face-%E5%AD%97%E4%BD%93%E5%9B%BE%E6%A0%87">font-face 字体图标</a><ul>
+<li><a href="#%E4%BD%BF%E7%94%A8%E8%AF%AD%E6%B3%95">使用语法</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#CSS3%E6%B5%8F%E8%A7%88%E5%99%A8%E5%89%8D%E7%BC%80">CSS3浏览器前缀</a></li>
+<li><a href="#CSS-%E5%8F%98%E9%87%8F">CSS 变量</a><ul>
+<li><a href="#%E5%AE%9A%E4%B9%89%EF%BC%9A">定义：</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8%EF%BC%9A">使用：</a></li>
+</ul>
+</li>
+<li><a href="#CSS-%E6%A8%A1%E5%9D%97%E5%8C%96">CSS 模块化</a><ul>
+<li><a href="#%E6%96%87%E4%BB%B6%E5%A4%B9%E5%92%8C%E5%90%AB%E4%B9%89">文件夹和含义</a></li>
+</ul>
+</li>
+<li><a href="#%E5%AE%9E%E7%8E%B0">实现</a><ul>
+<li><a href="#CSS%E4%B8%8D%E8%A7%84%E5%88%99%E6%96%87%E5%AD%97%E7%8E%AF%E7%BB%95">css不规则文字环绕</a></li>
+<li><a href="#CSS%E8%87%AA%E5%AE%9A%E4%B9%89%E6%BB%9A%E5%8A%A8%E6%9D%A1">css自定义滚动条</a></li>
+</ul>
+</li>
+<li><a href="#CSS-%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9">CSS 注意事项</a><ul>
+<li><a href="#margin-top%E7%9A%84%E4%BC%A0%E9%80%92%E9%97%AE%E9%A2%98">margin-top的传递问题</a></li>
+<li><a href="#seo%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%BC%98%E5%8C%96">seo搜索引擎优化</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!-- /TOC -->
+<h1 id="CSS简介"><a href="#CSS简介" class="headerlink" title="CSS简介"></a>CSS简介</h1><p>Cascading Style Sheets是一种用来表现HTML（标准通用标记语言的一个应用）或XML（标准通用标记语言的一个子集）等文件样式的计算机语言。CSS不仅可以静态地修饰网页，还可以配合各种脚本语言动态地对网页各元素进行格式化。</p>
+<h2 id="CSS-属性"><a href="#CSS-属性" class="headerlink" title="CSS 属性"></a>CSS 属性</h2><h3 id="CSS3-动画属性-（Animation）"><a href="#CSS3-动画属性-（Animation）" class="headerlink" title="CSS3 动画属性 （Animation）"></a>CSS3 动画属性 （Animation）</h3><ul>
+<li>@keyframes    规定动画。</li>
+<li>animation    所有动画属性的简写属性，除了 * animation-play-state 属性。</li>
+<li>animation-name    规定 @keyframes 动画的名称。</li>
+<li>animation-duration    规定动画完成一个周期所花费的秒或毫秒。</li>
+<li>animation-timing-function    规定动画的速度曲线。</li>
+<li>animation-delay    规定动画何时开始。</li>
+<li>animation-iteration-count    规定动画被播放的次数。</li>
+<li>animation-direction    规定动画是否在下一周期逆向地播放。</li>
+<li>animation-play-state    规定动画是否正在运行或暂停。</li>
+<li>animation-fill-mode    规定对象动画时间之外的状态。<h3 id="CSS-背景属性（Background）"><a href="#CSS-背景属性（Background）" class="headerlink" title="CSS 背景属性（Background）"></a>CSS 背景属性（Background）</h3></li>
+<li>background    在一个声明中设置所有的背景属性。    </li>
+<li>background-attachment    设置背景图像是否固定或者随着页面的其余部分滚动。    </li>
+<li>background-color    设置元素的背景颜色。    </li>
+<li>background-image    设置元素的背景图像。    </li>
+<li>background-position    设置背景图像的开始位置。    </li>
+<li>background-repeat    设置是否及如何重复背景图像。    </li>
+<li>background-clip    规定背景的绘制区域。<ul>
+<li>padding-box</li>
+<li>border-box(默认)</li>
+<li>content-box    </li>
+</ul>
+</li>
+<li>background-origin    规定背景图片的定位区域。    <ul>
+<li>padding-box(默认)</li>
+<li>border-box</li>
+<li>content-box</li>
+</ul>
+</li>
+<li>background-size    规定背景图片的尺寸。<ul>
+<li>cover:覆盖</li>
+<li>contain:包含<h4 id="background复合写法"><a href="#background复合写法" class="headerlink" title="background复合写法"></a>background复合写法</h4>在background复合样式中第一个是oringin第二个是clip<h3 id="CSS-边框属性（Border-和-Outline）"><a href="#CSS-边框属性（Border-和-Outline）" class="headerlink" title="CSS 边框属性（Border 和 Outline）"></a>CSS 边框属性（Border 和 Outline）</h3></li>
+</ul>
+</li>
+<li>border    在一个声明中设置所有的边框属性。    </li>
+<li>border-bottom    在一个声明中设置所有的下边框属性。    </li>
+<li>border-bottom-color    设置下边框的颜色。    </li>
+<li>border-bottom-style    设置下边框的样式。    </li>
+<li>border-bottom-width    设置下边框的宽度。    </li>
+<li>border-color    设置四条边框的颜色。    </li>
+<li>border-left    在一个声明中设置所有的左边框属性。    </li>
+<li>border-left-color    设置左边框的颜色。    </li>
+<li>border-left-style    设置左边框的样式。    </li>
+<li>border-left-width    设置左边框的宽度。    </li>
+<li>border-right    在一个声明中设置所有的右边框属性。    </li>
+<li>border-right-color    设置右边框的颜色。    </li>
+<li>border-right-style    设置右边框的样式。    </li>
+<li>border-right-width    设置右边框的宽度。    </li>
+<li>border-style    设置四条边框的样式。    </li>
+<li>border-top    在一个声明中设置所有的上边框属性。    </li>
+<li>border-top-color    设置上边框的颜色。    </li>
+<li>border-top-style    设置上边框的样式。    </li>
+<li>border-top-width    设置上边框的宽度。    </li>
+<li>border-width    设置四条边框的宽度。    </li>
+<li>outline    在一个声明中设置所有的轮廓属性。    </li>
+<li>outline-color    设置轮廓的颜色。    </li>
+<li>outline-style    设置轮廓的样式。    </li>
+<li>outline-width    设置轮廓的宽度。    </li>
+<li>border-bottom-left-radius    定义边框左下角的形状。    </li>
+<li>border-bottom-right-radius    定义边框右下角的形状。    </li>
+<li>border-image    简写属性，设置所有 border-image-* 属性。3</li>
+<li>border-image-outset    规定边框图像区域超出边框的量。    </li>
+<li>border-image-repeat    图像边框是否应平铺(repeated)、铺满(rounded)或拉伸(stretched)。    </li>
+<li>border-image-slice    规定图像边框的向内偏移。    </li>
+<li>border-image-source    规定用作边框的图片。    </li>
+<li>border-image-width    规定图片边框的宽度。    </li>
+<li>border-radius    简写属性，设置所有四个 border-*-radius 属性。    </li>
+<li>border-top-left-radius    定义边框左上角的形状。    </li>
+<li>border-top-right-radius    定义边框右下角的形状。    </li>
+<li>box-decoration-break        </li>
+<li>box-shadow    向方框添加一个或多个阴影。<h3 id="Box-属性"><a href="#Box-属性" class="headerlink" title="Box 属性"></a>Box 属性</h3></li>
+<li>overflow-x    如果内容溢出了元素内容区域，是否对内容的左/右边缘进行裁剪。    </li>
+<li>overflow-y    如果内容溢出了元素内容区域，是否对内容的上/下边缘进行裁剪。    </li>
+<li>overflow-style    规定溢出元素的首选滚动方法。    </li>
+<li>rotation    围绕由 rotation-point 属性定义的点对元素进行旋转。    </li>
+<li>rotation-point    定义距离上左边框边缘的偏移点。<h3 id="Color-属性"><a href="#Color-属性" class="headerlink" title="Color 属性"></a>Color 属性</h3></li>
+<li>color-profile    允许使用源的颜色配置文件的默认以外的规范。    </li>
+<li>opacity    规定元素的不透明级别。    </li>
+<li>rendering-intent    允许使用颜色配置文件渲染意图的默认以外的规范。<h3 id="CSS-尺寸属性（Dimension）"><a href="#CSS-尺寸属性（Dimension）" class="headerlink" title="CSS 尺寸属性（Dimension）"></a>CSS 尺寸属性（Dimension）</h3></li>
+<li>height    设置元素高度。    </li>
+<li>max-height    设置元素的最大高度。    </li>
+<li>max-width    设置元素的最大宽度。    </li>
+<li>min-height    设置元素的最小高度。    </li>
+<li>min-width    设置元素的最小宽度。    </li>
+<li>width    设置元素的宽度。<h3 id="可伸缩框属性（Flexible-Box）"><a href="#可伸缩框属性（Flexible-Box）" class="headerlink" title="可伸缩框属性（Flexible Box）"></a>可伸缩框属性（Flexible Box）</h3></li>
+<li>box-align    规定如何对齐框的子元素。    </li>
+<li>box-direction    规定框的子元素的显示方向。    </li>
+<li>box-flex    规定框的子元素是否可伸缩。    </li>
+<li>box-flex-group    将可伸缩元素分配到柔性分组。    </li>
+<li>box-lines    规定当超出父元素框的空间时，是否换行显示。    </li>
+<li>box-ordinal-group    规定框的子元素的显示次序。    </li>
+<li>box-orient    规定框的子元素是否应水平或垂直排列。    </li>
+<li>box-pack    规定水平框中的水平位置或者垂直框中的垂直位置。<h3 id="CSS-字体属性（Font）"><a href="#CSS-字体属性（Font）" class="headerlink" title="CSS 字体属性（Font）"></a>CSS 字体属性（Font）</h3></li>
+<li>font    在一个声明中设置所有字体属性。    </li>
+<li>font-family    规定文本的字体系列。    </li>
+<li>font-size    规定文本的字体尺寸。    </li>
+<li>font-size-adjust    为元素规定 aspect 值。    </li>
+<li>font-stretch    收缩或拉伸当前的字体系列。    </li>
+<li>font-style    规定文本的字体样式。    </li>
+<li>font-variant    规定是否以小型大写字母的字体显示文本。    </li>
+<li>font-weight    规定字体的粗细。<h3 id="CSS-列表属性（List）"><a href="#CSS-列表属性（List）" class="headerlink" title="CSS 列表属性（List）"></a>CSS 列表属性（List）</h3></li>
+<li>list-style    在一个声明中设置所有的列表属性。    </li>
+<li>list-style-image    将图象设置为列表项标记。    </li>
+<li>list-style-position    设置列表项标记的放置位置。    </li>
+<li>list-style-type    设置列表项标记的类型。<h3 id="CSS-文字属性"><a href="#CSS-文字属性" class="headerlink" title="CSS 文字属性"></a>CSS 文字属性</h3></li>
+<li>text-indent:设置首行缩进</li>
+<li>text-align：设置文字水平对齐方式，垂直对其可以设置行高，line-height<h3 id="CSS3-渐变"><a href="#CSS3-渐变" class="headerlink" title="CSS3 渐变"></a>CSS3 渐变</h3><h4 id="线性渐变"><a href="#线性渐变" class="headerlink" title="线性渐变"></a>线性渐变</h4>linear-gradient() 是值，需要加到background-image属性上<br>  第一个参数可以指定方向或角度例如to top,red 25%,blue 75%<h4 id="径向渐变"><a href="#径向渐变" class="headerlink" title="径向渐变"></a>径向渐变</h4>radial、-gradient()<h3 id="其他属性"><a href="#其他属性" class="headerlink" title="其他属性"></a>其他属性</h3></li>
+<li>text-shadow:文字阴影<br/>x y blur color<br>  注：阴影的默认颜色跟文字颜色相同，通过逗号设置多个阴影</li>
+<li>box-shadow:盒子阴影<br/><br>  x y blur spread(传播范围) color inset<br>  注：盒子阴影的默认颜色是黑色</li>
+<li>mask 遮罩<br/><br>  url repeat x y w h 多遮罩<br>  注：mask现在还没有标准化，需要加浏览器前缀，默认是x,y都平铺</li>
+<li>box-reflect:倒影<br/><br>  above below left right 距离 遮罩|渐变<br>  注：渐变linear-gradient只支持透明度，使用rgba scale(-1)也能实现倒影效果</li>
+<li>blur模糊：<br>  filter:blur()</li>
+<li>calc()计算(calculate)：<br/><br>  <strong>必须用空格隔开四则运算符</strong></li>
+</ul>
+<hr>
+<p>blur模糊：</p>
+<h2 id="浮动和定位"><a href="#浮动和定位" class="headerlink" title="浮动和定位"></a>浮动和定位</h2><h3 id="浮动"><a href="#浮动" class="headerlink" title="浮动"></a>浮动</h3><h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><blockquote>
+<p>当元素设置float后，会从流中脱离，排在下面的元素会往上浮动，和设置浮动的元素排成一列<br>浮动元素会脱离网页文档，与其他元素重叠，但是，不会与文字元素重叠</p>
+</blockquote>
+<p>浮动元素不占据空间，其父元素如果不设置大小并不会被浮动元素撑开，或者使用overflow:auto使父元素自动调整大小（只有高度会自动适应子元素，宽度会与网页宽度一致）</p>
+<p>浮动元素在排列时，只参考前一个元素的位置即可（如果有多个浮动元素，大小超过父元素需要换行，此时只需参考浮空元素的前一元素）。</p>
+<p>浮动元素的width不跟父元素相同 而是根据自身的内容决定</p>
+<p>浮动元素在父元素放不下时会自动换行排列</p>
+<p>可以将想要横向排列的元素设置到div里，这样最后一个元素就不会和div的下一个元素产生浮动影响。<br>浮动只影响后面的元素</p>
+<h4 id="清除浮动"><a href="#清除浮动" class="headerlink" title="清除浮动"></a>清除浮动</h4><blockquote>
+<p>clear:left/right/both可以清除当前元素不受浮动元素的影响</p>
+</blockquote>
+<p>clear只会操作块元素</p>
+<blockquote>
+<p>:after和:before是css3中的伪类元素。用法是像元素的前或者后(是在元素中的内容之后)插入元素<br> content里面是内容，下面接属性，和css写法一样，可以用于清除嵌套浮动的影响,<br/>原理是浮动元素不会撑开父元素，而在浮动元素后面添加一个新元素并clear后父元素就可以被撑开了，使用伪类可以避免添加一个空元素<br> <strong>css3为了区分伪类和伪元素，伪元素采用双冒号写法。</strong></p>
+</blockquote>
+<p> after伪类是内联的，只有block元素才能清除浮动，而此方法只能消除子元素对父元素的浮动影响，<br>两个同级元素可以使用BFC规范使其消除浮动影响</p>
+<h3 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h3><h4 id="position"><a href="#position" class="headerlink" title="position"></a>position</h4><p>绝对定位absolute的参照对象是“离它最近的已定位的祖先元素”，例如，将div设置为relative，此时它的子元素的absolute定位的参照对象是此div， 相对定位的特性是虽然它定位了，就算给了偏移量它离开了原来的地方，但是它原来占的地方也不会让出来的</p>
+<p>css中background-position是元素的左上起始位置位与盒子模型的坐标</p>
+<p>内联元素不会识别宽高，但是设置绝对定位后可以设置</p>
+<h2 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h2><h3 id="分栏布局"><a href="#分栏布局" class="headerlink" title="分栏布局"></a>分栏布局</h3><ul>
+<li>column-count:分栏的个数</li>
+<li>column-width:分栏的宽度</li>
+<li>column-gap:分栏的间距</li>
+<li>column-rule:分栏的边线</li>
+<li>column-span:合并分栏 对标题使用可以合并<h3 id="等高布局"><a href="#等高布局" class="headerlink" title="等高布局"></a>等高布局</h3>利用margin-bottom负值与padding-bottom配合实现<h3 id="三列布局，左右固定，中间自适应"><a href="#三列布局，左右固定，中间自适应" class="headerlink" title="三列布局，左右固定，中间自适应"></a>三列布局，左右固定，中间自适应</h3></li>
+<li>BFC方式</li>
+<li>定位</li>
+<li>浮动(双飞翼布局，圣杯布局)</li>
+<li>margin负值实现</li>
+<li>flex弹性<h3 id="flex弹性盒模型（flex布局）"><a href="#flex弹性盒模型（flex布局）" class="headerlink" title="flex弹性盒模型（flex布局）"></a>flex弹性盒模型（flex布局）</h3><blockquote>
+<p>flex布局，可以简便完整，响应式地实现各种页面布局，垂直居中很方便</p>
+</blockquote>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>作用在flex容器上</th>
+<th>作用在flex子项上</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>flex-direction</td>
+<td>order</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>取值： row、row-reverse、column、column-reverse</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>flex-wrap</th>
+<th>flex-grow</th>
+</tr>
+</thead>
+</table>
+<blockquote>
+<p>取值：nowrap(默认值，单行显示不换行)、wrap(宽度不足换行显示)、wrap-reverse(宽度不足换行显示，但是从下往上开始)</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>flex-flow</th>
+<th>flex-shrink</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>direction和wrap的复合写法</td>
+<td></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>justify-content</th>
+<th>flex-basis</th>
+</tr>
+</thead>
+</table>
+<blockquote>
+<p>决定主轴方向上子项的对其和分布方式,对单行不起作用<br>取值：</p>
+</blockquote>
+<ul>
+<li>flex-start:默认值，表现为起始位置对齐。</li>
+<li>flex-end:表现为结束位置对齐</li>
+<li>cneter:表现为居中对齐</li>
+<li>space-between：表现为两端对齐，between是中间的意思，意思是多余的空白间距只在元素中间区域分配</li>
+<li>space-around:around是环绕的意思，意思是每个flex子项两侧都环绕互不干扰的等宽的空白间距，<br>最终视觉上边缘两侧的空白只有中间空白宽度一半。</li>
+<li>space-evenly:evenly是匀称、平等的意思，也就是视觉上，每个flex子项两侧空白间距完全相等</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>align-items</th>
+<th>flex</th>
+</tr>
+</thead>
+</table>
+<blockquote>
+<p>align-items中的items指的就是flex子项们，因此align-items指的就是flex子项们相对于flex容器在”侧轴”方向上的对齐方式<br>取值：</p>
+</blockquote>
+<ul>
+<li>stretch:默认值，flex子项拉伸</li>
+<li>flex-start:表现在容器顶部对齐</li>
+<li>flex-end:表现为容器底部对齐</li>
+<li>center:表现在垂直居中对齐</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>align-content</th>
+<th>align-self</th>
+</tr>
+</thead>
+</table>
+<blockquote>
+<p>可以看成和justify-content是相似且对立的属性，如果所有flex子项只有一行，则align-content属性是没有任何效果的<br>取值：</p>
+</blockquote>
+<ul>
+<li>stretch:默认值，每一行flex子元素都等比拉伸</li>
+<li>flex-start:表现为起始位置对齐</li>
+<li>flex-end:表现为结束位置对齐</li>
+<li>cneter:表现为居中对齐</li>
+<li>space-between:表现为两端对齐</li>
+<li>space-around:每一行元素上下都享有独立不重叠的空白空间</li>
+<li>space-evenly:每一行元素都完全上下等分<h4 id="作用在flex子项上的CSS属性"><a href="#作用在flex子项上的CSS属性" class="headerlink" title="作用在flex子项上的CSS属性"></a>作用在flex子项上的CSS属性</h4></li>
+<li>order:改变某一个flex子项的排序位置，所有flex子项默认order属性值为0</li>
+<li>flex-grow:扩展flex子项所占据的宽度，扩展所侵占的空间就是出去元素外的剩余的空白间隙，默认为0,1为全部空间</li>
+<li>flex-shrink:属性中的shrink是收缩* flex-shrink主要处理当flex容器空间不足时，每个元素的收缩比例，默认为1<pre><code>      为0时不收缩</code></pre>
+</li>
+<li>flex-basis:定义了在分配剩余空间之前元素的默认大小</li>
+<li>flex: flex属性是flex-grow，flex-shrink flex-basis的缩写(复合写法),默认为flex:0 1 auto;</li>
+<li>align-self:只控制单独某一个flex子项的垂直对齐方式,align-items是所有子项</li>
+</ul>
+<h3 id="网格布局"><a href="#网格布局" class="headerlink" title="网格布局"></a>网格布局</h3><blockquote>
+<p>grid布局是一个二维的布局方法，纵横两个方向总是同时存在</p>
+</blockquote>
+<h4 id="作用在grid容器上"><a href="#作用在grid容器上" class="headerlink" title="作用在grid容器上"></a>作用在grid容器上</h4><ul>
+<li>grid-template-columns</li>
+<li>grid-template-rows</li>
+</ul>
+<blockquote>
+<p>对网格进行横纵划分，形成二维布局。单位可以是像素、百分比、自适应以及fr单位(网格剩余空间比例fraction)<br>有时候，我们网格的划分是很有规律的，如果需要添加多个横纵网格时，可以使用repeat()简化操作 repeat(3 1fr)<br>需要几行(列)就写几个参数</p>
+</blockquote>
+<hr>
+<ul>
+<li><p>grid-template-areas</p>
+</li>
+<li><p>grid-template</p>
+<blockquote>
+<p>grid-template-areas给网格划分区域，此时grid子项只使用grid-area属性指定起隶属区域<br>区域划分时一行用一个字符串,只能划分矩形<br>grid-template是grid-template-rows/grid-template-columns/grid-template-areas的复合写法</p>
+</blockquote>
+</li>
+<li><p>column-gap</p>
+</li>
+<li><p>row-gap</p>
+</li>
+<li><p>gap</p>
+<blockquote>
+<p>用来定义网格中网格间隙的尺寸，gap是column-gap和row-gap的复合写法，第一个参数是row-gap</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<ul>
+<li>justify-items</li>
+<li>align-items<br/><br>取值：<ul>
+<li>stretch(默认值，拉伸，表现为水平或垂直填充)</li>
+<li>start 容器左侧或顶部对齐</li>
+<li>end 容器右侧或底部对齐</li>
+<li>center 水平或垂直居中对齐</li>
+</ul>
+</li>
+</ul>
+<p>不拉伸的情况下根据内容撑开</p>
+<blockquote>
+<p>justify-items指定了网格元素的水平呈现方式，是水平拉伸显示还是左中右对齐，<br>align-items指定了网格元素的垂直呈现方式，是垂直拉伸显示还是上中下对齐<br/></p>
+</blockquote>
+<ul>
+<li>place-items<blockquote>
+<p>place-items是justify-items和align-items的复合写法</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<ul>
+<li><p>justify-content</p>
+</li>
+<li><p>align-content<br/><br>取值：</p>
+<ul>
+<li>stretch 默认值，拉伸</li>
+<li>start 容器左侧或顶部对齐</li>
+<li>end 容器右侧或底部对齐</li>
+<li>center 水平或垂直居中对齐</li>
+<li>space-between 两端对齐</li>
+<li>space-around 享有独立不重叠的空白空间</li>
+<li>space-evenly 平均分配空间<blockquote>
+<p>指定了网格元素的水平和垂直分布方式， 和xx-items的区别是content是针对所有网格，<br>而items针对网格内元素对网格的对其方式</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p> place-content</p>
+<blockquote>
+<p>justify-content和align-content的复合写法</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h4 id="作用在grid子项上"><a href="#作用在grid子项上" class="headerlink" title="作用在grid子项上"></a>作用在grid子项上</h4><ul>
+<li>grid-column-start<blockquote>
+<p>水平方向上占据的起始位置</p>
+</blockquote>
+</li>
+<li>grid-column-end<blockquote>
+<p>水平方向上占据的结束位置</p>
+</blockquote>
+</li>
+<li>grid-row-start<blockquote>
+<p>垂直方向上占据的起始位置</p>
+</blockquote>
+</li>
+<li>grid-row-end<blockquote>
+<p>垂直方向上占据的结束位置(span属性)<br>只有end具备span属性,grid-row-end:span 1表示网格元素所占大小</p>
+</blockquote>
+</li>
+<li>rid-column<blockquote>
+<p>grid-column-start和grid-column-end的复合写法 /分隔</p>
+</blockquote>
+</li>
+<li>grid-row<blockquote>
+<p>同上</p>
+</blockquote>
+</li>
+<li>grid-area<blockquote>
+<p>表示当前网格所占用的区域，名字和位置两种表示方法</p>
+</blockquote>
+</li>
+<li>justify-self<blockquote>
+<p>单个网格元素的水平对齐方式</p>
+</blockquote>
+</li>
+<li>align-self<blockquote>
+<p>单个网格元素的垂直对齐方式</p>
+</blockquote>
+</li>
+<li>place-self<blockquote>
+<p>align-self和justify-self的复合写法</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="CSSHack（浏览器兼容）"><a href="#CSSHack（浏览器兼容）" class="headerlink" title="CSSHack（浏览器兼容）"></a>CSSHack（浏览器兼容）</h2><p>CSS Hack用来解决浏览器的兼容性问题，为不同版本的浏览器定制编写不同的CSS效果</p>
+<ol>
+<li><p>CSS属性前缀法</p>
+<table>
+<thead>
+<tr>
+<th>前缀标识</th>
+<th>兼容浏览器</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>_</td>
+<td>IE6</td>
+</tr>
+<tr>
+<td>+、*</td>
+<td>IE6 IE7</td>
+</tr>
+<tr>
+<td>\9(加到值的后面)</td>
+<td>IE6 IE7 IE8 IE9</td>
+</tr>
+<tr>
+<td>\0(加到值的后面)</td>
+<td>IE8 IE9 IE10 IE11</td>
+</tr>
+</tbody></table>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">elem</span>&#123;<span class="attribute">background</span>:red\<span class="number">0</span>;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>选择器前缀法</p>
+<table>
+<thead>
+<tr>
+<th>前缀标识</th>
+<th>兼容浏览器</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>*html</td>
+<td>IE6</td>
+</tr>
+<tr>
+<td>*+html</td>
+<td>IE7</td>
+</tr>
+<tr>
+<td>:root</td>
+<td>IE9及现代浏览器</td>
+</tr>
+</tbody></table>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*<span class="selector-tag">html</span> <span class="selector-tag">elem</span>&#123;<span class="attribute">background</span>:red;&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>IE条件注释法(在html中)</p>
+<table>
+<thead>
+<tr>
+<th>前缀标识</th>
+<th>兼容浏览器</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&lt;!--[if\ IE]&gt;...&lt;![endif]--&gt;</td>
+<td>IE</td>
+</tr>
+<tr>
+<td>&lt;!--[if IE 7]&gt;...&lt;![endif]--&gt;</td>
+<td>IE7</td>
+</tr>
+<tr>
+<td>&lt;!--[if lte IE 7]&gt;...&lt;![endif]--&gt;</td>
+<td>IE7 以下</td>
+</tr>
+<tr>
+<td>lte表示less than or equal 也可以gte(greater than or equal)</td>
+<td></td>
+</tr>
+<tr>
+<td>&lt;!--[if ! IE 7]&gt;...&lt;![endif]--&gt;</td>
+<td>非IE</td>
+</tr>
+</tbody></table>
+<h2 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h2><p>box-sizing:border-box可以设置盒子模型的宽高<br>line-block可以使元素同时具有block和inline的特征，inline是不支持宽高的 可以使li拥有块的特性又按inline排列，就不需要浮动了</p>
+<h2 id="CSS-动画"><a href="#CSS-动画" class="headerlink" title="CSS 动画"></a>CSS 动画</h2><h3 id="transition"><a href="#transition" class="headerlink" title="transition"></a>transition</h3></li>
+</ol>
+<ul>
+<li>transition-property:规定设置过度效果的CSS属性的名称。</li>
+<li>transition-duration:规定完成过度效果需要多少秒或毫秒。</li>
+<li>transition-delay:定义过渡效果何时开始。</li>
+<li>transition-timing-function:规定速度效果的速度曲线。<br>(ease默认值，linear匀速，ease-in加速，ease-out减速，ease-in-out先加速后减速)</li>
+</ul>
+<p><strong>在复合写法中第一个时间代表duration,第二个代表delay，其他顺序不影响</strong></p>
+<h3 id="transform"><a href="#transform" class="headerlink" title="transform"></a>transform</h3><p>transform是css3属性，以下是值</p>
+<hr>
+<ul>
+<li>translate:位移</li>
+<li>scale:缩放</li>
+<li>rotate:旋转(单位是deg(degree)) 等价于rotateZ X和Y作用与3d</li>
+<li>skew:斜切  单位也是角度，正值向左倾斜</li>
+<li>transform注意事项：</li>
+</ul>
+<ol>
+<li>变形元素不会影响其他元素(但skew会影响子元素)</li>
+<li>变形元素不能添加给内联元素</li>
+<li>复合写法，可以同时添加多个变形操作，执行是有顺序的，先执行后面的操作,translate会受到scale rotate skew的影响<br>(property)trnasform-origin:设置中心基准点<h3 id="animation动画"><a href="#animation动画" class="headerlink" title="animation动画"></a>animation动画</h3><h4 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h4></li>
+</ol>
+<ul>
+<li><p>animation-name:设置动画的名字(自定义的)</p>
+</li>
+<li><p>animation-duration:动画的持续时间</p>
+</li>
+<li><p>animation-delay:动画的延迟时间</p>
+</li>
+<li><p>animation-iteration-count:动画的重复次数，默认值就是1,infinite无限次数</p>
+</li>
+<li><p>animation-timing-function:动画的运动形式:</p>
+</li>
+<li><p>linear：动画从头到尾的速度是相同的</p>
+</li>
+<li><p>ease ：动画以低速开始，然后加快，在结束前变慢。默认值</p>
+</li>
+<li><p>ease-in：动画以低速开始</p>
+</li>
+<li><p>ease-out：动画以低速结束</p>
+</li>
+<li><p>ease-in-out：动画以低速开始和结束;</p>
+</li>
+<li><p>animation-full-mode:规定动画播放之前或之后，其动画效果是否可见。</p>
+<ul>
+<li>取值：</li>
+</ul>
+<ol>
+<li>none(默认值):在运动结束之后回到初始位置，在延迟的情况下，让0%在延迟后生效。</li>
+<li>backwards:在延迟的情况下，让0%在延迟前生效。</li>
+<li>forwards:在运动结束之后，停到结束位置。</li>
+<li>both:backwards和forwards同时生效</li>
+</ol>
+</li>
+<li><p>animation-direction:属性定义是否应该轮流方向播放动画。</p>
+</li>
+<li><p>alternate:一次正向(0%~100%),一次反向(100%-0%)</p>
+</li>
+<li><p>reverse:永远都是反向,100%~0%</p>
+</li>
+<li><p>normal(默认值):永远都是正向,0%~100%* </p>
+<h4 id="在js中动态使用animation"><a href="#在js中动态使用animation" class="headerlink" title="在js中动态使用animation"></a>在js中动态使用animation</h4><p>如果想动态使用可以用dom的document.styleSheets[0]获取css对象，然后使用insertRule方法</p>
+<h3 id="transform3D"><a href="#transform3D" class="headerlink" title="transform3D"></a>transform3D</h3><h4 id="属性-1"><a href="#属性-1" class="headerlink" title="属性"></a>属性</h4></li>
+<li><p>rotataX():正值向上翻转</p>
+</li>
+<li><p>rotataY():正值向右翻转</p>
+</li>
+<li><p>translateZ():正值向前，负值向后 Z轴移动 需要先设置 perspective</p>
+</li>
+<li><p>scaleZ():立体元素的厚度 参数是倍数</p>
+</li>
+<li><p>perspective:定义景深</p>
+</li>
+<li><p>transform-style:3D空间 外层加景深，内层加3D空间 flat(2D) preserve-3d(3D空间)</p>
+</li>
+<li><p>transform-origin:center center -50px;(Z轴只能写数值)</p>
+</li>
+<li><p>backface-visibility:隐藏被旋转的 div 元素的背面</p>
+<h4 id="复合写法"><a href="#复合写法" class="headerlink" title="复合写法"></a>复合写法</h4></li>
+<li><p>rotate3d():四个值 0|1(x轴是否添加旋转角度) 0|1（y轴是否添加旋转角度） 0|1(z轴是否添加旋转角度) degree</p>
+</li>
+<li><p>translate3d():三个值 x y z</p>
+</li>
+<li><p>scale3d():三个值 x y z</p>
+</li>
+</ul>
+<h2 id="CSS-伪类"><a href="#CSS-伪类" class="headerlink" title="CSS 伪类"></a>CSS 伪类</h2><h3 id="伪类"><a href="#伪类" class="headerlink" title="伪类"></a>伪类</h3><ul>
+<li>:hover </li>
+<li>:focus </li>
+<li>:empty<br>hover改变兄弟元素的样式：（需要在hover之后添加“+”）,子元素直接选择，暂时无法选择父元素<br>伪类有一个冒号开始，伪元素由两个冒号开始<h3 id="伪元素"><a href="#伪元素" class="headerlink" title="伪元素"></a>伪元素</h3></li>
+<li>::selection 选中个元素，可以使用此伪元素改变选中文字的颜色</li>
+<li>::first-line/first-letter </li>
+<li>::before/after<h2 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h2><h3 id="样式表优先级"><a href="#样式表优先级" class="headerlink" title="样式表优先级"></a>样式表优先级</h3>行内样式&gt;ID选择器&gt;类选择器&gt;标签选择器&gt;通用选择器(*{})<h3 id="选择器权重"><a href="#选择器权重" class="headerlink" title="选择器权重"></a>选择器权重</h3><blockquote>
+<p>通用选择器*：0<br/><br>标签选择器：1<br/><br>类选择器：10<br/><br>ID选择器：100<br/><br>行内选择器：1000<br/><br>计算权重值直接相加（大部分情况选择器选择的范围越小越精确，权重就越高）</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="nth-child"><a href="#nth-child" class="headerlink" title="nth-child"></a>nth-child</h3><p>指定的是父元素中的指定类型的第n个元素，例如p:nth-child(2)指定拥有p子元素的第n个p元素</p>
+<h3 id="选择器列表"><a href="#选择器列表" class="headerlink" title="选择器列表"></a>选择器列表</h3><ul>
+<li><strong>&gt;</strong>  css中&gt;可以选择子元素 <h2 id="BFC规范"><a href="#BFC规范" class="headerlink" title="BFC规范"></a>BFC规范</h2><h3 id="BFC"><a href="#BFC" class="headerlink" title="BFC"></a>BFC</h3>BFC block formatting context 规范可以使元素独立化，解决布局问题，例如margin的叠加和margin传递问题<h3 id="触发BFC"><a href="#触发BFC" class="headerlink" title="触发BFC"></a>触发BFC</h3><h4 id="float"><a href="#float" class="headerlink" title="float"></a>float</h4>除none以外的值；绝对定位元素position(absolute,fixed)<h4 id="display"><a href="#display" class="headerlink" title="display"></a>display</h4>display为inline-block,table-cells<h4 id="overflow"><a href="#overflow" class="headerlink" title="overflow"></a>overflow</h4>overflow:hidden;<h2 id="自定义字体"><a href="#自定义字体" class="headerlink" title="自定义字体"></a>自定义字体</h2><h3 id="font-face-字体图标"><a href="#font-face-字体图标" class="headerlink" title="font-face 字体图标"></a>font-face 字体图标</h3><h4 id="使用语法"><a href="#使用语法" class="headerlink" title="使用语法"></a>使用语法</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@font-face</span> &#123;</span><br><span class="line">            <span class="attribute">font-family</span>: ;</span><br><span class="line">            <span class="attribute">src</span>: <span class="built_in">url</span>();</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+阿里的矢量库的Font class使用iconfont类设置样式<h2 id="CSS3浏览器前缀"><a href="#CSS3浏览器前缀" class="headerlink" title="CSS3浏览器前缀"></a>CSS3浏览器前缀</h2>CSS3去兼容不同的浏览器，针对旧的浏览器做兼容，新浏览器基本不需要添加前缀<table>
+<thead>
+<tr>
+<th>浏览器</th>
+<th>内核</th>
+<th>前缀</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>IE</td>
+<td>Trident</td>
+<td>-ms-</td>
+</tr>
+<tr>
+<td>Firefox</td>
+<td>Gecko</td>
+<td>-moz-</td>
+</tr>
+<tr>
+<td>Opera</td>
+<td>Presto</td>
+<td>-o-</td>
+</tr>
+<tr>
+<td>Chrome</td>
+<td>Webkit</td>
+<td>-webkit-</td>
+</tr>
+<tr>
+<td>Safari</td>
+<td>Webkit</td>
+<td>-webkit-</td>
+</tr>
+<tr>
+<td>Opera、Chrome</td>
+<td>Blink</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="CSS-变量"><a href="#CSS-变量" class="headerlink" title="CSS 变量"></a>CSS 变量</h2>变量的作用域就近查找<h3 id="定义："><a href="#定义：" class="headerlink" title="定义："></a>定义：</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-pseudo">:root</span>&#123;<span class="attribute">--color </span>: red;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="使用："><a href="#使用：" class="headerlink" title="使用："></a>使用：</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">background</span><span class="selector-pseudo">:var(--color)</span>;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="CSS-模块化"><a href="#CSS-模块化" class="headerlink" title="CSS 模块化"></a>CSS 模块化</h2><blockquote>
+<p>通过sass或less引入文件实现css模块化</p>
+</blockquote>
+<h3 id="文件夹和含义"><a href="#文件夹和含义" class="headerlink" title="文件夹和含义"></a>文件夹和含义</h3><ul>
+<li>base:一些初始的通用CSS,如重置默认样式，动画，工具，打印等。</li>
+<li>components:用于勾践页面的所有组件，如按钮，表单，表格，弹窗等。</li>
+<li>layout:用于布局页面的不同部分，如页眉，页脚，弹性布局，网格布局等。</li>
+<li>pages:防止页面之间不同的样式，如首页特殊样式，列表页特殊样式等。</li>
+<li>themes:应用不同的主题样式时，如管理员，买家，卖家等。</li>
+<li>abstracts:放置一些如:变量，函数，响应式等辅助开发的部分。</li>
+<li>vendors:防止一些第三方独立的CSS文件，如bootstrap,iconfont等。<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><h3 id="css不规则文字环绕"><a href="#css不规则文字环绕" class="headerlink" title="css不规则文字环绕"></a>css不规则文字环绕</h3>shape-outside，默认为none<br/><br>取值：<br/><br>margin-box,padding-box,content-box</li>
+</ul>
+<p>clip-path可以限制当前元素的形状</p>
+<p>利用clip-path取值和shape-outside一样可以自定义范围</p>
+<p>shape-margin 环绕间距</p>
+<h3 id="css自定义滚动条"><a href="#css自定义滚动条" class="headerlink" title="css自定义滚动条"></a>css自定义滚动条</h3><p>为元素自定义滚动条，伪类实现</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-pseudo">::-webkit-scrollbar</span></span><br><span class="line"><span class="selector-pseudo">::-webkit-scrollbar-thumb</span></span><br></pre></td></tr></table></figure>
+<h2 id="CSS-注意事项"><a href="#CSS-注意事项" class="headerlink" title="CSS 注意事项"></a>CSS 注意事项</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;cascading.css&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span> <span class="attr">media</span>=<span class="string">&quot;screen and (min-width:800px)&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p>控制浏览器大小的css，min-divice-width控制设备大小的样式</p>
+<hr>
+<p>padding是控件的内容相对控件的边缘的边距，padding会改变元素的大小．margin是控件边缘的边距．</p>
+<p>ul自带margin。</p>
+<p>background-position 2个参数时顺序为水平-垂直 而margin是垂直-水平 margin 4个参数顺序为上右下左</p>
+<p>body默认宽度是100%(相对于html html是body的父元素)<br>将html和body的高度同时设置为100%可以使页面和浏览器大小相同<br>background-position:2个参数 1水平位置 2垂直位置<br>img有时默认是inline的，可以使用display:block设置成块级元素，或者使用div的background<br>div中的background会覆盖css文件中的background-xxx，其他的属性也类似，如果要同时在行内选择器和css文件中同时使用最好不要直接用background<br>margin:auto只在水平方向有效</p>
+<h3 id="margin-top的传递问题"><a href="#margin-top的传递问题" class="headerlink" title="margin-top的传递问题"></a>margin-top的传递问题</h3><p>子元素的margin-top会把父元素一起带下来 解决： 给父元素加overflow:hidden</p>
+<h3 id="seo搜索引擎优化"><a href="#seo搜索引擎优化" class="headerlink" title="seo搜索引擎优化"></a>seo搜索引擎优化</h3><p>隐藏a标签的文字          text-indent: -9999px；  overflow: hidden;</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="/">btKrc1nx</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://www.btkrc.com/posts/ee69e452/">https://www.btkrc.com/posts/ee69e452/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">许可协议: </span><span class="post-copyright-info">署名-非商业性使用 本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 协议进行许可</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/CSS/">CSS</a></div><div class="post_share"></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 请我恰杯咖啡吧<div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/uploads/wechat.png" target="_blank"><img class="post-qr-code-img" src="/uploads/wechat.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li></ul></div></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/664d39f9/"><img class="prev-cover" src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/79f0f736afc379313431d9dc3c8ecd4242a911bf.webp" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">关于evernote</div></div></a></div><div class="next-post pull-right"><a href="/posts/f3d3ee5b/"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/img/EKAzZpn8Cz.png" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">BOM</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关的笔记</span></div><div class="relatedPosts-list"><div><a href="/posts/ea50967e/" title="SASS"><img class="cover" src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/img/wee5yt4n7d.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-10-05</div><div class="title">SASS</div></div></a></div></div></div></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/img/2a3b97dda144ad34e8b7b25bd2a20cf430ad85fe.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">btKrc1nx</div><div class="author-info__description">鹦鹉铲屎官 & 刀剑爱好者 & BugBuilder & 前端狗 & 脚本小子</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/./"><div class="headline">文章</div><div class="length-num">57</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">34</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div></div><a class="button--animated" id="card-info-btn" href="/"><i class="iconfont iconai-home"></i><span>どうもありがと</span></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="card-content"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CSS%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">CSS简介</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS-%E5%B1%9E%E6%80%A7"><span class="toc-number">1.1.</span> <span class="toc-text">CSS 属性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS3-%E5%8A%A8%E7%94%BB%E5%B1%9E%E6%80%A7-%EF%BC%88Animation%EF%BC%89"><span class="toc-number">1.1.1.</span> <span class="toc-text">CSS3 动画属性 （Animation）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS-%E8%83%8C%E6%99%AF%E5%B1%9E%E6%80%A7%EF%BC%88Background%EF%BC%89"><span class="toc-number">1.1.2.</span> <span class="toc-text">CSS 背景属性（Background）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#background%E5%A4%8D%E5%90%88%E5%86%99%E6%B3%95"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">background复合写法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS-%E8%BE%B9%E6%A1%86%E5%B1%9E%E6%80%A7%EF%BC%88Border-%E5%92%8C-Outline%EF%BC%89"><span class="toc-number">1.1.3.</span> <span class="toc-text">CSS 边框属性（Border 和 Outline）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Box-%E5%B1%9E%E6%80%A7"><span class="toc-number">1.1.4.</span> <span class="toc-text">Box 属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Color-%E5%B1%9E%E6%80%A7"><span class="toc-number">1.1.5.</span> <span class="toc-text">Color 属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS-%E5%B0%BA%E5%AF%B8%E5%B1%9E%E6%80%A7%EF%BC%88Dimension%EF%BC%89"><span class="toc-number">1.1.6.</span> <span class="toc-text">CSS 尺寸属性（Dimension）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E4%BC%B8%E7%BC%A9%E6%A1%86%E5%B1%9E%E6%80%A7%EF%BC%88Flexible-Box%EF%BC%89"><span class="toc-number">1.1.7.</span> <span class="toc-text">可伸缩框属性（Flexible Box）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS-%E5%AD%97%E4%BD%93%E5%B1%9E%E6%80%A7%EF%BC%88Font%EF%BC%89"><span class="toc-number">1.1.8.</span> <span class="toc-text">CSS 字体属性（Font）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS-%E5%88%97%E8%A1%A8%E5%B1%9E%E6%80%A7%EF%BC%88List%EF%BC%89"><span class="toc-number">1.1.9.</span> <span class="toc-text">CSS 列表属性（List）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS-%E6%96%87%E5%AD%97%E5%B1%9E%E6%80%A7"><span class="toc-number">1.1.10.</span> <span class="toc-text">CSS 文字属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS3-%E6%B8%90%E5%8F%98"><span class="toc-number">1.1.11.</span> <span class="toc-text">CSS3 渐变</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E6%B8%90%E5%8F%98"><span class="toc-number">1.1.11.1.</span> <span class="toc-text">线性渐变</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BE%84%E5%90%91%E6%B8%90%E5%8F%98"><span class="toc-number">1.1.11.2.</span> <span class="toc-text">径向渐变</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E5%B1%9E%E6%80%A7"><span class="toc-number">1.1.12.</span> <span class="toc-text">其他属性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%AE%E5%8A%A8%E5%92%8C%E5%AE%9A%E4%BD%8D"><span class="toc-number">1.2.</span> <span class="toc-text">浮动和定位</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%AE%E5%8A%A8"><span class="toc-number">1.2.1.</span> <span class="toc-text">浮动</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%B4%E6%98%8E"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">说明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">清除浮动</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%BD%8D"><span class="toc-number">1.2.2.</span> <span class="toc-text">定位</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#position"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">position</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%83%E5%B1%80"><span class="toc-number">1.3.</span> <span class="toc-text">布局</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E6%A0%8F%E5%B8%83%E5%B1%80"><span class="toc-number">1.3.1.</span> <span class="toc-text">分栏布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AD%89%E9%AB%98%E5%B8%83%E5%B1%80"><span class="toc-number">1.3.2.</span> <span class="toc-text">等高布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E5%88%97%E5%B8%83%E5%B1%80%EF%BC%8C%E5%B7%A6%E5%8F%B3%E5%9B%BA%E5%AE%9A%EF%BC%8C%E4%B8%AD%E9%97%B4%E8%87%AA%E9%80%82%E5%BA%94"><span class="toc-number">1.3.3.</span> <span class="toc-text">三列布局，左右固定，中间自适应</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex%E5%BC%B9%E6%80%A7%E7%9B%92%E6%A8%A1%E5%9E%8B%EF%BC%88flex%E5%B8%83%E5%B1%80%EF%BC%89"><span class="toc-number">1.3.4.</span> <span class="toc-text">flex弹性盒模型（flex布局）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%9C%E7%94%A8%E5%9C%A8flex%E5%AD%90%E9%A1%B9%E4%B8%8A%E7%9A%84CSS%E5%B1%9E%E6%80%A7"><span class="toc-number">1.3.4.1.</span> <span class="toc-text">作用在flex子项上的CSS属性</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E6%A0%BC%E5%B8%83%E5%B1%80"><span class="toc-number">1.3.5.</span> <span class="toc-text">网格布局</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%9C%E7%94%A8%E5%9C%A8grid%E5%AE%B9%E5%99%A8%E4%B8%8A"><span class="toc-number">1.3.5.1.</span> <span class="toc-text">作用在grid容器上</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%9C%E7%94%A8%E5%9C%A8grid%E5%AD%90%E9%A1%B9%E4%B8%8A"><span class="toc-number">1.3.5.2.</span> <span class="toc-text">作用在grid子项上</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSSHack%EF%BC%88%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%EF%BC%89"><span class="toc-number">1.4.</span> <span class="toc-text">CSSHack（浏览器兼容）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%92%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.5.</span> <span class="toc-text">盒模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS-%E5%8A%A8%E7%94%BB"><span class="toc-number">1.6.</span> <span class="toc-text">CSS 动画</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#transition"><span class="toc-number">1.6.1.</span> <span class="toc-text">transition</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#transform"><span class="toc-number">1.6.2.</span> <span class="toc-text">transform</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#animation%E5%8A%A8%E7%94%BB"><span class="toc-number">1.6.3.</span> <span class="toc-text">animation动画</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7"><span class="toc-number">1.6.3.1.</span> <span class="toc-text">属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%A8js%E4%B8%AD%E5%8A%A8%E6%80%81%E4%BD%BF%E7%94%A8animation"><span class="toc-number">1.6.3.2.</span> <span class="toc-text">在js中动态使用animation</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#transform3D"><span class="toc-number">1.6.4.</span> <span class="toc-text">transform3D</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7-1"><span class="toc-number">1.6.4.1.</span> <span class="toc-text">属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%8D%E5%90%88%E5%86%99%E6%B3%95"><span class="toc-number">1.6.4.2.</span> <span class="toc-text">复合写法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS-%E4%BC%AA%E7%B1%BB"><span class="toc-number">1.7.</span> <span class="toc-text">CSS 伪类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%AA%E7%B1%BB"><span class="toc-number">1.7.1.</span> <span class="toc-text">伪类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%AA%E5%85%83%E7%B4%A0"><span class="toc-number">1.7.2.</span> <span class="toc-text">伪元素</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">1.8.</span> <span class="toc-text">选择器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B7%E5%BC%8F%E8%A1%A8%E4%BC%98%E5%85%88%E7%BA%A7"><span class="toc-number">1.8.1.</span> <span class="toc-text">样式表优先级</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E5%99%A8%E6%9D%83%E9%87%8D"><span class="toc-number">1.8.2.</span> <span class="toc-text">选择器权重</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#nth-child"><span class="toc-number">1.8.3.</span> <span class="toc-text">nth-child</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E5%99%A8%E5%88%97%E8%A1%A8"><span class="toc-number">1.8.4.</span> <span class="toc-text">选择器列表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BFC%E8%A7%84%E8%8C%83"><span class="toc-number">1.9.</span> <span class="toc-text">BFC规范</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#BFC"><span class="toc-number">1.9.1.</span> <span class="toc-text">BFC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A6%E5%8F%91BFC"><span class="toc-number">1.9.2.</span> <span class="toc-text">触发BFC</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#float"><span class="toc-number">1.9.2.1.</span> <span class="toc-text">float</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#display"><span class="toc-number">1.9.2.2.</span> <span class="toc-text">display</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#overflow"><span class="toc-number">1.9.2.3.</span> <span class="toc-text">overflow</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E4%BD%93"><span class="toc-number">1.10.</span> <span class="toc-text">自定义字体</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#font-face-%E5%AD%97%E4%BD%93%E5%9B%BE%E6%A0%87"><span class="toc-number">1.10.1.</span> <span class="toc-text">font-face 字体图标</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E8%AF%AD%E6%B3%95"><span class="toc-number">1.10.1.1.</span> <span class="toc-text">使用语法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS3%E6%B5%8F%E8%A7%88%E5%99%A8%E5%89%8D%E7%BC%80"><span class="toc-number">1.11.</span> <span class="toc-text">CSS3浏览器前缀</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS-%E5%8F%98%E9%87%8F"><span class="toc-number">1.12.</span> <span class="toc-text">CSS 变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%EF%BC%9A"><span class="toc-number">1.12.1.</span> <span class="toc-text">定义：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%EF%BC%9A"><span class="toc-number">1.12.2.</span> <span class="toc-text">使用：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS-%E6%A8%A1%E5%9D%97%E5%8C%96"><span class="toc-number">1.13.</span> <span class="toc-text">CSS 模块化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E5%A4%B9%E5%92%8C%E5%90%AB%E4%B9%89"><span class="toc-number">1.13.1.</span> <span class="toc-text">文件夹和含义</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.14.</span> <span class="toc-text">实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#css%E4%B8%8D%E8%A7%84%E5%88%99%E6%96%87%E5%AD%97%E7%8E%AF%E7%BB%95"><span class="toc-number">1.14.1.</span> <span class="toc-text">css不规则文字环绕</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#css%E8%87%AA%E5%AE%9A%E4%B9%89%E6%BB%9A%E5%8A%A8%E6%9D%A1"><span class="toc-number">1.14.2.</span> <span class="toc-text">css自定义滚动条</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS-%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">1.15.</span> <span class="toc-text">CSS 注意事项</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#margin-top%E7%9A%84%E4%BC%A0%E9%80%92%E9%97%AE%E9%A2%98"><span class="toc-number">1.15.1.</span> <span class="toc-text">margin-top的传递问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#seo%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%BC%98%E5%8C%96"><span class="toc-number">1.15.2.</span> <span class="toc-text">seo搜索引擎优化</span></a></li></ol></li></ol></li></ol></div></div></div></div></div></main><footer id="footer" style="background-image: url(https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/img/ixcxhNPRQk.png)"><div id="footer-wrap"><div class="copyright">&copy;2020 By btKrc1nx</div><div class="footer_custom_text"><i class="fas fa-user"></i> 访问用户：<span id="busuanzi_value_site_uv"></span> 人<br/><i class="fas fa-eye"></i> 访问量：<span id="busuanzi_value_site_pv"></span> 次</div><div class="icp"><a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/"><img class="icp-icon" src="/img/icp.png" alt="ICP"/><span>鄂ICP备2020021450号</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="hide-aside-btn" type="button"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="chat_btn" type="button" title="rightside.chat_btn"><i class="fas fa-sms"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/uploadsFile/butterfly/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',()=> {preloader.endLoading()})</script><div class="js-pjax"><script async src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/uploadsFile/butterfly/busuanzi.pure.mini.js"></script></div><script src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/uploadsFile/APlayer.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/uploadsFile/APlayer.min.css"><div id="aplayer" class="aplayer no-destroy"></div><script src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/uploadsFile/music2.js"></script><script src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/uploadsFile/translation/mJsonp.js" data-pjax></script><script src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/uploadsFile/mouse_snow.min.js"></script><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/uploadsFile/canvas-ribbon.min.js" size="150" alpha="1" zIndex="-1" mobile="true" data-click="true"></script><script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/454c1c1e.js","daovoice")
+</script><script>var isChatBtn = true
+daovoice('init', {
+  app_id: '454c1c1e',},{
+  launcher: { 
+     disableLauncherIcon: isChatBtn // 悬浮 ICON 是否显示
+  },
+});
+daovoice('update');
+
+if (isChatBtn) {
+  var chatBtnFn = () => {
+    var chatBtn = document.getElementById("chat_btn")
+    chatBtn.addEventListener("click", function(){
+      daovoice('show')
+    });
+  }
+  chatBtnFn()
+} else {
+  if (false) {
+    function chatBtnHide () {
+      daovoice('update', {},{
+        launcher: { 
+        disableLauncherIcon: true // 悬浮 ICON 是否显示
+        },
+      });
+    }
+    function chatBtnShow () {
+      daovoice('update', {},{
+        launcher: { 
+        disableLauncherIcon: false // 悬浮 ICON 是否显示
+        },
+      });
+    }
+  }
+}</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/uploadsFile/APlayer.min.css"><script src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/uploadsFile/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/uploadsFile/butterfly/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/uploadsFile/butterfly/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config_change',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  $('script[data-pjax]').each(function () {
+    $(this).parent().append($(this).remove())
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  if (typeof gtag === 'function') {
+    gtag('config', '', {'page_path': window.location.pathname});
+  }
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+
+document.addEventListener('pjax:send', function () {
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  $(window).off('scroll')
+
+  //reset readmode
+  $('body').hasClass('read-mode') && $('body').removeClass('read-mode')
+
+})</script><script>(function(){
+  const bp = document.createElement('script');
+  const curProtocol = window.location.protocol.split(':')[0];
+  if (curProtocol === 'https'){
+  bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else{
+  bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+  bp.dataset.pjax = ''
+  const s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})()</script></div><script src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/live2dw/lib/L2Dwidget.min.js"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"live2dw/lib/","pluginModelPath":"live2dw/assets/","tagMode":false,"debug":false,"model":{"scale":1,"jsonPath":"/live2dw/live2dw/assets/assets/shizuku.model.json"},"display":{"position":"right","width":200,"height":300,"hOffset":-40,"vOffset":-30},"mobile":{"show":true},"react":{"opacity":0.6},"log":false});</script></body></html>

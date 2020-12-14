@@ -1,0 +1,267 @@
+/*字体图标*/
+
+.icon {
+    width: 3.5em;
+    height: 3.5em;
+    vertical-align: -1.3em;
+    fill: currentColor;
+    overflow: hidden;
+}
+
+/*首页在最前*/
+
+header.full_page {
+    z-index: 1000000;
+}
+
+#sidebar-menus, #menu-mask {
+    z-index: 1000001 !important;
+}
+
+/*扫光字体*/
+
+/*扫光字体 标题*/
+
+.recent-post-info .article-title {
+    color: #55292a !important;
+}
+
+#post-info .post-title, .author-info__name, .post-copyright__author .post-copyright-info a {
+    background-image: -webkit-linear-gradient(right, red, orange, yellow, green, yellow, orange, red, orange, yellow, green, yellow, orange, red);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-size: 200% 100%;
+    animation: myRandomColor 2s infinite linear;
+}
+
+@keyframes myRandomColor {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: -100% 0;
+    }
+}
+
+/*扫光字体 首页*/
+
+#site-title, #subtitle {
+    background-image: -webkit-linear-gradient(left, #147B96, #E6D205 25%, #147B96 50%, #E6D205 75%, #147B96);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-size: 200% 100%;
+    animation: myRandomColor 2s infinite linear;
+}
+
+/*扫光字体 end*/
+
+/*
+
+@keyframes mAuthor{
+0%{text-shadow: 0 0 10px red,0 0 20px red,0 0 30px red,0 0 40px red;}
+33%{text-shadow: 0 0 10px #228DFF,0 0 20px #228DFF,0 0 30px #228DFF,0 0 40px #228DFF;}
+66%{text-shadow: 0 0 10px #FF9900,0 0 20px #FF9900,0 0 30px #FF9900,0 0 40px #FF9900;}
+100%{text-shadow: 0 0 10px red,0 0 20px red,0 0 30px red,0 0 40px red;}
+}
+*/
+
+/*标题h1 h2 h3 h4样式*/
+
+.post-content h1 {
+    background: #EE6A50 !important;
+    border-radius: 6px 6px 6px 6px;
+    box-shadow: 0 0 0 1px #5F5A4B, 1px 1px 6px 1px rgba(10, 10, 0, 0.5);
+    color: #FFFFFF;
+    line-height: 1.5em;
+    margin: 18px 0;
+    padding: 5px 10px 5px 10px;
+    text-shadow: 2px 2px 3px #222222;
+}
+
+.post-content h2 {
+    background: #2B6695;
+    border-radius: 6px 6px 6px 6px;
+    box-shadow: 0 0 0 1px #5F5A4B, 1px 1px 6px 1px rgba(10, 10, 0, 0.5);
+    color: #FFFFFF;
+    line-height: 1.375em;
+    margin: 12px 0 !important;
+    padding: 5px 10px 5px 10px;
+    text-shadow: 2px 2px 3px #222222;
+}
+
+.post-content h3 {
+    background: #2B6600;
+    border-radius: 6px 6px 6px 6px;
+    box-shadow: 0 0 0 1px #5F5A4B, 1px 1px 6px 1px rgba(10, 10, 0, 0.5);
+    color: #FFFFFF;
+    line-height: 1.25em;
+    margin: 12px 0 !important;
+    padding: 5px 10px 5px 10px;
+    text-shadow: 2px 2px 3px #222222;
+}
+
+.post-content h4 {
+    background: #5B9600;
+    border-radius: 6px 6px 6px 6px;
+    box-shadow: 0 0 0 1px #5F5A4B, 1px 1px 6px 1px rgba(10, 10, 0, 0.5);
+    color: #FFFFFF;
+    line-height: 1.125em;
+    margin: 12px 0 !important;
+    padding: 5px 10px 5px 10px;
+    text-shadow: 2px 2px 3px #222222;
+}
+
+/*标题h1 h2 h3 h4样式 end*/
+
+/*侧边栏遮挡问题*/
+
+#menu-mask, #sidebar-menus {
+    z-index: 1000001;
+}
+
+/*到最顶按钮的位置*/
+
+/*
+#rightside{
+    left: 40px;
+    bottom: 70px;
+}
+*/
+
+/*移动端隐藏作者信息*/
+
+/*
+@media screen and (max-width: 900px){
+#aside_content > .card-widget:first-child {
+    display: none;
+}
+}
+
+*/
+
+/*隐藏全屏首页的社交连接*/
+
+#site_social_icons {
+    display: none !important;
+}
+
+/*自定义 字体图标的样式*/
+
+.menus_item .iconfont {
+    width: 25%;
+    text-align: left;
+    /*font-weight: 900;*/
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1;
+    text-align: center;
+    width: 1.25em;
+}
+
+/*隐藏aplayer播放器的2个按钮*/
+
+#aplayer .aplayer-icon-loop, #aplayer .aplayer-icon-lrc {
+    display: none;
+}
+
+/*自定义页面背景----------------*/
+
+body {
+    background: #ede3e3;
+}
+
+hr::before {
+    color: #ff9b69 !important;
+}
+
+hr {
+    border: 2px dashed #FF6A6A;
+}
+
+.post-copyright-meta {
+    color: #49b1f5 !important;
+}
+
+.reward-button, #card-info-btn {
+    background: #FF7F24 !important;
+}
+
+#mobile-toc-button {
+    background: #EE6363 !important;
+}
+
+#go-up, #mobile-toc-button, .aplayer-miniswitcher {
+    background: rgba(7, 17, 27, 0.15) !important;
+}
+
+.aplayer-body {
+    background: rgba(0, 0, 0, 0) !important;
+}
+
+#go-up i, #mobile-toc-button i {
+    color: #ff7242 !important;
+}
+
+.aplayer .aplayer-miniswitcher .aplayer-icon path {
+    fill: #ff7242 !important;
+}
+
+.aplayer-button path {
+    fill: #EE6363 !important;
+}
+
+.aplayer-button {
+    border: 2px solid #EE6363 !important;
+}
+
+.post-copyright {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+/*透明背景*/
+
+.recent-post-item, #post, .card-info, #page {
+    background: rgba(255, 255, 255, 0.6) !important;
+}
+
+/*TOC在PC端透明，移动端不设置*/
+
+@media screen and (min-width: 901px) {
+    .card-widget {
+        background: rgba(255, 255, 255, 0.6) !important;
+    }
+}
+
+figure.highlight, figure.highlight pre {
+    background: rgba(255, 255, 255, 0.6) !important;
+}
+
+/*自定义页面背景 end--------------*/
+
+/*自定义鼠标*/
+
+body {
+    cursor: url(https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/img/default.cur), default;
+}
+
+a, img {
+    cursor: url(https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/img/pointer.cur), default !important;
+}
+
+
+/*daovoice */
+.daodream-sheet{
+max-width:80% !important;
+max-height:90vh !important;
+}
+
+/*daovoice */
+.daodream-powered-by span{display:none !important;}
+
+
+.daodream-composer-send-button{
+display:block !important;
+}

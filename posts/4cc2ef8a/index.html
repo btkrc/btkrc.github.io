@@ -1,0 +1,368 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>gulp | 元気いっぱい</title><meta name="keywords" content="gulp"><meta name="author" content="btKrc1nx"><meta name="copyright" content="btKrc1nx"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="gulp匹配模式 常见问题 build导出定义组合任务 导出一个任务使其成为public 复制文件 杂项 rename可以直接传字符串重命名也可以传一个js对象:   自动刷新网页 gulp-connect:   执行gulp命令时传入参数 minimist   发布compressed js文件 uglify   控制台输入带颜色的字 gulp-sass     gulp匹配模式   匹配">
+<meta property="og:type" content="article">
+<meta property="og:title" content="gulp">
+<meta property="og:url" content="https://www.btkrc.com/posts/4cc2ef8a/index.html">
+<meta property="og:site_name" content="元気いっぱい">
+<meta property="og:description" content="gulp匹配模式 常见问题 build导出定义组合任务 导出一个任务使其成为public 复制文件 杂项 rename可以直接传字符串重命名也可以传一个js对象:   自动刷新网页 gulp-connect:   执行gulp命令时传入参数 minimist   发布compressed js文件 uglify   控制台输入带颜色的字 gulp-sass     gulp匹配模式   匹配">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/img/3SisHCkm2H.png">
+<meta property="article:published_time" content="2020-01-05T02:21:00.000Z">
+<meta property="article:modified_time" content="2020-01-05T02:21:00.000Z">
+<meta property="article:author" content="btKrc1nx">
+<meta property="article:tag" content="gulp">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/img/3SisHCkm2H.png"><link rel="shortcut icon" href="/uploads/favicon.ico"><link rel="canonical" href="https://www.btkrc.com/posts/4cc2ef8a/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="preconnect" href="//zz.bdstatic.com"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/uploadsFile/butterfly/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":0,"languages":{"author":"作者: btKrc1nx","link":"链接: ","source":"来源: 元気いっぱい","info":"转载我的文章和笔记务必注明出处"}},
+  ClickShowText: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: undefined,
+  isToc: true,
+  postUpdate: '2020-01-05 10:21:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}})()</script><link rel="stylesheet" href="/uploadsFile/css/customCss.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/myIconFont/iconfont.css"><script src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/myIconFont/iconfont.js"></script><meta name="generator" content="Hexo 5.2.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/img/2a3b97dda144ad34e8b7b25bd2a20cf430ad85fe.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/./"><div class="headline">文章</div><div class="length-num">57</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">34</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/translation/"><i class="fa-fw iconfont iconfanyi"></i><span> 在线中英互译</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-image"></i><span> 画廊</span></a></div></div></div></div><div id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/img/3SisHCkm2H.png)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">元気いっぱい</a></span><span id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/translation/"><i class="fa-fw iconfont iconfanyi"></i><span> 在线中英互译</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-image"></i><span> 画廊</span></a></div></div><span class="close" id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><h1 class="post-title">gulp</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表</span><time class="post-meta-date-created" datetime="2020-01-05T02:21:00.000Z" title="发表 2020-01-05 10:21:00">2020-01-05</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新</span><time class="post-meta-date-updated" datetime="2020-01-05T02:21:00.000Z" title="更新 2020-01-05 10:21:00">2020-01-05</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/">开发环境</a></span></div><div class="meta-secondline"> </div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><!-- TOC -->
+
+<ul>
+<li><a href="#gulp%E5%8C%B9%E9%85%8D%E6%A8%A1%E5%BC%8F">gulp匹配模式</a></li>
+<li><a href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98">常见问题</a><ul>
+<li><a href="#build%E5%AF%BC%E5%87%BA%E5%AE%9A%E4%B9%89%E7%BB%84%E5%90%88%E4%BB%BB%E5%8A%A1">build导出定义组合任务</a></li>
+<li><a href="#%E5%AF%BC%E5%87%BA%E4%B8%80%E4%B8%AA%E4%BB%BB%E5%8A%A1%E4%BD%BF%E5%85%B6%E6%88%90%E4%B8%BApublic">导出一个任务使其成为public</a></li>
+<li><a href="#%E5%A4%8D%E5%88%B6%E6%96%87%E4%BB%B6">复制文件</a></li>
+<li><a href="#%E6%9D%82%E9%A1%B9">杂项</a><ul>
+<li><a href="#rename%E5%8F%AF%E4%BB%A5%E7%9B%B4%E6%8E%A5%E4%BC%A0%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%87%8D%E5%91%BD%E5%90%8D%E4%B9%9F%E5%8F%AF%E4%BB%A5%E4%BC%A0%E4%B8%80%E4%B8%AAjs%E5%AF%B9%E8%B1%A1:">rename可以直接传字符串重命名也可以传一个js对象:</a></li>
+</ul>
+</li>
+<li><a href="#%E8%87%AA%E5%8A%A8%E5%88%B7%E6%96%B0%E7%BD%91%E9%A1%B5">自动刷新网页</a><ul>
+<li><a href="#gulp-connect">gulp-connect:</a></li>
+</ul>
+</li>
+<li><a href="#%E6%89%A7%E8%A1%8Cgulp%E5%91%BD%E4%BB%A4%E6%97%B6%E4%BC%A0%E5%85%A5%E5%8F%82%E6%95%B0">执行gulp命令时传入参数</a><ul>
+<li><a href="#minimist">minimist</a></li>
+</ul>
+</li>
+<li><a href="#%E5%8F%91%E5%B8%83compressed-js%E6%96%87%E4%BB%B6">发布compressed js文件</a><ul>
+<li><a href="#uglify">uglify</a></li>
+</ul>
+</li>
+<li><a href="#%E6%8E%A7%E5%88%B6%E5%8F%B0%E8%BE%93%E5%85%A5%E5%B8%A6%E9%A2%9C%E8%89%B2%E7%9A%84%E5%AD%97">控制台输入带颜色的字</a></li>
+<li><a href="#gulp-sass">gulp-sass</a></li>
+</ul>
+</li>
+</ul>
+<!-- /TOC -->
+<h1 id="gulp匹配模式"><a href="#gulp匹配模式" class="headerlink" title="gulp匹配模式"></a>gulp匹配模式</h1><table>
+<thead>
+<tr>
+<th>匹配符</th>
+<th>code</th>
+<th>匹配</th>
+<th>不匹配</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>*</td>
+<td>*</td>
+<td>a.b， x.y， abc， abc/</td>
+<td>a/b.js</td>
+<td>不匹配/，除非/出现在末尾</td>
+</tr>
+<tr>
+<td></td>
+<td>*.*</td>
+<td>a.b， x.y</td>
+<td>abc</td>
+<td>匹配所有带后缀的文件</td>
+</tr>
+<tr>
+<td></td>
+<td>*/*/*.js</td>
+<td>a/b/c.js， x/y/z.js</td>
+<td>a/b.js， a/b/c/d.js</td>
+<td>匹配固定层级目录</td>
+</tr>
+<tr>
+<td>**</td>
+<td>**/*.js</td>
+<td>a.js， a/b.js， a/b/c.js</td>
+<td></td>
+<td>匹配所有的目录和文件</td>
+</tr>
+<tr>
+<td></td>
+<td>**/*.js</td>
+<td>a.js， a/b.js， a/b/c.js</td>
+<td></td>
+<td>匹配所有目录下的 .js 文件</td>
+</tr>
+<tr>
+<td></td>
+<td>a/**/z</td>
+<td>a/z， a/b/z， a/b/c/z， a/b/c/d/z</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>a/**b/z</td>
+<td>a/b/z， a/nb/z</td>
+<td>a/c/nb/z，</td>
+<td>** 单独出现才能匹配多级目录</td>
+</tr>
+<tr>
+<td>?</td>
+<td>?.js</td>
+<td>a.js， b.js， c.js</td>
+<td></td>
+<td>占位符匹配，不匹配 /</td>
+</tr>
+<tr>
+<td></td>
+<td>a??</td>
+<td>a.b， abc</td>
+<td>ab/</td>
+<td>占位符与字符搭配使用</td>
+</tr>
+<tr>
+<td>[]</td>
+<td>[abc].js</td>
+<td>a.js， b.js， c.js</td>
+<td>ab.js， xyz.js</td>
+<td>整个 [] 只匹配一个字符</td>
+</tr>
+<tr>
+<td></td>
+<td>[^abc].js <br/>[!abc].js</td>
+<td>x.js， y.js</td>
+<td>a.js， b.js， c.js</td>
+<td>排除匹配字符</td>
+</tr>
+</tbody></table>
+<hr>
+<h1 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h1><h2 id="build导出定义组合任务"><a href="#build导出定义组合任务" class="headerlink" title="build导出定义组合任务"></a>build导出定义组合任务</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; series &#125; = <span class="built_in">require</span>(<span class="string">&#x27;gulp&#x27;</span>);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">javascript</span>(<span class="params">cb</span>) </span>&#123;</span><br><span class="line">   <span class="comment">// body omitted cb(); </span></span><br><span class="line">  &#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">css</span>(<span class="params">cb</span>) </span>&#123; </span><br><span class="line">     <span class="comment">// body omitted cb(); </span></span><br><span class="line">  &#125; </span><br><span class="line"><span class="built_in">exports</span>.build = series(javascript, css);</span><br></pre></td></tr></table></figure>
+<h2 id="导出一个任务使其成为public"><a href="#导出一个任务使其成为public" class="headerlink" title="导出一个任务使其成为public"></a>导出一个任务使其成为public</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">exports</span>.build=build;</span><br></pre></td></tr></table></figure>
+<p>如果不导出则是private</p>
+<h2 id="复制文件"><a href="#复制文件" class="headerlink" title="复制文件"></a>复制文件</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gulp.src(fileName).pipe(gulp.dest(destination));</span><br></pre></td></tr></table></figure>
+<p>如果要复制所有文件使用通配符，例如*.html复制多个文件夹或文件可以定义多个任务，然后定义一个依赖它们的任务调用模块</p>
+<h2 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h2><p>concat连接文件，uglify压缩 <br/></p>
+<h3 id="rename可以直接传字符串重命名也可以传一个js对象"><a href="#rename可以直接传字符串重命名也可以传一个js对象" class="headerlink" title="rename可以直接传字符串重命名也可以传一个js对象:"></a>rename可以直接传字符串重命名也可以传一个js对象:</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  dirname: <span class="string">&quot;main/text/ciao&quot;</span>,</span><br><span class="line">  basename: <span class="string">&quot;aloha&quot;</span>,</span><br><span class="line">  prefix: <span class="string">&quot;bonjour-&quot;</span>,</span><br><span class="line">  suffix: <span class="string">&quot;-hola&quot;</span>,</span><br><span class="line">  extname: <span class="string">&quot;.md&quot;</span>&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span>&#123; &#125;=<span class="built_in">require</span>(<span class="string">&#x27;gulp&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p>可以取消前缀使用 <br/></p>
+<hr>
+<p>series()参数直接传函数指针，如果任务注册过(exports导出)可以使用字符串，但不建议这样做</p>
+<hr>
+<h2 id="自动刷新网页"><a href="#自动刷新网页" class="headerlink" title="自动刷新网页"></a>自动刷新网页</h2><h3 id="gulp-connect"><a href="#gulp-connect" class="headerlink" title="gulp-connect:"></a>gulp-connect:</h3><p>热处理先建立服务器server</p>
+<h2 id="执行gulp命令时传入参数"><a href="#执行gulp命令时传入参数" class="headerlink" title="执行gulp命令时传入参数"></a>执行gulp命令时传入参数</h2><h3 id="minimist"><a href="#minimist" class="headerlink" title="minimist"></a>minimist</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> minimist = <span class="built_in">require</span>(<span class="string">&#x27;minimist&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> options = minimist(process.argv.slice(<span class="number">2</span>), &#123;</span><br><span class="line">    string: <span class="string">&quot;env&quot;</span>, <span class="comment">//命令行的参数储存在options.env中</span></span><br><span class="line">    <span class="comment">// default: &#123; env: process.env.NODE_ENV || &quot;production&quot; &#125;</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="发布compressed-js文件"><a href="#发布compressed-js文件" class="headerlink" title="发布compressed js文件"></a>发布compressed js文件</h2><h3 id="uglify"><a href="#uglify" class="headerlink" title="uglify"></a>uglify</h3><hr>
+<h2 id="控制台输入带颜色的字"><a href="#控制台输入带颜色的字" class="headerlink" title="控制台输入带颜色的字"></a>控制台输入带颜色的字</h2><p>nodejs输出带颜色  \033[42;30m最后还原属性\033[0m</p>
+<hr>
+<p>字色编号：30黑，31红，32绿，33黄，34蓝，35紫，36深绿，37白色<br>背景编号：40黑，41红，42绿，43黄，44蓝，45紫，46深绿，47白色</p>
+<h2 id="gulp-sass"><a href="#gulp-sass" class="headerlink" title="gulp-sass"></a>gulp-sass</h2><p>传递一个对象为参数{outputStyle:str}<br/><br>嵌套输出方式 nested <br/><br>展开输出方式 expanded <br/><br>紧凑输出方式 compact <br/><br>压缩输出方式 compressed <br/><br>编写sass文件时要使用/**/注释，css不支持//<br/></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="/">btKrc1nx</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://www.btkrc.com/posts/4cc2ef8a/">https://www.btkrc.com/posts/4cc2ef8a/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">许可协议: </span><span class="post-copyright-info">署名-非商业性使用 本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 协议进行许可</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/gulp/">gulp</a></div><div class="post_share"></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 请我恰杯咖啡吧<div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/uploads/wechat.png" target="_blank"><img class="post-qr-code-img" src="/uploads/wechat.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li></ul></div></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/posts/a378bd8e/"><img class="prev-cover" src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/img/EWfjy8dQPr.png" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Python</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关的笔记</span></div><div class="relatedPosts-list"><div><a href="/posts/53ec6fd6/" title="使用gulp的注意事项"><img class="cover" src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/img/d921cea444ca1f662318d2f90ef71b51-768x543.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-11-16</div><div class="title">使用gulp的注意事项</div></div></a></div></div></div></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/img/2a3b97dda144ad34e8b7b25bd2a20cf430ad85fe.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">btKrc1nx</div><div class="author-info__description">鹦鹉铲屎官 & 刀剑爱好者 & BugBuilder & 前端狗 & 脚本小子</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/./"><div class="headline">文章</div><div class="length-num">57</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">34</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div></div><a class="button--animated" id="card-info-btn" href="/"><i class="iconfont iconai-home"></i><span>どうもありがと</span></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="card-content"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#gulp%E5%8C%B9%E9%85%8D%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.</span> <span class="toc-text">gulp匹配模式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"><span class="toc-number">2.</span> <span class="toc-text">常见问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#build%E5%AF%BC%E5%87%BA%E5%AE%9A%E4%B9%89%E7%BB%84%E5%90%88%E4%BB%BB%E5%8A%A1"><span class="toc-number">2.1.</span> <span class="toc-text">build导出定义组合任务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%BC%E5%87%BA%E4%B8%80%E4%B8%AA%E4%BB%BB%E5%8A%A1%E4%BD%BF%E5%85%B6%E6%88%90%E4%B8%BApublic"><span class="toc-number">2.2.</span> <span class="toc-text">导出一个任务使其成为public</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%8D%E5%88%B6%E6%96%87%E4%BB%B6"><span class="toc-number">2.3.</span> <span class="toc-text">复制文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9D%82%E9%A1%B9"><span class="toc-number">2.4.</span> <span class="toc-text">杂项</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#rename%E5%8F%AF%E4%BB%A5%E7%9B%B4%E6%8E%A5%E4%BC%A0%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%87%8D%E5%91%BD%E5%90%8D%E4%B9%9F%E5%8F%AF%E4%BB%A5%E4%BC%A0%E4%B8%80%E4%B8%AAjs%E5%AF%B9%E8%B1%A1"><span class="toc-number">2.4.1.</span> <span class="toc-text">rename可以直接传字符串重命名也可以传一个js对象:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E5%88%B7%E6%96%B0%E7%BD%91%E9%A1%B5"><span class="toc-number">2.5.</span> <span class="toc-text">自动刷新网页</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#gulp-connect"><span class="toc-number">2.5.1.</span> <span class="toc-text">gulp-connect:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%A7%E8%A1%8Cgulp%E5%91%BD%E4%BB%A4%E6%97%B6%E4%BC%A0%E5%85%A5%E5%8F%82%E6%95%B0"><span class="toc-number">2.6.</span> <span class="toc-text">执行gulp命令时传入参数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#minimist"><span class="toc-number">2.6.1.</span> <span class="toc-text">minimist</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%91%E5%B8%83compressed-js%E6%96%87%E4%BB%B6"><span class="toc-number">2.7.</span> <span class="toc-text">发布compressed js文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#uglify"><span class="toc-number">2.7.1.</span> <span class="toc-text">uglify</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E5%8F%B0%E8%BE%93%E5%85%A5%E5%B8%A6%E9%A2%9C%E8%89%B2%E7%9A%84%E5%AD%97"><span class="toc-number">2.8.</span> <span class="toc-text">控制台输入带颜色的字</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#gulp-sass"><span class="toc-number">2.9.</span> <span class="toc-text">gulp-sass</span></a></li></ol></li></ol></div></div></div></div></div></main><footer id="footer" style="background-image: url(https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/img/ixcxhNPRQk.png)"><div id="footer-wrap"><div class="copyright">&copy;2020 By btKrc1nx</div><div class="footer_custom_text"><i class="fas fa-user"></i> 访问用户：<span id="busuanzi_value_site_uv"></span> 人<br/><i class="fas fa-eye"></i> 访问量：<span id="busuanzi_value_site_pv"></span> 次</div><div class="icp"><a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/"><img class="icp-icon" src="/img/icp.png" alt="ICP"/><span>鄂ICP备2020021450号</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="hide-aside-btn" type="button"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="chat_btn" type="button" title="rightside.chat_btn"><i class="fas fa-sms"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/uploadsFile/butterfly/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',()=> {preloader.endLoading()})</script><div class="js-pjax"><script async src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/uploadsFile/butterfly/busuanzi.pure.mini.js"></script></div><script src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/uploadsFile/APlayer.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/uploadsFile/APlayer.min.css"><div id="aplayer" class="aplayer no-destroy"></div><script src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/uploadsFile/music2.js"></script><script src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/uploadsFile/translation/mJsonp.js" data-pjax></script><script src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/uploadsFile/mouse_snow.min.js"></script><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/uploadsFile/canvas-ribbon.min.js" size="150" alpha="1" zIndex="-1" mobile="true" data-click="true"></script><script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/454c1c1e.js","daovoice")
+</script><script>var isChatBtn = true
+daovoice('init', {
+  app_id: '454c1c1e',},{
+  launcher: { 
+     disableLauncherIcon: isChatBtn // 悬浮 ICON 是否显示
+  },
+});
+daovoice('update');
+
+if (isChatBtn) {
+  var chatBtnFn = () => {
+    var chatBtn = document.getElementById("chat_btn")
+    chatBtn.addEventListener("click", function(){
+      daovoice('show')
+    });
+  }
+  chatBtnFn()
+} else {
+  if (false) {
+    function chatBtnHide () {
+      daovoice('update', {},{
+        launcher: { 
+        disableLauncherIcon: true // 悬浮 ICON 是否显示
+        },
+      });
+    }
+    function chatBtnShow () {
+      daovoice('update', {},{
+        launcher: { 
+        disableLauncherIcon: false // 悬浮 ICON 是否显示
+        },
+      });
+    }
+  }
+}</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/uploadsFile/APlayer.min.css"><script src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/uploadsFile/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/uploadsFile/butterfly/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/uploadsFile/butterfly/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config_change',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  $('script[data-pjax]').each(function () {
+    $(this).parent().append($(this).remove())
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  if (typeof gtag === 'function') {
+    gtag('config', '', {'page_path': window.location.pathname});
+  }
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+
+document.addEventListener('pjax:send', function () {
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  $(window).off('scroll')
+
+  //reset readmode
+  $('body').hasClass('read-mode') && $('body').removeClass('read-mode')
+
+})</script><script>(function(){
+  const bp = document.createElement('script');
+  const curProtocol = window.location.protocol.split(':')[0];
+  if (curProtocol === 'https'){
+  bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else{
+  bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+  bp.dataset.pjax = ''
+  const s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})()</script></div><script src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/live2dw/lib/L2Dwidget.min.js"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"live2dw/lib/","pluginModelPath":"live2dw/assets/","tagMode":false,"debug":false,"model":{"scale":1,"jsonPath":"/live2dw/live2dw/assets/assets/shizuku.model.json"},"display":{"position":"right","width":200,"height":300,"hOffset":-40,"vOffset":-30},"mobile":{"show":true},"react":{"opacity":0.6},"log":false});</script></body></html>
