@@ -119,7 +119,7 @@ var ap = new APlayer({
     author: '音阙诗听',
     url: 'https://cdn.jsdelivr.net/gh/btKrc1nx/resource2@main/music/%E8%8A%92%E7%A7%8D.m4a',
     pic: 'https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/20201130184505.png',
-  },{
+  }, {
     title: '告白(Acoustic)',
     author: '冷鸟',
     url: 'https://cdn.jsdelivr.net/gh/btKrc1nx/resource2@main/music/%E5%91%8A%E7%99%BD(Acoustic).m4a',
@@ -144,5 +144,45 @@ var ap = new APlayer({
     author: '音阙诗听',
     url: 'https://cdn.jsdelivr.net/gh/btKrc1nx/resource2@main/music/%E7%AB%8B%E5%86%AC.m4a',
     pic: 'https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/20201130184505.png',
-  }, ]
+  }, {
+    title: '癒し イヤラシ☆これって何ナニ',
+    author: '伊ヶ崎綾香',
+    url: 'https://cdn.jsdelivr.net/gh/btKrc1nx/resource2@main/music/%E7%99%92%E3%81%97%20%E3%82%A4%E3%83%A4%E3%83%A9%E3%82%B7%E2%98%86%E3%81%93%E3%82%8C%E3%81%A3%E3%81%A6%E4%BD%95%E3%83%8A%E3%83%8B.mp3',
+    pic: 'https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/20201130184505.png',
+  }, {
+    title: 'ForGotten Sorrow',
+    author: 'Yozoh',
+    url: 'https://cdn.jsdelivr.net/gh/btKrc1nx/resource2@main/music/ForGotten%20Sorrow.m4a',
+    pic: 'https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/20201130184505.png',
+  }, {
+    title: '彼女は旅に出る',
+    author: '鎖那',
+    url: 'https://cdn.jsdelivr.net/gh/btKrc1nx/resource2@main/music/%E5%BD%BC%E5%A5%B3%E3%81%AF%E6%97%85%E3%81%AB%E5%87%BA%E3%82%8B.m4a',
+    pic: 'https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/20201130184505.png',
+  }, {
+    title: 'Miku',
+    author: '初音ミク',
+    url: 'https://cdn.jsdelivr.net/gh/btKrc1nx/resource2@main/music/Miku.m4a',
+    pic: 'https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/20201130184505.png',
+  }, {
+    title: '今夜的风',
+    author: '程响',
+    url: 'https://cdn.jsdelivr.net/gh/btKrc1nx/resource2@main/music/%E4%BB%8A%E5%A4%9C%E7%9A%84%E9%A3%8E.m4a',
+    pic: 'https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/20201130184505.png',
+  }, {
+    title: 'Deep Blue Townへおいでよ',
+    author: '内田真礼',
+    url: 'https://cdn.jsdelivr.net/gh/btKrc1nx/resource2@main/music/Deep%20Blue%20Town%E3%81%B8%E3%81%8A%E3%81%84%E3%81%A7%E3%82%88%20.m4a',
+    pic: 'https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/20201130184505.png',
+  },{
+    title: '化身星海',
+    author: '爱哥',
+    url: 'https://cdn.jsdelivr.net/gh/btKrc1nx/resource2@main/music/%E5%8C%96%E8%BA%AB%E6%98%9F%E6%B5%B7.m4a',
+    pic: 'https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/20201130184505.png',
+  },{
+    title: '緋色月下、狂咲ノ絶',
+    author: '',
+    url: 'https://cdn.jsdelivr.net/gh/btKrc1nx/resource2@main/music/%E7%B7%8B%E8%89%B2%E6%9C%88%E4%B8%8B%E3%80%81%E7%8B%82%E5%92%B2%E3%83%8E%E7%B5%B6.m4a',
+    pic: 'https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/20201130184505.png',
+  },]
 });
