@@ -223,7 +223,7 @@ hr {
 
 /*透明背景*/
 
-.recent-post-item, #post, .card-info, #page {
+.recent-post-item, #post, .card-info, #page,.card-announcement {
     background: rgba(255, 255, 255, 0.6) !important;
 }
 
