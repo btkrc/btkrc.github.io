@@ -294,3 +294,8 @@ a, img {
     width: 45%;
     height: 1.5rem;
 }
+
+/*waline版权*/
+.txt-right{
+display:none !important;
+}
