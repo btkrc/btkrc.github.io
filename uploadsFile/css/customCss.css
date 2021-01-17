@@ -295,7 +295,11 @@ a, img {
     height: 1.5rem;
 }
 
-/*waline版权*/
+/*waline*/
 .txt-right{
+display:none !important;
+}
+
+.vleft.vlogin{
 display:none !important;
 }
