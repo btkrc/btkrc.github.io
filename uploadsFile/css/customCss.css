@@ -296,10 +296,63 @@ a, img {
 }
 
 /*waline*/
-.txt-right{
-display:none !important;
+
+.txt-right {
+    display: none !important;
 }
 
-.vleft.vlogin{
-display:none !important;
+.vleft.vlogin {
+    display: none !important;
 }
+
+/*自定义引用样式*/
+
+.myQuote {
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 1rem;
+    color: #FFA500;
+    background: #222a30;
+    border: 0.2rem solid rgb(255, 0, 0);
+    animation: myQuoteAnim 2s infinite linear;
+}
+
+@keyframes myQuoteAnim {
+    0% {
+        border-color: #ff69b4;
+    }
+    10% {
+        border-color: #6495ed;
+    }
+    20% {
+        border-color: #daa520;
+    }
+    30% {
+        border-color: #7fffd4;
+    }
+    40% {
+        border-color: #fa8072;
+    }
+    50% {
+        border-color: #90ee90;
+    }
+    60% {
+        border-color: #f4a460;
+    }
+    70% {
+        border-color: #5B9600;
+    }
+    80% {
+        border-color: #147B96;
+    }
+    90% {
+        border-color: #f4a460;
+    }
+    100% {
+        border-color: #ff69b4;
+    }
+}
+
+/*自定义引用样式 end*/
