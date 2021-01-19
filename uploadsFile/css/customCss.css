@@ -141,9 +141,9 @@ header.full_page {
 
 /*隐藏全屏首页的社交连接*/
 
-#site_social_icons {
+/*#site_social_icons {
     display: none !important;
-}
+}*/
 
 /*自定义 字体图标的样式*/
 
