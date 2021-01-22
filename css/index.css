@@ -4614,9 +4614,6 @@ _:future,
 #waline .vcards .vcard .vcontent.expand:after {
   z-index: 22;
 }
-#waline-wrap textarea {
-  background: url("/image/comment_bg.png") 100% 100% no-repeat;
-}
 .fireworks {
   position: fixed;
   top: 0;
