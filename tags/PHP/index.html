@@ -98,7 +98,7 @@ const getScript = url => new Promise((resolve, reject) => {
   isHome: false,
   isHighlightShrink: undefined,
   isToc: false,
-  postUpdate: '2021-01-29 22:50:46'
+  postUpdate: '2021-01-29 23:30:47'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -213,7 +213,9 @@ document.addEventListener('pjax:send', function () {
   bp.dataset.pjax = ''
   const s = document.getElementsByTagName("script")[0];
   s.parentNode.insertBefore(bp, s);
-})()</script></div><script src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/live2dw/lib/L2Dwidget.min.js"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"live2dw/lib/","pluginModelPath":"live2dw/assets/","tagMode":false,"debug":false,"model":{"scale":1,"jsonPath":"https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/dsr50_1801/dsr50_1801.model.json"},"display":{"position":"right","width":300,"height":450,"hOffset":-60,"vOffset":-180},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body></html>f (window.aplayers) {
+})()</script></div><script src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/live2dw/lib/L2Dwidget.min.js"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"live2dw/lib/","pluginModelPath":"live2dw/assets/","tagMode":false,"debug":false,"model":{"scale":1,"jsonPath":"https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/dsr50_1801/dsr50_1801.model.json"},"display":{"position":"right","width":300,"height":450,"hOffset":-60,"vOffset":-180},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body></html>loader.initLoading()
+  
+  if (window.aplayers) {
     for (let i = 0; i < window.aplayers.length; i++) {
       if (!window.aplayers[i].options.fixed) {
         window.aplayers[i].destroy()
