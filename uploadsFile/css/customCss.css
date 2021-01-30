@@ -139,11 +139,6 @@ header.full_page {
 
 */
 
-/*隐藏全屏首页的社交连接*/
-
-/*#site_social_icons {
-    display: none !important;
-}*/
 
 /*自定义 字体图标的样式*/
 
@@ -317,6 +312,7 @@ a, img {
     background: #222a30;
     border: 0.2rem solid rgb(255, 0, 0);
     animation: myQuoteAnim 2s infinite linear;
+    font-weight: bolder;
 }
 
 @keyframes myQuoteAnim {
@@ -356,3 +352,11 @@ a, img {
 }
 
 /*自定义引用样式 end*/
+
+/*公告栏*/
+
+.card-announcement{
+background:rgba(34,42,48,0.7) !important;
+color:#FFA500;
+font-weight:bolder;
+}
