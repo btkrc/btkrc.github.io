@@ -26,7 +26,7 @@ header.full_page {
     color: #55292a !important;
 }
 
-#post-info .post-title, .author-info__name, .post-copyright__author .post-copyright-info a {
+#post-info .post-title, .post-copyright__author .post-copyright-info a ,.saoguang{
     background-image: -webkit-linear-gradient(right, red, orange, yellow, green, yellow, orange, red, orange, yellow, green, yellow, orange, red);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
@@ -360,3 +360,75 @@ background:rgba(34,42,48,0.7) !important;
 color:#FFA500;
 font-weight:bolder;
 }
+
+
+/*shake 文字*/
+.myShake,.author-info__name{
+animation: shake-it .5s reverse infinite cubic-bezier(.68, -.55, .27, 1.55)
+}
+
+.recent-post-info .article-title:hover{
+animation: shake-it .5s reverse infinite cubic-bezier(.68, -.55, .27, 1.55)
+}
+
+
+@-moz-keyframes shake-it {
+    0% {
+        text-shadow: 0 0 rgba(0, 255, 255, 0.5), 0 0 rgba(255, 0, 0, 0.5)
+    }
+    25% {
+        text-shadow: -2px 0 rgba(0, 255, 255, 0.5), 2px 0 rgba(255, 0, 0, 0.5)
+    }
+    50% {
+        text-shadow: -5px 0 rgba(0, 255, 255, 0.5), 3px 0 rgba(255, 0, 0, 0.5)
+    }
+    100% {
+        text-shadow: 3px 0 rgba(0, 255, 255, 0.5), 5px 0 rgba(255, 0, 0, 0.5)
+    }
+}
+
+@-webkit-keyframes shake-it {
+    0% {
+        text-shadow: 0 0 rgba(0, 255, 255, 0.5), 0 0 rgba(255, 0, 0, 0.5)
+    }
+    25% {
+        text-shadow: -2px 0 rgba(0, 255, 255, 0.5), 2px 0 rgba(255, 0, 0, 0.5)
+    }
+    50% {
+        text-shadow: -5px 0 rgba(0, 255, 255, 0.5), 3px 0 rgba(255, 0, 0, 0.5)
+    }
+    100% {
+        text-shadow: 3px 0 rgba(0, 255, 255, 0.5), 5px 0 rgba(255, 0, 0, 0.5)
+    }
+}
+
+@-o-keyframes shake-it {
+    0% {
+        text-shadow: 0 0 rgba(0, 255, 255, 0.5), 0 0 rgba(255, 0, 0, 0.5)
+    }
+    25% {
+        text-shadow: -2px 0 rgba(0, 255, 255, 0.5), 2px 0 rgba(255, 0, 0, 0.5)
+    }
+    50% {
+        text-shadow: -5px 0 rgba(0, 255, 255, 0.5), 3px 0 rgba(255, 0, 0, 0.5)
+    }
+    100% {
+        text-shadow: 3px 0 rgba(0, 255, 255, 0.5), 5px 0 rgba(255, 0, 0, 0.5)
+    }
+}
+
+@keyframes shake-it {
+    0% {
+        text-shadow: 0 0 rgba(0, 255, 255, 0.5), 0 0 rgba(255, 0, 0, 0.5)
+    }
+    25% {
+        text-shadow: -2px 0 rgba(0, 255, 255, 0.5), 2px 0 rgba(255, 0, 0, 0.5)
+    }
+    50% {
+        text-shadow: -5px 0 rgba(0, 255, 255, 0.5), 3px 0 rgba(255, 0, 0, 0.5)
+    }
+    100% {
+        text-shadow: 3px 0 rgba(0, 255, 255, 0.5), 5px 0 rgba(255, 0, 0, 0.5)
+    }
+}
+/*shake end*/
