@@ -31,12 +31,14 @@ function myGetRuntime(d) {
   return result
 }
 
+var mTimer
+
 (function () {
   const $runtimeCount = document.getElementById('runtimeshow')
   if ($runtimeCount) {
     const publishDate = $runtimeCount.getAttribute('data-publishDate')
     clearInterval(mTimer)
-    var mTimer = setInterval(function () {
+    mTimer = setInterval(function () {
       const runtimeDate = myGetRuntime(publishDate)
       $runtimeCount.innerText = '本站已运行 ' + runtimeDate.day + '天' + runtimeDate.hour + '小时' + runtimeDate.minute + '分钟' + runtimeDate.second + '秒'
     }, 1000)
