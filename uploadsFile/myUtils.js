@@ -40,7 +40,7 @@ var mTimer
     clearInterval(mTimer)
     mTimer = setInterval(function () {
       const runtimeDate = myGetRuntime(publishDate)
-      $runtimeCount.innerText = '本站已运行 ' + runtimeDate.day + '天' + runtimeDate.hour + '小时' + runtimeDate.minute + '分钟' + runtimeDate.second + '秒'
+      $runtimeCount.innerText = '本站已运行 ' + runtimeDate.day + '天' + runtimeDate.hour + '小时' + runtimeDate.minute + '分钟' + (runtimeDate.second < 10 ? ('0' + runtimeDate.second) : runtimeDate.second) + '秒'
     }, 1000)
 
   }
