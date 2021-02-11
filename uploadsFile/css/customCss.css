@@ -230,11 +230,10 @@ hr {
     }
 }
 
-/*
+
 figure.highlight, figure.highlight pre {
     background: rgba(255, 255, 255, 0.6) !important;
 }
-*/
 
 /*自定义页面背景 end--------------*/
 
@@ -432,3 +431,13 @@ animation: shake-it .5s reverse infinite cubic-bezier(.68, -.55, .27, 1.55)
     }
 }
 /*shake end*/
+
+/*美化waline*/
+
+#waline-wrap .vwrap,#waline-wrap .vinput,#waline-wrap .vbtn,#waline-wrap .vcard .vh{
+border-color:#999999;
+}
+
+#waline-wrap .vpanel .vright .vrow .vcol a{display:none;}
+
+/*waline end*/
