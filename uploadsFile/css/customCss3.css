@@ -45,7 +45,7 @@ header.full_page {
 
 /*扫光字体 首页*/
 
-#site-title, #subtitle {
+#subtitle {
     background-image: -webkit-linear-gradient(left, #147B96, #E6D205 25%, #147B96 50%, #E6D205 75%, #147B96);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
@@ -358,7 +358,7 @@ font-weight:bolder;
 
 
 /*shake 文字*/
-.myShake,.author-info__name{
+.myShake,.author-info__name,#site-title{
 animation: shake-it .5s reverse infinite cubic-bezier(.68, -.55, .27, 1.55)
 }
 
@@ -437,3 +437,19 @@ border-color:#999999;
 #waline-wrap .vpanel .vright .vrow .vcol a{display:none;}
 
 /*waline end*/
+
+/*置顶封面美化*/
+.full_page::before{
+content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+    background-attachment: fixed;
+    background-image: url(https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/images/dot.gif);
+
+}
+
+/*置顶封面 end*/
