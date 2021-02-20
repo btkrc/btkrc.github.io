@@ -1,0 +1,307 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>路由原理 | KROC'S BLOG</title><meta name="keywords" content="计算机网络,路由器,网络层"><meta name="author" content="btKrc1nx"><meta name="copyright" content="btKrc1nx"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="路由原理路由器工作在三层，起到隔绝网段的作用，路由器的每一个接口都必须在不同网段，同一接口可以配置多个IP地址，通过路由表转发数据。 在同一网段发送的广播包会被路由器隔绝，在和交换机连接时使用直通线（所有三层以上设备都视作相同设备） 静态路由一般来说手动配置的路由项称为静态路由，由网络管理员逐项加入路由表。  上图中C(connected)表示直连路由，为端口配置IP地址，并为UP状态，形成直连路">
+<meta property="og:type" content="article">
+<meta property="og:title" content="路由原理">
+<meta property="og:url" content="https://www.btkrc.com/posts/1c7b8402/index.html">
+<meta property="og:site_name" content="KROC&#39;S BLOG">
+<meta property="og:description" content="路由原理路由器工作在三层，起到隔绝网段的作用，路由器的每一个接口都必须在不同网段，同一接口可以配置多个IP地址，通过路由表转发数据。 在同一网段发送的广播包会被路由器隔绝，在和交换机连接时使用直通线（所有三层以上设备都视作相同设备） 静态路由一般来说手动配置的路由项称为静态路由，由网络管理员逐项加入路由表。  上图中C(connected)表示直连路由，为端口配置IP地址，并为UP状态，形成直连路">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/img/PBifs6Gfij.png">
+<meta property="article:published_time" content="2021-02-20T03:21:35.000Z">
+<meta property="article:modified_time" content="2021-02-20T03:21:35.000Z">
+<meta property="article:author" content="btKrc1nx">
+<meta property="article:tag" content="计算机网络">
+<meta property="article:tag" content="路由器">
+<meta property="article:tag" content="网络层">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/img/PBifs6Gfij.png"><link rel="shortcut icon" href="/uploads/favicon.ico"><link rel="canonical" href="https://www.btkrc.com/posts/1c7b8402/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="preconnect" href="//zz.bdstatic.com"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/uploadsFile/butterfly/all.min.css" media="print" onload="this.media='all'"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":0,"languages":{"author":"作者: btKrc1nx","link":"链接: ","source":"来源: KROC'S BLOG","info":"转载我的文章和笔记务必注明出处"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/uploadsFile/butterfly/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}
+
+// https://stackoverflow.com/questions/16839698/jquery-getscript-alternative-in-native-javascript
+const getScript = url => new Promise((resolve, reject) => {
+  const script = document.createElement('script')
+  script.src = url
+  script.async = true
+  script.onerror = reject
+  script.onload = script.onreadystatechange = function() {
+    const loadState = this.readyState
+    if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+    script.onload = script.onreadystatechange = null
+    resolve()
+  }
+  document.head.appendChild(script)
+})</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: undefined,
+  isToc: true,
+  postUpdate: '2021-02-20 11:21:35'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}})()</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/uploadsFile/css/customCss5.css"><script src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/uploadsFile/butterfly/jquery.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/myIconFont/iconfont.css"><script src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/myIconFont/iconfont.js"></script><meta name="generator" content="Hexo 5.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/img/2a3b97dda144ad34e8b7b25bd2a20cf430ad85fe.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/"><div class="headline">文章</div><div class="length-num">118</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">52</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/translation/"><i class="fa-fw iconfont iconfanyi"></i><span> 在线中英互译</span></a></div><div class="menus_item"><a class="site-page" href="/encodeUrl/"><i class="fa-fw fa fa-wrench"></i><span> URL编码工具</span></a></div><div class="menus_item"><a class="site-page" href="/imgCompress/"><i class="fa-fw fas fa-hammer"></i><span> 在线图片压缩</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-image"></i><span> 画廊</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/img/PBifs6Gfij.png)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">KROC'S BLOG</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/translation/"><i class="fa-fw iconfont iconfanyi"></i><span> 在线中英互译</span></a></div><div class="menus_item"><a class="site-page" href="/encodeUrl/"><i class="fa-fw fa fa-wrench"></i><span> URL编码工具</span></a></div><div class="menus_item"><a class="site-page" href="/imgCompress/"><i class="fa-fw fas fa-hammer"></i><span> 在线图片压缩</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-image"></i><span> 画廊</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">路由原理</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-02-20T03:21:35.000Z" title="发表于 2021-02-20 11:21:35">2021-02-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-02-20T03:21:35.000Z" title="更新于 2021-02-20 11:21:35">2021-02-20</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="路由原理"><a href="#路由原理" class="headerlink" title="路由原理"></a>路由原理</h1><p>路由器工作在三层，起到隔绝网段的作用，路由器的每一个接口都必须在不同网段，同一接口可以配置多个IP地址，通过路由表转发数据。</p>
+<p><strong>在同一网段发送的广播包会被路由器隔绝</strong>，在和交换机连接时使用<strong>直通线</strong>（所有三层以上设备都视作相同设备）</p>
+<h2 id="静态路由"><a href="#静态路由" class="headerlink" title="静态路由"></a>静态路由</h2><p>一般来说手动配置的路由项称为静态路由，由网络管理员逐项加入路由表。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/img/kzrFmrhYTh.png"></p>
+<p>上图中C(connected)表示直连路由，为端口配置IP地址，并为UP状态，形成直连路由（<strong>三层网络设备在出厂时默认都是administratively down状态，需要手动开启，交换机则不同，新的交换机直接插上网线就能用</strong>）</p>
+<p>S(static)表示静态路由信息，S*为默认路由。默认路由将IP地址和子网掩码全部置为0。</p>
+<p>路由表的配置类似于交换机的MAC地址表，它并不直接指向目标地址，而是标识了目标下一跳的接口。</p>
+<p>路由表的优先级按照管理距离值排序，其中C=0，S=1，S*为无穷大（<strong>相对与其他条目，默认路由也可以配置管理距离值</strong>），管理距离值可以手动配置</p>
+<h2 id="浮动路由"><a href="#浮动路由" class="headerlink" title="浮动路由"></a>浮动路由</h2><p>有多个接口连接时可以配置多个路由表，使用管理距离值来区分优先级，当其中一条线路瘫痪后可以使用备用线路。目标网段一样时后配置的路由条目会被隐藏。（默认路由不会被隐藏），当其中一条失效后，被隐藏的路由条目会生效。</p>
+<h2 id="静态路由的配置"><a href="#静态路由的配置" class="headerlink" title="静态路由的配置"></a>静态路由的配置</h2><ul>
+<li><p>静态路由</p>
+<ul>
+<li><code>Router(config)# ip route [network] [mask] &#123;address | interface&#125;</code></li>
+</ul>
+</li>
+<li><p>默认路由</p>
+<ul>
+<li><code>Router(config)# ip route 0.0.0.0 0.0.0.0 [address]</code></li>
+</ul>
+</li>
+<li><p>浮动路由</p>
+<ul>
+<li><code>Router(config)# ip route [network] [mask] &#123;address | interface&#125; [digit]</code></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h1><h2 id="拓扑图"><a href="#拓扑图" class="headerlink" title="拓扑图"></a>拓扑图</h2><p><img src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202021-02-20%20133735.jpg"></p>
+<p>上图中实线代表直通线，虚线代表交叉线。</p>
+<p>R1和R2分别额外安装一个NM-2FE2W模块，保证一条线路瘫痪后另一条线路可以正常运作</p>
+<p>目的：全网互通、并使用任一终端远程控制交换机和路由器</p>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ul>
+<li><p>为终端配置IP地址，将网关指向路由器连接交换机的网卡。</p>
+</li>
+<li><p>为路由器的每个端口配置IP地址，并手动开启。以R1为例</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Router&gt;enable</span><br><span class="line">Router#config t</span><br><span class="line">Enter configuration commands, one per line.  End with CNTL&#x2F;Z.</span><br><span class="line">Router(config)#int f0&#x2F;0</span><br><span class="line">Router(config-if)#ip add 192.168.1.254 255.255.255.0</span><br><span class="line">Router(config-if)#no sh</span><br><span class="line">Router(config-if)#exit</span><br><span class="line">Router(config)#int f0&#x2F;1</span><br><span class="line">Router(config-if)#ip add 192.168.2.1 255.255.255.0</span><br><span class="line">Router(config-if)#no sh</span><br><span class="line">Router(config-if)#exit</span><br><span class="line">Router(config)#int f1&#x2F;0</span><br><span class="line">Router(config-if)#ip add 192.168.3.1 255.255.255.0</span><br><span class="line">Router(config-if)#no sh</span><br><span class="line">Router(config-if)#exit</span><br><span class="line">Router(config)#ho r1</span><br></pre></td></tr></table></figure>
+
+<hr>
+<ul>
+<li>为端口配置IP地址后直连路由已经启动，接下来配置非直连路由。以R2为例。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">r2#enable</span><br><span class="line">r2#config t</span><br><span class="line">r2(config)#ip route 192.168.1.0 255.255.255.0 192.168.2.1</span><br><span class="line">r2(config)#ip route 192.168.1.0 255.255.255.0 192.168.3.1 2</span><br><span class="line">r2(config)#ip route 192.168.5.0 255.255.255.0 192.168.4.2</span><br><span class="line">r2(config)#do sh ip route</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202021-02-20%20141637.jpg"></p>
+<p>此时生效的是管理距离值为1的默认路由，当这条线路瘫痪后（只要状态为down，不管是administratively down还是物理层的down），第二项条目就会生效。</p>
+<p>R1配置两条默认路由，指向R2的两个接口。</p>
+<ul>
+<li>测试</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202021-02-20%20142243.jpg"></p>
+<p>为终端配置网关</p>
+<p><img src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202021-02-20%20142403.jpg"></p>
+<ul>
+<li>远程控制路由器</li>
+</ul>
+<p>直接用23端口访问，就不加密了，以R1为例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">r1&gt;enable</span><br><span class="line">r1#config t</span><br><span class="line">r1(config)#user</span><br><span class="line">r1(config)#username gy pass</span><br><span class="line">r1(config)#username gy password 123.com</span><br><span class="line">r1(config)#line vty 0 4</span><br><span class="line">r1(config-line)#transport input telnet </span><br><span class="line">r1(config-line)#login local</span><br><span class="line">r1(config-line)#exit</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202021-02-20%20143242.jpg"></p>
+<ul>
+<li>远程控制交换机</li>
+</ul>
+<p>需要在交换机的虚拟接口上配置IP地址，如果要跨网段访问要需要配置网关。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Switch&gt;enable</span><br><span class="line">Switch(config)#int vlan1</span><br><span class="line">Switch(config-if)#ip add 192.168.1.253 255.255.255.0</span><br><span class="line">Switch(config-if)#ip default-gateway 192.168.1.254</span><br><span class="line">Switch(config-if)#no sh</span><br><span class="line">Switch(config)#exit</span><br><span class="line">Switch(config)#line vty 0 4</span><br><span class="line">Switch(config-line)#transp</span><br><span class="line">Switch(config-line)#transport inp</span><br><span class="line">Switch(config-line)#transport input telnet</span><br><span class="line">Switch(config-line)#login local</span><br><span class="line">Switch(config-line)#exit</span><br><span class="line">Switch(config)#user</span><br><span class="line">Switch(config)#username gy pa</span><br><span class="line">Switch(config)#username gy password 123.com</span><br><span class="line">Switch(config)#exit</span><br></pre></td></tr></table></figure>
+
+<p>如果交换机没有虚拟接口的话就没办法通过IP远程访问了，本身交换机是工作在2层的，不具备识别IP地址的能力。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">btKrc1nx</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://www.btkrc.com/posts/1c7b8402/">https://www.btkrc.com/posts/1c7b8402/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">署名-非商业性使用 本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 协议进行许可，转载请注明来自 <a href="https://www.btkrc.com" target="_blank">KROC'S BLOG</a></span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a><a class="post-meta__tags" href="/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/">路由器</a><a class="post-meta__tags" href="/tags/%E7%BD%91%E7%BB%9C%E5%B1%82/">网络层</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/img/PBifs6Gfij.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 请我喝杯咖啡吧<div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/uploads/wechat.png" target="_blank"><img class="post-qr-code-img" src="/uploads/wechat.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li></ul></div></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/posts/92a4805e/"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/img/20adf7f7ff2a57c4b3c9616837cde80c.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">IP数据报头部详解</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/img/2a3b97dda144ad34e8b7b25bd2a20cf430ad85fe.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">btKrc1nx</div><div class="author-info__description">资深养鸟人 & Katana爱好者 & BugBuilder & 前端狗 & 脚本小子<br/>技术栈：面向github编程、面向监狱编程</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/"><div class="headline">文章</div><div class="length-num">118</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">52</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/btKrc1nx" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="https://space.bilibili.com/29980082" target="_blank" title="B站"><i class="iconfont iconbilibili1"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>元気いっぱい</span></div><div class="announcement_content">皆さん、こんにちは，Krocのブログへようこそ～<br/>Minasan、kon'nichiwa，Kroc no burogue yo koso ~</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E5%8E%9F%E7%90%86"><span class="toc-number">1.</span> <span class="toc-text">路由原理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E8%B7%AF%E7%94%B1"><span class="toc-number">1.1.</span> <span class="toc-text">静态路由</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%AE%E5%8A%A8%E8%B7%AF%E7%94%B1"><span class="toc-number">1.2.</span> <span class="toc-text">浮动路由</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E8%B7%AF%E7%94%B1%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="toc-number">1.3.</span> <span class="toc-text">静态路由的配置</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C"><span class="toc-number">2.</span> <span class="toc-text">实验</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8B%93%E6%89%91%E5%9B%BE"><span class="toc-number">2.1.</span> <span class="toc-text">拓扑图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4"><span class="toc-number">2.2.</span> <span class="toc-text">步骤</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer" style="background-image: url(https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/img/ixcxhNPRQk.png)"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By btKrc1nx</div><div class="footer_custom_text"><i class="fas fa-clock"></i> <span class="item-count" id="runtimeshow" data-publishdate="2020-10-01T10:10:00.000Z"></span><br/><a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">鄂ICP备2020021450号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>function loadWaline () {
+  function initWaline () {
+    let initData = {
+      el: '#waline-wrap',
+      serverURL: 'https://comment-3gmu55rre8084a62-1301578757.ap-shanghai.app.tcloudbase.com/waline',
+      avatar: 'hide',
+      path: location.pathname,
+      emojiCDN: '',
+      emojiMaps: "",
+    }
+    
+    if (false) {
+      const otherData = false
+      initData = Object.assign(initData, otherData)
+    }
+    
+    const waline = new Waline(initData)
+  }
+
+  if (typeof Waline === 'function') initWaline() 
+  else getScript('https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/uploadsFile/Waline.min.js').then(initWaline)
+}
+
+if ('Waline' === 'Waline' || !true) {
+  if (true) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+  else setTimeout(loadWaline, 0)
+} else {
+  function loadOtherComment () {
+    loadWaline()
+  }
+}</script><script async src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/uploadsFile/butterfly/busuanzi.pure.mini.js"></script></div><script src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/uploadsFile/APlayer.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/uploadsFile/APlayer.min.css"><div id="aplayer" class="aplayer no-destroy"></div><script src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/uploadsFile/music.js"></script><script src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/uploadsFile/translation/mJsonp.js" data-pjax></script><script src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/uploadsFile/encodeUrl.js" data-pjax></script><script src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/uploadsFile/mouse_snow.min.js"></script><script src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/uploadsFile/myUtils.js" data-pjax></script><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/uploadsFile/canvas-ribbon.min.js" size="150" alpha="1" zIndex="-1" mobile="true" data-click="true"></script><script src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/uploadsFile/butterfly/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config_change',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  if (typeof gtag === 'function') {
+    gtag('config', '', {'page_path': window.location.pathname});
+  }
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+
+document.addEventListener('pjax:send', function () {
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})</script><script>(function(){
+  const bp = document.createElement('script');
+  const curProtocol = window.location.protocol.split(':')[0];
+  if (curProtocol === 'https') {
+    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else{
+    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+  bp.dataset.pjax = ''
+  const s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})()</script></div><script src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/live2dw/lib/L2Dwidget.min.js"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"live2dw/lib/","pluginModelPath":"live2dw/assets/","tagMode":false,"debug":false,"model":{"scale":1,"jsonPath":"https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/dsr50_1801/dsr50_1801.model.json"},"display":{"position":"right","width":300,"height":450,"hOffset":-60,"vOffset":-180},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body></html>
