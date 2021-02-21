@@ -13,6 +13,19 @@
 display:block !important;
 }
 
+/*自定义字体*/
+
+@font-face{
+  font-family:'tiantianquanziti' ; 
+  src:url('https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/fontFamily/tiantianquanziti.ttf'); 
+  font-display : swap;
+}
+
+.copyright,.beian,.recent-post-info,.card-widget,#post h1,#post h2,#post h3,#post h4,#post h5,#site-title,#subtitle,#blog_name,#menus,.pagination,.gallery-group,#post-info,.blog-slider__content{
+font-family:'tiantianquanziti',sans-serif;
+}
+/*自定义字体 end*/
+
 /*首页在最前*/
 
 header.full_page {
@@ -447,3 +460,4 @@ border-color:#999999;
 .full_page::before{content: '';pointer-events: none;position: absolute;top: 0;bottom: 0;left: 0;right: 0;z-index: 3;background-attachment: fixed;background-image: url(https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/img/dot.gif);transition: all 0.5s;}
 
 /*置顶封面 end*/
+
