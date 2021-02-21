@@ -21,7 +21,7 @@ display:block !important;
   font-display : swap;
 }
 
-.copyright,.beian,.recent-post-info,.card-widget,#post h1,#post h2,#post h3,#post h4,#post h5,#site-title,#subtitle,#blog_name,#menus,.pagination,.gallery-group,#post-info,.blog-slider__content,#sidebar-menus,.post-copyright,.tag_share,.reward-button,.pagination-post{
+.copyright,.footer_custom_text,.recent-post-info,.card-widget,#post h1,#post h2,#post h3,#post h4,#post h5,#site-title,#subtitle,#blog_name,#menus,.pagination,.gallery-group,#post-info,.blog-slider__content,#sidebar-menus,.post-copyright,.tag_share,.reward-button,.pagination-post{
 font-family:'tiantianquanziti',sans-serif;
 }
 /*自定义字体 end*/
@@ -40,9 +40,6 @@ header.full_page {
 
 /*扫光字体 标题*/
 
-.recent-post-info .article-title {
-    color: #55292a !important;
-}
 
 #post-info .post-title, .post-copyright__author .post-copyright-info a ,.saoguang{
     background-image: -webkit-linear-gradient(right, red, orange, yellow, green, yellow, orange, red, orange, yellow, green, yellow, orange, red);
@@ -182,9 +179,7 @@ header.full_page {
 
 /*自定义页面背景----------------*/
 
-body {
-    background: #ede3e3;
-}
+
 
 hr::before {
     color: #ff9b69 !important;
@@ -230,21 +225,18 @@ hr {
     border: 2px solid #EE6363 !important;
 }
 
-.post-copyright {
-    background: rgba(255, 255, 255, 0.5);
-}
 
 /*透明背景*/
 
-.recent-post-item, #post, .card-info, #page, .card-announcement {
-    background: rgba(255, 255, 255, 0.6) !important;
+.recent-post-item, #post, .card-info, #page, .card-announcement,.post-copyright {
+    background: rgba(0, 0, 0, 0.3) !important;
 }
 
 /*TOC在PC端透明，移动端不设置*/
 
 @media screen and (min-width: 901px) {
     .card-widget {
-        background: rgba(255, 255, 255, 0.6) !important;
+        background: rgba(0, 0, 0, 0.4) !important;
     }
 }
 
@@ -369,7 +361,7 @@ a, img {
 /*公告栏*/
 
 .card-announcement{
-background:rgba(34,42,48,0.7) !important;
+background:rgba(0,0,0,0.3) !important;
 color:#FFA500;
 font-weight:bolder;
 }
@@ -461,3 +453,9 @@ border-color:#999999;
 
 /*置顶封面 end*/
 
+/*dark模式下的封面图调亮 */
+.full_page:before{background-color:rgba(0,0,0,0) !important;}
+
+/*页脚透明*/
+#footer{background:rgba(0,0,0,0);}
+#footer:before{background:rgba(0,0,0,0) !important;}
