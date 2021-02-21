@@ -7,6 +7,11 @@
     fill: currentColor;
     overflow: hidden;
 }
+.iconfont.iconbilibili1{font-size: 22px !important;}
+
+#site_social_icons{
+display:block !important;
+}
 
 /*首页在最前*/
 
@@ -439,17 +444,6 @@ border-color:#999999;
 /*waline end*/
 
 /*置顶封面美化*/
-.full_page::before{
-content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 3;
-    background-attachment: fixed;
-    background-image: url(https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/images/dot.gif);
-
-}
+.full_page::before{content: '';pointer-events: none;position: absolute;top: 0;bottom: 0;left: 0;right: 0;z-index: 3;background-attachment: fixed;background-image: url(https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/img/dot.gif);transition: all 0.5s;}
 
 /*置顶封面 end*/
