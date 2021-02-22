@@ -45,7 +45,33 @@
                 ['前往我的博客', function () { Window.open('https://www.btkrc.com') }],
                 '|', //分隔符
             ]);
+
+            /*消息*/
+            setTimeout(function () {
+                Win10.newMsg('皆さん、こんにちは，Krocのブログへようこそ', 'btKrc1nx')
+            }, 500);
         });
+
+
+        /*恶作剧*/
+        function win10_forgive_me() {
+            Win10.enableFullScreen();
+            layer.alert('说了别点我', {}, function (index) {
+                var blue = $('<img src="./img/presentation/bluescreen.jpg" style="position: fixed;width: 100%;height:100%;top:0;z-index:9999999999" />');
+                setTimeout(function () {
+                    $('body').append(blue);
+                }, 3000);
+                setTimeout(function () {
+                    blue.remove();
+                    Win10.disableFullScreen();
+                    setTimeout(function () {
+                        layer.msg('开个玩笑，别打我');
+
+                    }, 1000);
+                }, 7000);
+                layer.close(index);
+            });
+        }
     </script>
 </head>
 
@@ -91,6 +117,13 @@
                                 class="fa fa-fw fa-windows win10-block-content-text"
                                 onclick="window.open('https://www.btkrc.com')"></div>
                             <div class="win10-block-content-text" style="font-size: 22px">前往我的博客</div>
+                        </div>
+                    </div>
+                    <div loc="1,6" size="3,2" class="block" onclick="win10_forgive_me()">
+                        <div class="content red">
+                            <div style="text-align: center;font-size: 30px;line-height: 44px"><i
+                                    class="fa fa-bug fa-fw"></i></div>
+                            <div style="text-align: center;font-size: 16px;line-height: 44px">千万别点我</div>
                         </div>
                     </div>
                 </div>
