@@ -21,7 +21,7 @@ display:block !important;
   font-display : swap;
 }
 
-.copyright,.footer_custom_text,.recent-post-info,.card-widget,#post h1,#post h2,#post h3,#post h4,#post h5,#site-title,#subtitle,#blog_name,#menus,.pagination,.gallery-group,#post-info,.blog-slider__content,#sidebar-menus,.post-copyright,.tag_share,.reward-button,.pagination-post{
+.copyright,.footer_custom_text,.recent-post-info,.card-widget,#post h1,#post h2,#post h3,#post h4,#post h5,#site-title,#subtitle,#blog_name,#menus,.pagination,.gallery-group,#post-info,.blog-slider__content,#sidebar-menus,.post-copyright,.tag_share,.reward-button,.pagination-post,#page,#post-comment{
 font-family:'tiantianquanziti',sans-serif;
 }
 /*自定义字体 end*/
@@ -69,6 +69,12 @@ header.full_page {
 }
 
 /*扫光字体 end*/
+
+/*发白光字体*/
+.baiguang,.tag-cloud-list a{
+text-shadow:0 0 0.05em #FFFFFF, 0 0 0.2em #FFFFFF, 0 0 0.15em #FFFFFF, 0 0 0.2em #FFFFFF, 0 0 0.3em #FFFFFF, 0 0 0.4em #FFFFFF, 0 0 0.5em #FF1177, 0 0 0.75em #FFFFFF;
+}
+
 
 /*
 
@@ -231,6 +237,7 @@ hr {
 .recent-post-item, #post, .card-info, #page, .card-announcement,.post-copyright {
     background: rgba(0, 0, 0, 0.4) !important;
 }
+
 
 /*TOC在PC端透明，移动端不设置*/
 
@@ -463,3 +470,4 @@ border-color:#999999;
 /*引用样式*/
 blockquote{border-left: 0.2rem solid #EE6A50;
     background: rgba(238,106,80,0.1);}
+
