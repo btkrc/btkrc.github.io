@@ -49,7 +49,7 @@
             /*消息*/
             setTimeout(function () {
                 Win10.newMsg('皆さん、こんにちは，Krocのブログへようこそ', 'btKrc1nx')
-            }, 500);
+            }, 2500);
         });
 
 
@@ -60,7 +60,7 @@
                 var blue = $('<img src="https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/img/bluescreen.jpg" style="position: fixed;width: 100%;height:100%;top:0;z-index:9999999999" />');
                 setTimeout(function () {
                     $('body').append(blue);
-                }, 3000);
+                }, 100);
                 setTimeout(function () {
                     blue.remove();
                     Win10.disableFullScreen();
@@ -68,7 +68,7 @@
                         layer.msg('开个玩笑，别打我');
 
                     }, 1000);
-                }, 7000);
+                }, 8000);
                 layer.close(index);
             });
         }
