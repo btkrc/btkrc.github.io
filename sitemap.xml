@@ -1110,6 +1110,13 @@
   </url>
   
   <url>
+    <loc>https://www.btkrc.com/tags/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</loc>
+    <lastmod>2021-02-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.btkrc.com/tags/C/</loc>
     <lastmod>2021-02-23</lastmod>
     <changefreq>daily</changefreq>
@@ -1124,7 +1131,7 @@
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/tags/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</loc>
+    <loc>https://www.btkrc.com/tags/PKI/</loc>
     <lastmod>2021-02-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1132,13 +1139,6 @@
   
   <url>
     <loc>https://www.btkrc.com/tags/%E5%9F%9F/</loc>
-    <lastmod>2021-02-23</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/tags/PKI/</loc>
     <lastmod>2021-02-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
