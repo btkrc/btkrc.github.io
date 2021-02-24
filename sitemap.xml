@@ -1068,14 +1068,14 @@
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/tags/Javascript/</loc>
+    <loc>https://www.btkrc.com/tags/gulp/</loc>
     <lastmod>2021-02-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/tags/gulp/</loc>
+    <loc>https://www.btkrc.com/tags/Javascript/</loc>
     <lastmod>2021-02-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1201,13 +1201,6 @@
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/tags/cisco/</loc>
-    <lastmod>2021-02-24</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.btkrc.com/tags/BAT%E8%84%9A%E6%9C%AC/</loc>
     <lastmod>2021-02-24</lastmod>
     <changefreq>daily</changefreq>
@@ -1215,7 +1208,7 @@
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/tags/HTML/</loc>
+    <loc>https://www.btkrc.com/tags/cisco/</loc>
     <lastmod>2021-02-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1223,6 +1216,13 @@
   
   <url>
     <loc>https://www.btkrc.com/tags/jQuery/</loc>
+    <lastmod>2021-02-24</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/HTML/</loc>
     <lastmod>2021-02-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
