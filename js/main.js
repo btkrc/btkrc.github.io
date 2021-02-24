@@ -38,14 +38,14 @@ document.addEventListener('DOMContentLoaded', function () {
     const $menuMask = document.getElementById('menu-mask')
     const $body = document.body
 
-    function openMobileSidebar () {
+    function openMobileSidebar() {
       btf.sidebarPaddingR()
       $body.style.overflow = 'hidden'
       btf.fadeIn($menuMask, 0.5)
       $mobileSidebarMenus.classList.add('open')
     }
 
-    function closeMobileSidebar () {
+    function closeMobileSidebar() {
       $body.style.overflow = ''
       $body.style.paddingRight = ''
       btf.fadeOut($menuMask, 0.5)
@@ -204,7 +204,7 @@ document.addEventListener('DOMContentLoaded', function () {
   /**
  * PhotoFigcaption
  */
-  function addPhotoFigcaption () {
+  function addPhotoFigcaption() {
     document.querySelectorAll('#article-container img').forEach(function (item) {
       const parentEle = item.parentNode
       if (!parentEle.parentNode.classList.contains('justified-gallery')) {
@@ -353,7 +353,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }, 200))
 
     // find the scroll direction
-    function scrollDirection (currentTop) {
+    function scrollDirection(currentTop) {
       const result = currentTop > initTop // true is down & false is up
       initTop = currentTop
       return result
@@ -495,7 +495,7 @@ document.addEventListener('DOMContentLoaded', function () {
       newEle.className = 'fas fa-sign-out-alt exit-readmode'
       $body.appendChild(newEle)
 
-      function clickFn () {
+      function clickFn() {
         $body.classList.remove('read-mode')
         newEle.remove()
         newEle.removeEventListener('click', clickFn)
@@ -623,8 +623,7 @@ document.addEventListener('DOMContentLoaded', function () {
         copyright.languages.link + window.location.href + '\n' +
         copyright.languages.source + '\n' +
         copyright.languages.info*/
-          textFont=''
-          alert('禁止复制，如果你一定要抄袭的话我会让你倒霉的')
+        textFont =''
       } else {
         textFont = copyFont
       }
