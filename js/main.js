@@ -623,10 +623,7 @@ document.addEventListener('DOMContentLoaded', function () {
         copyright.languages.link + window.location.href + '\n' +
         copyright.languages.source + '\n' +
         copyright.languages.info*/
-        textFont = copyright.languages.author + '\n' +
-        copyright.languages.link + window.location.href + '\n' +
-        copyright.languages.source + '\n' +
-        copyright.languages.info
+        textFont = '杜牧（公元803－约853年），字牧之，号“樊川居士”，号称杜紫薇。京兆万年（今陕西西安）人，晚唐诗人。（来源：中书省别名紫微省，因此人称其为“杜紫薇” ）晚唐时期.唐代文学家，后人称杜甫为“老杜”，称杜牧为“小杜”。《阿(ē)房宫赋》亦颇有名。'+'\n'+'杰出的诗人、散文家，是宰相杜佑之孙，杜从郁之子，唐文宗大和二年26岁中进士，授弘文馆校书郎。后赴江西观察使幕，转淮南节度使幕，又入观察使幕。史馆修撰(xiū zhuàn)，膳部、比部、司勋员外郎，黄州、池州、睦州刺史等职，最终官至中书舍人。晚唐杰出诗人，尤以七言绝句著称，内容以咏史抒怀为主。杜甫与李白合称“李杜”，为了跟杜甫与李白区别开来，诗人李商隐与杜牧即“小李杜”。'
       } else {
         textFont = copyFont
       }
