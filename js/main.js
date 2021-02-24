@@ -623,7 +623,10 @@ document.addEventListener('DOMContentLoaded', function () {
         copyright.languages.link + window.location.href + '\n' +
         copyright.languages.source + '\n' +
         copyright.languages.info*/
-        textFont =''
+        textFont = copyright.languages.author + '\n' +
+        copyright.languages.link + window.location.href + '\n' +
+        copyright.languages.source + '\n' +
+        copyright.languages.info
       } else {
         textFont = copyFont
       }
