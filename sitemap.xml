@@ -4,7 +4,7 @@
   <url>
     <loc>https://www.btkrc.com/gallery/index.html</loc>
     
-    <lastmod>2021-02-23</lastmod>
+    <lastmod>2021-02-24</lastmod>
     
   </url>
   
@@ -956,6 +956,13 @@
   </url>
   
   <url>
+    <loc>https://www.btkrc.com/tags/%E5%B7%A5%E5%85%B7/</loc>
+    <lastmod>2021-02-24</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.btkrc.com/tags/DHCP/</loc>
     <lastmod>2021-02-24</lastmod>
     <changefreq>daily</changefreq>
@@ -970,7 +977,7 @@
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/tags/%E5%B7%A5%E5%85%B7/</loc>
+    <loc>https://www.btkrc.com/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/</loc>
     <lastmod>2021-02-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -984,7 +991,7 @@
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/</loc>
+    <loc>https://www.btkrc.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
     <lastmod>2021-02-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -992,13 +999,6 @@
   
   <url>
     <loc>https://www.btkrc.com/tags/vs-code/</loc>
-    <lastmod>2021-02-24</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
     <lastmod>2021-02-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1075,14 +1075,14 @@
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/tags/HTTP/</loc>
+    <loc>https://www.btkrc.com/tags/gulp/</loc>
     <lastmod>2021-02-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/tags/gulp/</loc>
+    <loc>https://www.btkrc.com/tags/HTTP/</loc>
     <lastmod>2021-02-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
