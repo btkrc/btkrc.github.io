@@ -618,11 +618,13 @@ document.addEventListener('DOMContentLoaded', function () {
       e.preventDefault()
       let textFont; const copyFont = window.getSelection(0).toString()
       if (copyFont.length > copyright.limitCount) {
-        textFont = copyFont + '\n' + '\n' + '\n' +
+        /*textFont = copyFont + '\n' + '\n' + '\n' +
         copyright.languages.author + '\n' +
         copyright.languages.link + window.location.href + '\n' +
         copyright.languages.source + '\n' +
-        copyright.languages.info
+        copyright.languages.info*/
+          textFont=''
+          alert('禁止复制，如果你一定要抄袭的话我会让你倒霉的')
       } else {
         textFont = copyFont
       }
