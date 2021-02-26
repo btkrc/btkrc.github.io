@@ -1,17 +1,16 @@
 document.addEventListener('DOMContentLoaded', function () {
-  let blogNameWidth = document.getElementById('site-name').offsetWidth
+  const $blogName = document.getElementById('site-name')
+  let blogNameWidth = $blogName && $blogName.offsetWidth
   const $menusEle = document.querySelector('#menus .menus_items')
   let menusWidth = $menusEle && $menusEle.offsetWidth
   const $searchEle = document.querySelector('#search-button')
   let searchWidth = $searchEle && $searchEle.offsetWidth
-  let detectFontSizeChange = false
 
-  const adjustMenu = () => {
-    if (detectFontSizeChange) {
-      blogNameWidth = document.getElementById('site-name').offsetWidth
+  const adjustMenu = (change = false) => {
+    if (change) {
+      blogNameWidth = $blogName && $blogName.offsetWidth
       menusWidth = $menusEle && $menusEle.offsetWidth
       searchWidth = $searchEle && $searchEle.offsetWidth
-      detectFontSizeChange = false
     }
     const $nav = document.getElementById('nav')
     let t
@@ -38,14 +37,14 @@ document.addEventListener('DOMContentLoaded', function () {
     const $menuMask = document.getElementById('menu-mask')
     const $body = document.body
 
-    function openMobileSidebar() {
+    function openMobileSidebar () {
       btf.sidebarPaddingR()
       $body.style.overflow = 'hidden'
       btf.fadeIn($menuMask, 0.5)
       $mobileSidebarMenus.classList.add('open')
     }
 
-    function closeMobileSidebar() {
+    function closeMobileSidebar () {
       $body.style.overflow = ''
       $body.style.paddingRight = ''
       btf.fadeOut($menuMask, 0.5)
@@ -204,7 +203,7 @@ document.addEventListener('DOMContentLoaded', function () {
   /**
  * PhotoFigcaption
  */
-  function addPhotoFigcaption() {
+  function addPhotoFigcaption () {
     document.querySelectorAll('#article-container img').forEach(function (item) {
       const parentEle = item.parentNode
       if (!parentEle.parentNode.classList.contains('justified-gallery')) {
@@ -316,7 +315,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let initTop = 0
     let isChatShow = true
-    const $nav = document.getElementById('nav')
+    const $header = document.getElementById('page-header')
     const isChatBtnHide = typeof chatBtnHide === 'function'
     const isChatBtnShow = typeof chatBtnShow === 'function'
     window.addEventListener('scroll', btf.throttle(function (e) {
@@ -324,25 +323,25 @@ document.addEventListener('DOMContentLoaded', function () {
       const isDown = scrollDirection(currentTop)
       if (currentTop > 56) {
         if (isDown) {
-          if ($nav.classList.contains('visible')) $nav.classList.remove('visible')
+          if ($header.classList.contains('nav-visible')) $header.classList.remove('nav-visible')
           if (isChatBtnShow && isChatShow === true) {
             chatBtnHide()
             isChatShow = false
           }
         } else {
-          if (!$nav.classList.contains('visible')) $nav.classList.add('visible')
+          if (!$header.classList.contains('nav-visible')) $header.classList.add('nav-visible')
           if (isChatBtnHide && isChatShow === false) {
             chatBtnShow()
             isChatShow = true
           }
         }
-        $nav.classList.add('fixed')
+        $header.classList.add('nav-fixed')
         if (window.getComputedStyle($rightside).getPropertyValue('opacity') === '0') {
           $rightside.style.cssText = 'opacity: 1; transform: translateX(-38px)'
         }
       } else {
         if (currentTop === 0) {
-          $nav.classList.remove('fixed', 'visible')
+          $header.classList.remove('nav-fixed', 'nav-visible')
         }
         $rightside.style.cssText = "opacity: ''; transform: ''"
       }
@@ -353,7 +352,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }, 200))
 
     // find the scroll direction
-    function scrollDirection(currentTop) {
+    function scrollDirection (currentTop) {
       const result = currentTop > initTop // true is down & false is up
       initTop = currentTop
       return result
@@ -449,7 +448,7 @@ document.addEventListener('DOMContentLoaded', function () {
       let currentIndex = ''
 
       list.forEach(function (ele, index) {
-        if (top > btf.getEleTop(ele) - 70) {
+        if (top > btf.getEleTop(ele) - 80) {
           currentId = '#' + encodeURI(ele.getAttribute('id'))
           currentIndex = index
         }
@@ -495,7 +494,7 @@ document.addEventListener('DOMContentLoaded', function () {
       newEle.className = 'fas fa-sign-out-alt exit-readmode'
       $body.appendChild(newEle)
 
-      function clickFn() {
+      function clickFn () {
         $body.classList.remove('read-mode')
         newEle.remove()
         newEle.removeEventListener('click', clickFn)
@@ -536,17 +535,16 @@ document.addEventListener('DOMContentLoaded', function () {
     adjustFontSize: (plus) => {
       const fontSizeVal = parseInt(window.getComputedStyle(document.documentElement).getPropertyValue('--global-font-size'))
       let newValue = ''
-      detectFontSizeChange = true
       if (plus) {
         if (fontSizeVal >= 20) return
         newValue = fontSizeVal + 1
         document.documentElement.style.setProperty('--global-font-size', newValue + 'px')
-        !document.getElementById('nav').classList.contains('hide-menu') && adjustMenu()
+        !document.getElementById('nav').classList.contains('hide-menu') && adjustMenu(true)
       } else {
         if (fontSizeVal <= 10) return
         newValue = fontSizeVal - 1
         document.documentElement.style.setProperty('--global-font-size', newValue + 'px')
-        document.getElementById('nav').classList.contains('hide-menu') && adjustMenu()
+        document.getElementById('nav').classList.contains('hide-menu') && adjustMenu(true)
       }
 
       saveToLocal.set('global-font-size', newValue, 2)
@@ -618,12 +616,11 @@ document.addEventListener('DOMContentLoaded', function () {
       e.preventDefault()
       let textFont; const copyFont = window.getSelection(0).toString()
       if (copyFont.length > copyright.limitCount) {
-        /*textFont = copyFont + '\n' + '\n' + '\n' +
+        textFont = copyFont + '\n' + '\n' + '\n' +
         copyright.languages.author + '\n' +
         copyright.languages.link + window.location.href + '\n' +
         copyright.languages.source + '\n' +
-        copyright.languages.info*/
-        textFont = '杜牧（公元803－约853年），字牧之，号“樊川居士”，号称杜紫薇。京兆万年（今陕西西安）人，晚唐诗人。（来源：中书省别名紫微省，因此人称其为“杜紫薇” ）晚唐时期.唐代文学家，后人称杜甫为“老杜”，称杜牧为“小杜”。《阿(ē)房宫赋》亦颇有名。'+'\n'+'杰出的诗人、散文家，是宰相杜佑之孙，杜从郁之子，唐文宗大和二年26岁中进士，授弘文馆校书郎。后赴江西观察使幕，转淮南节度使幕，又入观察使幕。史馆修撰(xiū zhuàn)，膳部、比部、司勋员外郎，黄州、池州、睦州刺史等职，最终官至中书舍人。晚唐杰出诗人，尤以七言绝句著称，内容以咏史抒怀为主。杜甫与李白合称“李杜”，为了跟杜甫与李白区别开来，诗人李商隐与杜牧即“小李杜”。'
+        copyright.languages.info
       } else {
         textFont = copyFont
       }
@@ -799,6 +796,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const unRefreshFn = function () {
     window.addEventListener('resize', adjustMenu)
+    window.addEventListener('orientationchange', () => { setTimeout(adjustMenu(true), 100) })
 
     clickFnOfSubMenu()
     GLOBAL_CONFIG.islazyload && lazyloadImg()
