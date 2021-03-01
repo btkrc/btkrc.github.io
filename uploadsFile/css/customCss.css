@@ -89,7 +89,7 @@ text-shadow:0 0 0.05em #FFFFFF, 0 0 0.2em #FFFFFF, 0 0 0.15em #FFFFFF, 0 0 0.2em
 /*标题h1 h2 h3 h4样式*/
 
 .post-content h1 {
-    background: #EE6A50 !important;
+    background: #008080 !important;
     border-radius: 6px 6px 6px 6px;
     box-shadow: 0 0 0 1px #5F5A4B, 1px 1px 6px 1px rgba(10, 10, 0, 0.5);
     color: #FFFFFF;
