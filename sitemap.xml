@@ -991,13 +991,6 @@
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/tags/windows/</loc>
-    <lastmod>2021-03-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.btkrc.com/tags/DHCP/</loc>
     <lastmod>2021-03-04</lastmod>
     <changefreq>daily</changefreq>
@@ -1006,6 +999,13 @@
   
   <url>
     <loc>https://www.btkrc.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</loc>
+    <lastmod>2021-03-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/windows/</loc>
     <lastmod>2021-03-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1040,14 +1040,14 @@
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/tags/%E6%AD%A3%E5%88%99/</loc>
+    <loc>https://www.btkrc.com/tags/%E6%9D%82%E8%B0%88/</loc>
     <lastmod>2021-03-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/tags/%E6%9D%82%E8%B0%88/</loc>
+    <loc>https://www.btkrc.com/tags/%E6%AD%A3%E5%88%99/</loc>
     <lastmod>2021-03-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1082,14 +1082,14 @@
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/tags/github/</loc>
+    <loc>https://www.btkrc.com/tags/%E6%BA%90%E7%A0%81/</loc>
     <lastmod>2021-03-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/tags/%E6%BA%90%E7%A0%81/</loc>
+    <loc>https://www.btkrc.com/tags/github/</loc>
     <lastmod>2021-03-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
