@@ -2,14 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://www.btkrc.com/gallery/index.html</loc>
+    <loc>https://www.btkrc.com/gallery/videos/index.html</loc>
     
-    <lastmod>2021-03-04</lastmod>
+    <lastmod>2021-03-05</lastmod>
     
   </url>
   
   <url>
     <loc>https://www.btkrc.com/gallery/budgie/index.html</loc>
+    
+    <lastmod>2021-03-05</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/gallery/index.html</loc>
     
     <lastmod>2021-03-04</lastmod>
     
@@ -45,13 +52,6 @@
   
   <url>
     <loc>https://www.btkrc.com/posts/85bbe333/</loc>
-    
-    <lastmod>2021-02-26</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/gallery/videos/index.html</loc>
     
     <lastmod>2021-02-26</lastmod>
     
@@ -1089,7 +1089,7 @@
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/tags/github/</loc>
+    <loc>https://www.btkrc.com/tags/Javascript/</loc>
     <lastmod>2021-03-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1103,7 +1103,7 @@
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/tags/Javascript/</loc>
+    <loc>https://www.btkrc.com/tags/github/</loc>
     <lastmod>2021-03-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1208,14 +1208,14 @@
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/tags/ARP/</loc>
+    <loc>https://www.btkrc.com/tags/VLAN/</loc>
     <lastmod>2021-03-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/tags/VLAN/</loc>
+    <loc>https://www.btkrc.com/tags/ARP/</loc>
     <lastmod>2021-03-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
