@@ -10,6 +10,11 @@ var ap = new APlayer({
   listmaxheight: '513px',      // Optional, max height of play list
   fixed: true,
   music: [{
+    title: '皆さん',
+    author: '',
+    url: 'https://cdn.jsdelivr.net/gh/botkroc/resource2@main/music/%E5%87%9B%E5%86%BD%E5%85%8B%E7%BD%97%E5%85%8B.m4a',
+    pic: 'https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/20201130184505.png',
+  },,{
     title: '影子小姐',
     author: '洛天依',
     url: 'https://cdn.jsdelivr.net/gh/btKrc1nx/resource2@main/music/%E3%80%90%E6%B4%9B%E5%A4%A9%E4%BE%9D%E3%80%91%E5%BD%B1%E5%AD%90%E5%B0%8F%E5%A7%90.m4a',
