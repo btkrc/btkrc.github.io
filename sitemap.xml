@@ -1187,13 +1187,6 @@
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/tags/github/</loc>
-    <lastmod>2021-06-03</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.btkrc.com/tags/%E6%BA%90%E7%A0%81/</loc>
     <lastmod>2021-06-03</lastmod>
     <changefreq>daily</changefreq>
@@ -1202,6 +1195,13 @@
   
   <url>
     <loc>https://www.btkrc.com/tags/Javascript/</loc>
+    <lastmod>2021-06-03</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/github/</loc>
     <lastmod>2021-06-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1264,14 +1264,14 @@
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/tags/%E9%83%A8%E7%BD%B2/</loc>
+    <loc>https://www.btkrc.com/tags/%E7%89%A9%E7%90%86%E5%B1%82/</loc>
     <lastmod>2021-06-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/tags/%E7%89%A9%E7%90%86%E5%B1%82/</loc>
+    <loc>https://www.btkrc.com/tags/%E9%83%A8%E7%BD%B2/</loc>
     <lastmod>2021-06-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1425,13 +1425,6 @@
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%B3%95/</loc>
-    <lastmod>2021-06-03</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.btkrc.com/tags/%E7%AC%94%E8%AE%B0%E7%9B%B8%E5%85%B3/</loc>
     <lastmod>2021-06-03</lastmod>
     <changefreq>daily</changefreq>
@@ -1439,7 +1432,7 @@
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/tags/%E5%BA%94%E7%94%A8%E5%B1%82/</loc>
+    <loc>https://www.btkrc.com/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%B3%95/</loc>
     <lastmod>2021-06-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1447,6 +1440,13 @@
   
   <url>
     <loc>https://www.btkrc.com/tags/%E5%B1%80%E5%9F%9F%E7%BD%91/</loc>
+    <lastmod>2021-06-03</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/%E5%BA%94%E7%94%A8%E5%B1%82/</loc>
     <lastmod>2021-06-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
