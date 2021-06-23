@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.btkrc.com/posts/dd4c8259/</loc>
+    
+    <lastmod>2021-06-23</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.btkrc.com/posts/111a5dd6/</loc>
     
     <lastmod>2021-06-22</lastmod>
@@ -1327,14 +1334,14 @@
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/tags/ARP/</loc>
+    <loc>https://www.btkrc.com/tags/VLAN/</loc>
     <lastmod>2021-06-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/tags/VLAN/</loc>
+    <loc>https://www.btkrc.com/tags/ARP/</loc>
     <lastmod>2021-06-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1425,13 +1432,6 @@
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/tags/HTML/</loc>
-    <lastmod>2021-06-23</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.btkrc.com/tags/jQuery/</loc>
     <lastmod>2021-06-23</lastmod>
     <changefreq>daily</changefreq>
@@ -1439,7 +1439,7 @@
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/tags/cdn/</loc>
+    <loc>https://www.btkrc.com/tags/HTML/</loc>
     <lastmod>2021-06-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1447,6 +1447,13 @@
   
   <url>
     <loc>https://www.btkrc.com/tags/mysql/</loc>
+    <lastmod>2021-06-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/cdn/</loc>
     <lastmod>2021-06-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
