@@ -1,0 +1,567 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>JCC指令和标志寄存器 | KARCYRIL'S BLOG</title><meta name="keywords" content="汇编,8086汇编,寄存器"><meta name="author" content="Karcyril"><meta name="copyright" content="Karcyril"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="JCC指令 FLAG寄存器     JCC指令   JCC指令 中文含义 英文原意 检查符号位 典型C应用    JZ&#x2F;JE 若为0则跳转；若相等则跳转 jump if zero;jump if equal ZF&#x3D;1 if (i &#x3D;&#x3D; j);if (i &#x3D;&#x3D; 0);   JNZ&#x2F;JNE 若不为0则跳转；若不相等则跳转 jump if not zero;jump if not equal ZF">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JCC指令和标志寄存器">
+<meta property="og:url" content="https://www.btkrc.com/posts/1d0124cd/index.html">
+<meta property="og:site_name" content="KARCYRIL&#39;S BLOG">
+<meta property="og:description" content="JCC指令 FLAG寄存器     JCC指令   JCC指令 中文含义 英文原意 检查符号位 典型C应用    JZ&#x2F;JE 若为0则跳转；若相等则跳转 jump if zero;jump if equal ZF&#x3D;1 if (i &#x3D;&#x3D; j);if (i &#x3D;&#x3D; 0);   JNZ&#x2F;JNE 若不为0则跳转；若不相等则跳转 jump if not zero;jump if not equal ZF">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/btkrc/resource@main/img/1c2833555168faf494f478d3f9bf802a.jpg">
+<meta property="article:published_time" content="2021-06-24T07:18:29.000Z">
+<meta property="article:modified_time" content="2021-06-24T07:18:29.000Z">
+<meta property="article:author" content="Karcyril">
+<meta property="article:tag" content="汇编">
+<meta property="article:tag" content="8086汇编">
+<meta property="article:tag" content="寄存器">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/btkrc/resource@main/img/1c2833555168faf494f478d3f9bf802a.jpg"><link rel="shortcut icon" href="/uploads/favicon.ico"><link rel="canonical" href="https://www.btkrc.com/posts/1d0124cd/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/btkrc/resource@main/uploadsFile/butterfly/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":false,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":0,"languages":{"author":"作者: Karcyril","link":"链接: ","source":"来源: KARCYRIL'S BLOG","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/gh/btkrc/resource@main/uploadsFile/butterfly/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: undefined,
+  isToc: true,
+  postUpdate: '2021-06-24 15:18:29'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/btkrc/resource@main/uploadsFile/css/customCss6.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/btkrc/resource@main/uploadsFile/runtime/css/flipcountdown.css"><script src="https://cdn.jsdelivr.net/gh/btkrc/resource@main/uploadsFile/butterfly/jquery.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/btkrc/resource@main/myIconFont/iconfont.css"><script src="https://cdn.jsdelivr.net/gh/btkrc/resource@main/myIconFont/iconfont.js"></script><meta name="generator" content="Hexo 5.2.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/botkroc/resource@main/img/u415011073124687902326.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">139</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">61</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://acg.btkrc.com"><i class="fa-fw fas fa-tv"></i><span> 我的电脑</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-book"></i><span> 笔记索引</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-wrench"></i><span> 在线工具</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/translation/"><i class="fa-fw iconfont iconfanyi"></i><span> 在线中英互译</span></a></li><li><a class="site-page child" href="/encodeUrl/"><i class="fa-fw fa fa-plug"></i><span> URL编码工具</span></a></li><li><a class="site-page child" href="/imgCompress/"><i class="fa-fw fas fa-hammer"></i><span> 在线图片压缩</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-image"></i><span> 画廊</span></a></div><div class="menus_item"><a class="site-page" href="/analysis/"><i class="fa-fw fas fa-chart-bar"></i><span> 实验室</span></a></div><div class="menus_item"><a class="site-page" href="/message/"><i class="fa-fw fas fa-comment-dots"></i><span> 留言板</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/btkrc/resource@main/img/1c2833555168faf494f478d3f9bf802a.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">KARCYRIL'S BLOG</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://acg.btkrc.com"><i class="fa-fw fas fa-tv"></i><span> 我的电脑</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-book"></i><span> 笔记索引</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-wrench"></i><span> 在线工具</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/translation/"><i class="fa-fw iconfont iconfanyi"></i><span> 在线中英互译</span></a></li><li><a class="site-page child" href="/encodeUrl/"><i class="fa-fw fa fa-plug"></i><span> URL编码工具</span></a></li><li><a class="site-page child" href="/imgCompress/"><i class="fa-fw fas fa-hammer"></i><span> 在线图片压缩</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-image"></i><span> 画廊</span></a></div><div class="menus_item"><a class="site-page" href="/analysis/"><i class="fa-fw fas fa-chart-bar"></i><span> 实验室</span></a></div><div class="menus_item"><a class="site-page" href="/message/"><i class="fa-fw fas fa-comment-dots"></i><span> 留言板</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">JCC指令和标志寄存器</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-06-24T07:18:29.000Z" title="发表于 2021-06-24 15:18:29">2021-06-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-06-24T07:18:29.000Z" title="更新于 2021-06-24 15:18:29">2021-06-24</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%B1%87%E7%BC%96/">汇编</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%B1%87%E7%BC%96/8086%E6%B1%87%E7%BC%96/">8086汇编</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><!-- TOC -->
+
+<ul>
+<li><a href="#JCC%E6%8C%87%E4%BB%A4">JCC指令</a></li>
+<li><a href="#FLAG%E5%AF%84%E5%AD%98%E5%99%A8">FLAG寄存器</a></li>
+</ul>
+<!-- /TOC -->
+
+<hr>
+<h2 id="JCC指令"><a href="#JCC指令" class="headerlink" title="JCC指令"></a>JCC指令</h2><table>
+<thead>
+<tr>
+<th>JCC指令</th>
+<th>中文含义</th>
+<th>英文原意</th>
+<th>检查符号位</th>
+<th>典型C应用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>JZ/JE</td>
+<td>若为0则跳转；若相等则跳转</td>
+<td>jump if zero;jump if equal</td>
+<td>ZF=1</td>
+<td>if (i == j);if (i == 0);</td>
+</tr>
+<tr>
+<td>JNZ/JNE</td>
+<td>若不为0则跳转；若不相等则跳转</td>
+<td>jump if not zero;jump if not equal</td>
+<td>ZF=0</td>
+<td>if (i != j);if (i != 0);</td>
+</tr>
+<tr>
+<td>JS</td>
+<td>若为负则跳转</td>
+<td>jump if sign</td>
+<td>SF=1</td>
+<td>if (i &lt; 0);</td>
+</tr>
+<tr>
+<td>JNS</td>
+<td>若为正则跳转</td>
+<td>jump if not sign</td>
+<td>SF=0</td>
+<td>if (i &gt; 0);</td>
+</tr>
+<tr>
+<td>JP/JPE</td>
+<td>若1出现次数为偶数则跳转</td>
+<td>jump if Parity (Even)</td>
+<td>PF=1</td>
+<td>(null)</td>
+</tr>
+<tr>
+<td>JNP/JPO</td>
+<td>若1出现次数为奇数则跳转</td>
+<td>jump if not parity (odd)</td>
+<td>PF=0</td>
+<td>(null)</td>
+</tr>
+<tr>
+<td>JO</td>
+<td>若溢出则跳转</td>
+<td>jump if overflow</td>
+<td>OF=1</td>
+<td>(null)</td>
+</tr>
+<tr>
+<td>JNO</td>
+<td>若无溢出则跳转</td>
+<td>jump if not overflow</td>
+<td>OF=0</td>
+<td>(null)</td>
+</tr>
+<tr>
+<td>JC/JB/JNAE</td>
+<td>若进位则跳转；若低于则跳转；若不高于等于则跳转</td>
+<td>jump if carry;jump if below;jump if not above equal</td>
+<td>CF=1</td>
+<td>if (i &lt; j);</td>
+</tr>
+<tr>
+<td>JNC/JNB/JAE</td>
+<td>若无进位则跳转；若不低于则跳转；若高于等于则跳转；</td>
+<td>jump if not carry;jump if not below;jump if above equal</td>
+<td>CF=0</td>
+<td>if (i &gt;= j);</td>
+</tr>
+<tr>
+<td>JBE/JNA</td>
+<td>若低于等于则跳转；若不高于则跳转</td>
+<td>jump if below equal;jump if not above</td>
+<td>ZF=1或CF=1</td>
+<td>if (i &lt;= j);</td>
+</tr>
+<tr>
+<td>JNBE/JA</td>
+<td>若不低于等于则跳转；若高于则跳转</td>
+<td>jump if not below equal;jump if above</td>
+<td>ZF=0或CF=0</td>
+<td>if (i &gt; j);</td>
+</tr>
+<tr>
+<td>JL/JNGE</td>
+<td>若小于则跳转；若不大于等于则跳转</td>
+<td>jump if less;jump if not greater equal</td>
+<td>SF != OF</td>
+<td>if (si &lt; sj);</td>
+</tr>
+<tr>
+<td>JNL/JGE</td>
+<td>若不小于则跳转；若大于等于则跳转</td>
+<td>jump if not less;jump if greater equal</td>
+<td>SF = OF</td>
+<td>if (si &gt;= sj);</td>
+</tr>
+<tr>
+<td>JLE/JNG</td>
+<td>若小于等于则跳转；若不大于则跳转</td>
+<td>jump if less equal;jump if not greater</td>
+<td>ZF != OF</td>
+<td>或 ZF=1    if (si &lt;= sj);</td>
+</tr>
+<tr>
+<td>JNLE/JG</td>
+<td>若不小于等于则跳转；若大于则跳转</td>
+<td>jump if not less equal;jump if greater</td>
+<td>SF=0F 且 ZF=0</td>
+<td>if(si&gt;sj)</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="FLAG寄存器"><a href="#FLAG寄存器" class="headerlink" title="FLAG寄存器"></a>FLAG寄存器</h2><table>
+<thead>
+<tr>
+<th>位</th>
+<th>名称</th>
+<th>含义</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>CF</td>
+<td>Carry Flag</td>
+<td>若算术操作产生的结果在最高有效位（most-significant bit）发生进位或错位则置为1，否则置0。通常用来指示无符号整型运算的溢出状态</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>未使用</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>PF</td>
+<td>Parity Flag</td>
+<td>奇偶校验位，如果结果的最低有效字节（least-significant byte）包含偶数个1则置为1，否则置0</td>
+</tr>
+<tr>
+<td>3</td>
+<td>0</td>
+<td>未使用</td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>AF</td>
+<td>Auxiliary Carry Flag</td>
+<td>辅助进位标志，如果算术操作在结果的第3位发生进位或错位，则置为1，否则置0，这个标志在BCD（binary-code decimal）算术运算中被使用</td>
+</tr>
+<tr>
+<td>5</td>
+<td>0</td>
+<td>未使用</td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td>ZF</td>
+<td>Zero Flag</td>
+<td>如果运算结果为0，则置为1，否则置0。通常与<code>CMP</code>和<code>TEST</code>指令一起使用</td>
+</tr>
+<tr>
+<td>7</td>
+<td>SF</td>
+<td>Sign Flag</td>
+<td>符号标志位，该标志被置为有符号整型的最高有效位</td>
+</tr>
+<tr>
+<td>8</td>
+<td>TF</td>
+<td>Trap Flag</td>
+<td>陷阱标志位，当为1时CPU进入单步执行模式，调试器中的单步步入就是使用这个表示位，单步步过使用CC下断点</td>
+</tr>
+<tr>
+<td>9</td>
+<td>IF</td>
+<td>Interrupt Enable Flag</td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td>DF</td>
+<td>Direction Flag</td>
+<td>用来控制变址寄存器的方向，当为0时，执行<code>MOVS</code>或<code>STOS</code>指令后<code>EDI</code>和<code>ESI</code>自增，反之则自减，数值取决于写入的长度，<code>STD</code>置为1,<code>CLD</code>置0</td>
+</tr>
+<tr>
+<td>11</td>
+<td>OF</td>
+<td>Overflow Flag</td>
+<td>反映有符号数加减运算结果是否有溢出，无符号数看CF位，例如<code>0X7F+2</code>，CF位不会溢出，而看OF则溢出</td>
+</tr>
+<tr>
+<td>12</td>
+<td>IOPL</td>
+<td>I/O Privilege Level</td>
+<td></td>
+</tr>
+<tr>
+<td>13</td>
+<td>IOPL</td>
+<td>I/O Privilege Level</td>
+<td></td>
+</tr>
+<tr>
+<td>14</td>
+<td>NT</td>
+<td>Nested Task</td>
+<td></td>
+</tr>
+<tr>
+<td>15</td>
+<td>0</td>
+<td>未使用</td>
+<td></td>
+</tr>
+<tr>
+<td>16</td>
+<td>RF</td>
+<td>Resume Flag</td>
+<td></td>
+</tr>
+<tr>
+<td>17</td>
+<td>VM</td>
+<td>Virtual-8086 Mode</td>
+<td></td>
+</tr>
+<tr>
+<td>18</td>
+<td>AC</td>
+<td>Alignmen Check / Access Contorl</td>
+<td></td>
+</tr>
+<tr>
+<td>19</td>
+<td>VIF</td>
+<td>Virtual Interrupt Flag</td>
+<td></td>
+</tr>
+<tr>
+<td>20</td>
+<td>VIP</td>
+<td>Virtual Interrupt Pending</td>
+<td></td>
+</tr>
+<tr>
+<td>21</td>
+<td>ID</td>
+<td>ID Flag</td>
+<td></td>
+</tr>
+<tr>
+<td>22</td>
+<td>0</td>
+<td>未使用</td>
+<td></td>
+</tr>
+<tr>
+<td>23</td>
+<td>0</td>
+<td>未使用</td>
+<td></td>
+</tr>
+<tr>
+<td>24</td>
+<td>0</td>
+<td>未使用</td>
+<td></td>
+</tr>
+<tr>
+<td>25</td>
+<td>0</td>
+<td>未使用</td>
+<td></td>
+</tr>
+<tr>
+<td>26</td>
+<td>0</td>
+<td>未使用</td>
+<td></td>
+</tr>
+<tr>
+<td>27</td>
+<td>0</td>
+<td>未使用</td>
+<td></td>
+</tr>
+<tr>
+<td>28</td>
+<td>0</td>
+<td>未使用</td>
+<td></td>
+</tr>
+<tr>
+<td>29</td>
+<td>0</td>
+<td>未使用</td>
+<td></td>
+</tr>
+<tr>
+<td>30</td>
+<td>0</td>
+<td>未使用</td>
+<td></td>
+</tr>
+<tr>
+<td>31</td>
+<td>0</td>
+<td>未使用</td>
+<td></td>
+</tr>
+</tbody></table>
+<hr>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Karcyril</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://www.btkrc.com/posts/1d0124cd/">https://www.btkrc.com/posts/1d0124cd/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">署名-非商业性使用<svg class="icon" aria-hidden="true"><use xlink:href="#iconheike3-fuben"></use></svg>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.btkrc.com" target="_blank">KARCYRIL'S BLOG</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%B1%87%E7%BC%96/">汇编</a><a class="post-meta__tags" href="/tags/8086%E6%B1%87%E7%BC%96/">8086汇编</a><a class="post-meta__tags" href="/tags/%E5%AF%84%E5%AD%98%E5%99%A8/">寄存器</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/btkrc/resource@main/img/1c2833555168faf494f478d3f9bf802a.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 请我喝杯咖啡吧</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/uploads/wechat.png" target="_blank"><img class="post-qr-code-img" src="/uploads/wechat.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/posts/dad91eff/"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/btkrc/resource@main/img/84jtHMeaPf.jpg" onerror="onerror=null;src='/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">反调试之FAKE F8</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/botkroc/resource@main/img/u415011073124687902326.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Karcyril</div><div class="author-info__description"><svg class="icon" aria-hidden="true"><use xlink:href="#icontaidixiongwanoukeai"></use></svg>擅长领域：网络工程，网络安全，前后端开发<br/><svg class="icon" aria-hidden="true"><use xlink:href="#iconhuahonghuazhiwuhuaduo"></use></svg>二次元宅男，爱好打游戏，看埃罗漫画，买手办<br/><svg class="icon" aria-hidden="true"><use xlink:href="#iconxinfengxinjianyouxiangxianhuaxinfeng"></use></svg>愿世界和平<br/><svg class="icon" aria-hidden="true"><use xlink:href="#iconhuameiguihuaxianhua"></use></svg>Minasan、kon~nichiwa<svg class="icon" aria-hidden="true"><use xlink:href="#iconxiaohuanghua"></use></svg>Karcyril no burogue yo koso ~'</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">139</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">61</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://acg.btkrc.com"><i class="fa fa-heart"></i><span>どうもありがと</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/btkrc" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="https://space.bilibili.com/29980082" target="_blank" title="B站"><i class="iconfont iconbilibili1"></i></a><a class="social-icon" href="mailto:btkrc1nx@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#JCC%E6%8C%87%E4%BB%A4"><span class="toc-number">1.</span> <span class="toc-text">JCC指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#FLAG%E5%AF%84%E5%AD%98%E5%99%A8"><span class="toc-number">2.</span> <span class="toc-text">FLAG寄存器</span></a></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By Karcyril</div><div class="footer_custom_text"><span id="runtime"></span><br/><span>皆さん、こんにちは<svg class="icon" aria-hidden="true"><use xlink:href="#icon003-sakura"></use></svg>Karcyrilのブログへようこそ～</span><br/><a class="beian" target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">鄂ICP备2020021450号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>function loadWaline () {
+  function initWaline () {
+    const waline = new Waline(Object.assign({
+      el: '#waline-wrap',
+      serverURL: 'https://btkrc-waline.vercel.app/',
+      avatar: 'hide',
+      path: location.pathname,
+      emojiCDN: '',
+      emojiMaps: "",
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Waline === 'function') initWaline() 
+  else getScript('https://cdn.jsdelivr.net/gh/btkrc/resource@main/uploadsFile/Waline.min.js').then(initWaline)
+}
+
+if ('Waline' === 'Waline' || !true) {
+  if (true) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+  else setTimeout(loadWaline, 0)
+} else {
+  function loadOtherComment () {
+    loadWaline()
+  }
+}</script></div><script src="https://cdn.jsdelivr.net/gh/btkrc/resource@main/uploadsFile/APlayer.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/btkrc/resource@main/uploadsFile/APlayer.min.css"><div id="aplayer" class="aplayer no-destroy"></div><script src="https://cdn.jsdelivr.net/gh/btkrc/resource@main/uploadsFile/music2.js"></script><script src="https://cdn.jsdelivr.net/gh/btkrc/resource@main/uploadsFile/translation/mJsonp.js" data-pjax></script><script src="https://cdn.jsdelivr.net/gh/btkrc/resource@main/uploadsFile/encodeUrl.js" data-pjax></script><script src="https://cdn.jsdelivr.net/gh/btkrc/resource@main/uploadsFile/mouse_snow.min.js"></script><script src="https://cdn.jsdelivr.net/gh/btkrc/resource@main/uploadsFile/myUtils2.js"></script><script src="https://cdn.jsdelivr.net/gh/btkrc/resource@main/uploadsFile/runtime/js/flipcountdown.js"></script><script src="https://cdn.jsdelivr.net/gh/btkrc/resource@main/uploadsFile/runtime/js/runtime.js" data-pjax></script><script src="https://cdn.jsdelivr.net/gh/btkrc/resource@main/uploadsFile/butterfly/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+
+document.addEventListener('pjax:send', function () {
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="https://cdn.jsdelivr.net/gh/btkrc/resource@main/uploadsFile/butterfly/busuanzi.pure.mini.js"></script></div><script src="https://cdn.jsdelivr.net/gh/btkrc/resource@main/live2dw/lib/L2Dwidget.min.js"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"live2dw/lib/","pluginModelPath":"live2dw/assets/","tagMode":false,"debug":false,"model":{"scale":1,"jsonPath":"https://cdn.jsdelivr.net/gh/btkrc/resource@main/dsr50_1801/dsr50_1801.model.json"},"display":{"position":"right","width":300,"height":450,"hOffset":-60,"vOffset":-180},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body></html>
