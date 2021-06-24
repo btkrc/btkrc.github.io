@@ -1306,6 +1306,13 @@
   </url>
   
   <url>
+    <loc>https://www.btkrc.com/tags/%E7%89%A9%E7%90%86%E5%B1%82/</loc>
+    <lastmod>2021-06-24</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.btkrc.com/tags/%E9%83%A8%E7%BD%B2/</loc>
     <lastmod>2021-06-24</lastmod>
     <changefreq>daily</changefreq>
@@ -1321,13 +1328,6 @@
   
   <url>
     <loc>https://www.btkrc.com/tags/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/</loc>
-    <lastmod>2021-06-24</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/tags/%E7%89%A9%E7%90%86%E5%B1%82/</loc>
     <lastmod>2021-06-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1418,7 +1418,14 @@
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/tags/%E5%86%85%E5%AD%98/</loc>
+    <loc>https://www.btkrc.com/tags/%E5%A0%86%E6%A0%88/</loc>
+    <lastmod>2021-06-24</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/DOS%E5%91%BD%E4%BB%A4/</loc>
     <lastmod>2021-06-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1439,7 +1446,7 @@
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/tags/DOS%E5%91%BD%E4%BB%A4/</loc>
+    <loc>https://www.btkrc.com/tags/BAT%E8%84%9A%E6%9C%AC/</loc>
     <lastmod>2021-06-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1447,13 +1454,6 @@
   
   <url>
     <loc>https://www.btkrc.com/tags/cisco/</loc>
-    <lastmod>2021-06-24</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/tags/BAT%E8%84%9A%E6%9C%AC/</loc>
     <lastmod>2021-06-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
