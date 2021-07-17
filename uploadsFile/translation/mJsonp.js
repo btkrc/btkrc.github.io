@@ -1,3 +1,5 @@
+/*by Karcyril*/
+
 function download(jsonp) {
   var tBody = $('.weather-info tbody');
   var tR = $(`<tr>
