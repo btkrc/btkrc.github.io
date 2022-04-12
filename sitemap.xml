@@ -2,6 +2,62 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.btkrc.com/translation/index.html</loc>
+    
+    <lastmod>2022-04-12</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/encodeUrl/index.html</loc>
+    
+    <lastmod>2022-04-12</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/gallery/index.html</loc>
+    
+    <lastmod>2022-04-12</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/gallery/acg/index.html</loc>
+    
+    <lastmod>2022-04-12</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/gallery/birds/index.html</loc>
+    
+    <lastmod>2022-04-12</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/gallery/budgie/index.html</loc>
+    
+    <lastmod>2022-04-12</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/gallery/dolls/index.html</loc>
+    
+    <lastmod>2022-04-12</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/posts/e12b2390/</loc>
+    
+    <lastmod>2022-04-12</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.btkrc.com/message/index.html</loc>
     
     <lastmod>2022-04-12</lastmod>
@@ -12,55 +68,6 @@
     <loc>https://www.btkrc.com/posts/7819a34e/</loc>
     
     <lastmod>2022-04-12</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/translation/index.html</loc>
-    
-    <lastmod>2022-04-10</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/encodeUrl/index.html</loc>
-    
-    <lastmod>2022-04-10</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/gallery/dolls/index.html</loc>
-    
-    <lastmod>2022-04-10</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/gallery/budgie/index.html</loc>
-    
-    <lastmod>2022-04-10</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/gallery/birds/index.html</loc>
-    
-    <lastmod>2022-04-10</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/gallery/acg/index.html</loc>
-    
-    <lastmod>2022-04-10</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/gallery/index.html</loc>
-    
-    <lastmod>2022-04-10</lastmod>
     
   </url>
   
@@ -1236,14 +1243,14 @@
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/tags/windows/</loc>
+    <loc>https://www.btkrc.com/tags/DHCP/</loc>
     <lastmod>2022-04-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/tags/DHCP/</loc>
+    <loc>https://www.btkrc.com/tags/windows/</loc>
     <lastmod>2022-04-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1580,6 +1587,13 @@
   
   <url>
     <loc>https://www.btkrc.com/tags/SSL/</loc>
+    <lastmod>2022-04-12</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/NPM/</loc>
     <lastmod>2022-04-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
