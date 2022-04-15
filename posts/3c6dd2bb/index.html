@@ -1,0 +1,263 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WIN32内存管理和文件系统 | KARCYRIL'S BLOG</title><meta name="keywords" content="C++,C语言,WIN32,内存,文件"><meta name="author" content="Karcyril"><meta name="copyright" content="Karcyril"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="概述WIN32程序每个进程都有4GB的虚拟空间，低2G为用户空间，是相互独立的，高2G为内核空间（从0x80000000开始的），所有进程共享。 x86架构将内存以每4KB为一页，称为页式管理，可供使用的物理内存：MmNumberOfPhysicalPages * 4 &#x3D; 物理内存。用户空间不是真实存在的，只有需要使用它的时候操作系统才会在物理页上真正分配  对于不经常使用的物理页，操作系统会将其">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WIN32内存管理和文件系统">
+<meta property="og:url" content="https://www.btkrc.com/posts/3c6dd2bb/index.html">
+<meta property="og:site_name" content="KARCYRIL&#39;S BLOG">
+<meta property="og:description" content="概述WIN32程序每个进程都有4GB的虚拟空间，低2G为用户空间，是相互独立的，高2G为内核空间（从0x80000000开始的），所有进程共享。 x86架构将内存以每4KB为一页，称为页式管理，可供使用的物理内存：MmNumberOfPhysicalPages * 4 &#x3D; 物理内存。用户空间不是真实存在的，只有需要使用它的时候操作系统才会在物理页上真正分配  对于不经常使用的物理页，操作系统会将其">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://npm.elemecdn.com/btkrc-imgcover/cover/pre3.jpg">
+<meta property="article:published_time" content="2022-04-14T23:15:32.000Z">
+<meta property="article:modified_time" content="2022-04-14T23:15:32.000Z">
+<meta property="article:author" content="Karcyril">
+<meta property="article:tag" content="C++">
+<meta property="article:tag" content="C语言">
+<meta property="article:tag" content="WIN32">
+<meta property="article:tag" content="内存">
+<meta property="article:tag" content="文件">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://npm.elemecdn.com/btkrc-imgcover/cover/pre3.jpg"><link rel="shortcut icon" href="/uploads/favicon.ico"><link rel="canonical" href="https://www.btkrc.com/posts/3c6dd2bb/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/btkrc/resource@main/uploadsFile/butterfly/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":false,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":0,"languages":{"author":"作者: Karcyril","link":"链接: ","source":"来源: KARCYRIL'S BLOG","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/gh/btkrc/resource@main/uploadsFile/butterfly/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: undefined,
+  isToc: true,
+  postUpdate: '2022-04-15 07:15:32'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/btkrc/resource@main/uploadsFile/css/customCss12.css"><script src="https://cdn.jsdelivr.net/gh/btkrc/resource@main/uploadsFile/butterfly/jquery.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/btkrc/resource@main/myIconFont/iconfont.css"><script src="https://cdn.jsdelivr.net/gh/btkrc/resource@main/myIconFont/iconfont.js"></script><meta name="generator" content="Hexo 5.2.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://npm.elemecdn.com/btkrc-imgcover/avatar/avatar1.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">151</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">73</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">15</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://acg.btkrc.com"><i class="fa-fw fas fa-tv"></i><span> 我的电脑</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-book"></i><span> 笔记索引</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-wrench"></i><span> 在线工具</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/translation/"><i class="fa-fw iconfont iconfanyi"></i><span> 在线中英互译</span></a></li><li><a class="site-page child" href="/encodeUrl/"><i class="fa-fw fa fa-plug"></i><span> URL编码工具</span></a></li><li><a class="site-page child" href="/imgCompress/"><i class="fa-fw fas fa-hammer"></i><span> 在线图片压缩</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-image"></i><span> 画廊</span></a></div><div class="menus_item"><a class="site-page" href="/analysis/"><i class="fa-fw fas fa-chart-bar"></i><span> 实验室</span></a></div><div class="menus_item"><a class="site-page" href="/message/"><i class="fa-fw fas fa-comment-dots"></i><span> 留言板</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://npm.elemecdn.com/btkrc-imgcover/cover/pre3.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">KARCYRIL'S BLOG</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://acg.btkrc.com"><i class="fa-fw fas fa-tv"></i><span> 我的电脑</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-book"></i><span> 笔记索引</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-wrench"></i><span> 在线工具</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/translation/"><i class="fa-fw iconfont iconfanyi"></i><span> 在线中英互译</span></a></li><li><a class="site-page child" href="/encodeUrl/"><i class="fa-fw fa fa-plug"></i><span> URL编码工具</span></a></li><li><a class="site-page child" href="/imgCompress/"><i class="fa-fw fas fa-hammer"></i><span> 在线图片压缩</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-image"></i><span> 画廊</span></a></div><div class="menus_item"><a class="site-page" href="/analysis/"><i class="fa-fw fas fa-chart-bar"></i><span> 实验室</span></a></div><div class="menus_item"><a class="site-page" href="/message/"><i class="fa-fw fas fa-comment-dots"></i><span> 留言板</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">WIN32内存管理和文件系统</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-04-14T23:15:32.000Z" title="发表于 2022-04-15 07:15:32">2022-04-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-04-14T23:15:32.000Z" title="更新于 2022-04-15 07:15:32">2022-04-15</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/WIN32/">WIN32</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>WIN32程序每个进程都有4GB的虚拟空间，低2G为用户空间，是相互独立的，高2G为内核空间（从0x80000000开始的），所有进程共享。</p>
+<p><strong>x86架构将内存以每4KB为一页，称为页式管理，可供使用的物理内存：<code>MmNumberOfPhysicalPages * 4</code> = 物理内存</strong>。用户空间不是真实存在的，只有需要使用它的时候操作系统才会在物理页上真正分配</p>
+<p><img src="https://image-1301578757.file.myqcloud.com/postImg/20220415072733.jpg"></p>
+<p>对于不经常使用的物理页，操作系统会将其储存到虚拟内存（这个虚拟内存在硬盘上，不是用户的虚拟内存）上，再次需要访问时缺页异常，操作系统会处理异常为虚拟内存挂物理页。</p>
+<hr>
+<h1 id="私有内存"><a href="#私有内存" class="headerlink" title="私有内存"></a>私有内存</h1><p>私有内存只有特定的进程可以访问，独享物理页</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">LPVOID <span class="title">VirtualAlloc</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">  <span class="comment">//内存首地址</span></span></span></span><br><span class="line"><span class="function"><span class="params">  LPVOID lpAddress,</span></span></span><br><span class="line"><span class="function"><span class="params">  SIZE_T dwSize,</span></span></span><br><span class="line"><span class="function"><span class="params">  <span class="comment">//类型</span></span></span></span><br><span class="line"><span class="function"><span class="params">  DWORD  flAllocationType,</span></span></span><br><span class="line"><span class="function"><span class="params">  <span class="comment">//初始保护属性</span></span></span></span><br><span class="line"><span class="function"><span class="params">  DWORD  flProtect</span></span></span><br><span class="line"><span class="function"><span class="params">)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>内存大小一般分配为页的整数倍，一页为4KB，也就是0x1000，此处分配了2页内存。</strong></p>
+<p>当类型为<code>MEM_RESERVE</code>时，操作系统会分配线性地址，但不实际分配物理页，当为<code>MEM_COMMIT</code>时会分配物理页。保护属性可以允许内存是否可读，可写或可执行，具体宏可查看文档说明。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;Windows.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BUF_SIZE 0x1000</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  LPVOID p = VirtualAlloc(</span><br><span class="line">    <span class="literal">NULL</span>,</span><br><span class="line">    BUF_SIZE * <span class="number">2</span>,</span><br><span class="line">    MEM_COMMIT,</span><br><span class="line">    PAGE_READWRITE</span><br><span class="line">  );</span><br><span class="line"></span><br><span class="line">  <span class="comment">//清空线性地址和物理页</span></span><br><span class="line">  VirtualFree(p, <span class="number">0</span>, MEM_RELEASE);</span><br><span class="line"></span><br><span class="line">  <span class="comment">//保留线性地址，清空物理页</span></span><br><span class="line">  <span class="comment">//VirtualFree(p, BUF_SIZE * 2, MEM_COMMIT);</span></span><br><span class="line"></span><br><span class="line">  system(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>C语言中的<code>malloc</code>和C++里的<code>new</code>（new就是malloc加上一个构造函数），并没有真正申请内存，<code>new</code>也是调用<code>malloc</code>实现的，反汇编跟踪<code>malloc</code>会发现其最终会调用<code>HeapAlloc</code>，并没有进内核。不管是堆还是栈本质上都是私有内存。</p>
+</blockquote>
+<hr>
+<h1 id="映射内存"><a href="#映射内存" class="headerlink" title="映射内存"></a>映射内存</h1><p>除了堆栈和VirtualAlloc分配的内存，其他的都是映射内存，所有进程都可以访问。</p>
+<p>如果同名称内核对象已存在，其他进程通过<code>OpenFileMapping</code>也可以获取相同的mapfile内核对象，但关联线性地址之后返回的虚拟内存地址不一定相同。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;Windows.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BUF_SIZE 0x1000</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAPFILENAME TEXT(<span class="meta-string">&quot;共享内存&quot;</span>)</span></span><br><span class="line"></span><br><span class="line">HANDLE g_hMapFile;</span><br><span class="line">LPTSTR g_lpBuff;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/*</span></span><br><span class="line"><span class="comment">    // 创建物理页</span></span><br><span class="line"><span class="comment">  HANDLE CreateFileMappingA(</span></span><br><span class="line"><span class="comment">    //文件句柄，当为INVALID_HANDLE_VALUE时不关联文件</span></span><br><span class="line"><span class="comment">    HANDLE        hFile,</span></span><br><span class="line"><span class="comment">    //安全描述符</span></span><br><span class="line"><span class="comment">    LPSECURITY_ATTRIBUTES lpFileMappingAttributes,</span></span><br><span class="line"><span class="comment">    //物理页的保护模式</span></span><br><span class="line"><span class="comment">    DWORD         flProtect,</span></span><br><span class="line"><span class="comment">    //大小，高32位，64位程序需要用到</span></span><br><span class="line"><span class="comment">    DWORD         dwMaximumSizeHigh,</span></span><br><span class="line"><span class="comment">    //大小，底32位</span></span><br><span class="line"><span class="comment">    DWORD         dwMaximumSizeLow,</span></span><br><span class="line"><span class="comment">    //内核对象的名称</span></span><br><span class="line"><span class="comment">    LPCSTR        lpName</span></span><br><span class="line"><span class="comment">  );*/</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">/*</span></span><br><span class="line"><span class="comment">   //将物理页与线性地址映射</span></span><br><span class="line"><span class="comment">  LPVOID MapViewOfFile(</span></span><br><span class="line"><span class="comment">    //fileMapping对象的句柄</span></span><br><span class="line"><span class="comment">    HANDLE hFileMappingObject,</span></span><br><span class="line"><span class="comment">    //线性地址的保护模式，只能比物理页的保护模式更严格，</span></span><br><span class="line"><span class="comment">    //在内核调试工具中显示的属性</span></span><br><span class="line"><span class="comment">    DWORD  dwDesiredAccess,</span></span><br><span class="line"><span class="comment">    //映射物理页的偏移，高32位，64位程序需要用到</span></span><br><span class="line"><span class="comment">    DWORD  dwFileOffsetHigh,</span></span><br><span class="line"><span class="comment">    //映射物理页的偏移，底32位</span></span><br><span class="line"><span class="comment">    DWORD  dwFileOffsetLow,</span></span><br><span class="line"><span class="comment">    //映射物理页的大小</span></span><br><span class="line"><span class="comment">    SIZE_T dwNumberOfBytesToMap</span></span><br><span class="line"><span class="comment">  ); */</span></span><br><span class="line"></span><br><span class="line">  getchar();</span><br><span class="line"></span><br><span class="line">  <span class="comment">//内核对象，物理页</span></span><br><span class="line">  g_hMapFile= CreateFileMapping(INVALID_HANDLE_VALUE, <span class="literal">NULL</span>, PAGE_READWRITE, <span class="number">0</span>, BUF_SIZE, MAPFILENAME);</span><br><span class="line"></span><br><span class="line">  <span class="comment">//将物理页与线性地址进行关联</span></span><br><span class="line">  g_lpBuff = (LPTSTR)MapViewOfFile(g_hMapFile, FILE_MAP_ALL_ACCESS, <span class="number">0</span>, <span class="number">0</span>, BUF_SIZE);</span><br><span class="line"></span><br><span class="line">  *(PDWORD)g_lpBuff = <span class="number">0x12345678</span>;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;%p&quot;</span>, g_lpBuff);</span><br><span class="line"></span><br><span class="line">  getchar();</span><br><span class="line"></span><br><span class="line">  <span class="comment">//关闭映射</span></span><br><span class="line">  UnmapViewOfFile(g_lpBuff);</span><br><span class="line"></span><br><span class="line">  <span class="comment">//关闭句柄，当所有进程都不使用时，操作系统会将mapfile内核对象从物理页中清除。</span></span><br><span class="line">  CloseHandle(g_hMapFile);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="文件系统"><a href="#文件系统" class="headerlink" title="文件系统"></a>文件系统</h1><h2 id="相关API索引"><a href="#相关API索引" class="headerlink" title="相关API索引"></a>相关API索引</h2><h3 id="卷相关"><a href="#卷相关" class="headerlink" title="卷相关"></a>卷相关</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 返回值二进制从右往左分别标识A开始的卷是否存在</span></span><br><span class="line">GetLogIcalDrives();</span><br><span class="line"><span class="comment">//获取一个卷的盘符的字符串 </span></span><br><span class="line">GetLogIcalDriveStrings(buffsize,buf); </span><br><span class="line"><span class="comment">//获取卷的类型</span></span><br><span class="line">GetDriveType() </span><br><span class="line"><span class="comment">//获取卷的详细信息</span></span><br><span class="line">GetVolumeInformation(); </span><br></pre></td></tr></table></figure>
+
+<h3 id="文件夹相关"><a href="#文件夹相关" class="headerlink" title="文件夹相关"></a>文件夹相关</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CreateDirectory();<span class="comment">//创建目录</span></span><br><span class="line">RemoveDirectory();<span class="comment">//删除目录</span></span><br><span class="line">MoveFile();	<span class="comment">//修改目录名称.</span></span><br><span class="line">GetCurrentDirectory(); <span class="comment">//获取进程当前目录</span></span><br><span class="line">SetCurrentDirectory(); <span class="comment">//设置进程当前目录.</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="文件操作相关"><a href="#文件操作相关" class="headerlink" title="文件操作相关"></a>文件操作相关</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">CreateFile( ) <span class="comment">//创建文件</span></span><br><span class="line">DeleteFile();  <span class="comment">//删除文件</span></span><br><span class="line">CloseHandle();  <span class="comment">//关闭文件句柄</span></span><br><span class="line">GetFileSize();  <span class="comment">//获取文件大小.</span></span><br><span class="line">ReadFile();    <span class="comment">//读文件</span></span><br><span class="line">SetFilePointer(); <span class="comment">//设置文件指针</span></span><br><span class="line">WriteFile();    <span class="comment">//写文件</span></span><br><span class="line">CopyFile();   <span class="comment">//拷贝文件</span></span><br><span class="line">FindFirstFile(); <span class="comment">//查找文件</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="内存映射文件"><a href="#内存映射文件" class="headerlink" title="内存映射文件"></a>内存映射文件</h2><p>将该文件通过物理页映射到虚拟内存，用虚拟内存对文件进行操作，不直接对本体进行IO操作，就像读写内存一样读写文件。操作大型文件时性能会很高。</p>
+<p><img src="https://image-1301578757.file.myqcloud.com/postImg/20220415191735.jpg"></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;Windows.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAPPINGNAME TEXT(<span class="meta-string">&quot;共享内存&quot;</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="function">DWORD <span class="title">mappingFile</span><span class="params">(LPCWSTR lpcFile)</span> </span>&#123;</span><br><span class="line">  HANDLE hFile;</span><br><span class="line">  HANDLE hMapFile;</span><br><span class="line">  DWORD dwFileMapSize;</span><br><span class="line">  LPVOID lpAddr;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//创建文件句柄</span></span><br><span class="line">  hFile = CreateFile(</span><br><span class="line">    lpcFile,</span><br><span class="line">    GENERIC_READ | GENERIC_WRITE,</span><br><span class="line">    <span class="number">0</span>,</span><br><span class="line">    <span class="literal">NULL</span>,</span><br><span class="line">    OPEN_EXISTING,</span><br><span class="line">    FILE_ATTRIBUTE_NORMAL,</span><br><span class="line">    <span class="literal">NULL</span></span><br><span class="line">  );</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (hFile == INVALID_HANDLE_VALUE) &#123;</span><br><span class="line">    CloseHandle(hFile);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;创建失败:%d\n&quot;</span>, GetLastError());</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//申请物理页</span></span><br><span class="line">  hMapFile = CreateFileMapping(</span><br><span class="line">    hFile,</span><br><span class="line">    <span class="literal">NULL</span>,</span><br><span class="line">    PAGE_READWRITE,</span><br><span class="line">    <span class="number">0</span>,</span><br><span class="line">    <span class="number">0</span>,</span><br><span class="line">    MAPPINGNAME</span><br><span class="line">  );</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (hMapFile == <span class="literal">NULL</span>) &#123;</span><br><span class="line">    CloseHandle(hFile);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;映射内存失败:%d\n&quot;</span>, GetLastError());</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//关联线性地址</span></span><br><span class="line">  lpAddr = MapViewOfFile(hMapFile, FILE_MAP_ALL_ACCESS, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (lpAddr == <span class="literal">NULL</span>) &#123;</span><br><span class="line">    CloseHandle(hFile);</span><br><span class="line">    CloseHandle(hMapFile);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;关联线性地址失败:%d\n&quot;</span>, GetLastError());</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="comment">//可以直接像读内存一样读取文件</span></span><br><span class="line">  DWORD dwTest1 = *(PDWORD)lpAddr;</span><br><span class="line">  DWORD dwTest2 = *(PDWORD)lpAddr + <span class="number">0x1B8FC</span>;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;%x %x&quot;</span>, dwTest1, dwTest2);</span><br><span class="line"></span><br><span class="line">  <span class="comment">//写入文件</span></span><br><span class="line">  *(PDWORD)lpAddr = <span class="number">0x41414141</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/*</span></span><br><span class="line"><span class="comment">  强制刷新缓存</span></span><br><span class="line"><span class="comment">  否则只有在mapfile句柄关闭时才会改变文件，此处刷新4字节*/</span></span><br><span class="line">  <span class="comment">//FlushViewOfFile(lpAddr, 4);</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">//关闭资源</span></span><br><span class="line">  UnmapViewOfFile(lpAddr);</span><br><span class="line">  CloseHandle(hMapFile);</span><br><span class="line">  CloseHandle(hFile);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Karcyril</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://www.btkrc.com/posts/3c6dd2bb/">https://www.btkrc.com/posts/3c6dd2bb/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">署名-非商业性使用<svg class="icon" aria-hidden="true"><use xlink:href="#iconheike3-fuben"></use></svg>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.btkrc.com" target="_blank">KARCYRIL'S BLOG</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/C/">C++</a><a class="post-meta__tags" href="/tags/C%E8%AF%AD%E8%A8%80/">C语言</a><a class="post-meta__tags" href="/tags/WIN32/">WIN32</a><a class="post-meta__tags" href="/tags/%E5%86%85%E5%AD%98/">内存</a><a class="post-meta__tags" href="/tags/%E6%96%87%E4%BB%B6/">文件</a></div><div class="post_share"><div class="social-share" data-image="https://npm.elemecdn.com/btkrc-imgcover/cover/pre3.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 请我喝杯咖啡吧</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/uploads/wechat.png" target="_blank"><img class="post-qr-code-img" src="/uploads/wechat.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/posts/e12b2390/"><img class="next-cover" src="https://npm.elemecdn.com/btkrc-imgcover/cover/SwcjR53yi8.jpg" onerror="onerror=null;src='/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">NPM发布包流程</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://npm.elemecdn.com/btkrc-imgcover/avatar/avatar1.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Karcyril</div><div class="author-info__description"><svg class="icon" aria-hidden="true"><use xlink:href="#icontaidixiongwanoukeai"></use></svg>擅长领域：网络工程，网络安全，前后端开发，逆向工程<br/><svg class="icon" aria-hidden="true"><use xlink:href="#iconhuahonghuazhiwuhuaduo"></use></svg>爱好打游戏，看埃罗漫画，买手办<br/><svg class="icon" aria-hidden="true"><use xlink:href="#iconhuameiguihuaxianhua"></use></svg><br/><svg class="icon" aria-hidden="true"><use xlink:href="#iconxinfengxinjianyouxiangxianhuaxinfeng"></use></svg>夫学须静也，才须学也，非学无以广才，非志无以成学。</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">151</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">73</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">15</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://acg.btkrc.com"><i class="fa fa-heart"></i><span>どうもありがと</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/btkrc" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="https://space.bilibili.com/29980082" target="_blank" title="B站"><i class="iconfont iconbilibili1"></i></a><a class="social-icon" href="mailto:btkrc1nx@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A7%81%E6%9C%89%E5%86%85%E5%AD%98"><span class="toc-number">2.</span> <span class="toc-text">私有内存</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%98%A0%E5%B0%84%E5%86%85%E5%AD%98"><span class="toc-number">3.</span> <span class="toc-text">映射内存</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="toc-number">4.</span> <span class="toc-text">文件系统</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3API%E7%B4%A2%E5%BC%95"><span class="toc-number">4.1.</span> <span class="toc-text">相关API索引</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%B7%E7%9B%B8%E5%85%B3"><span class="toc-number">4.1.1.</span> <span class="toc-text">卷相关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9B%B8%E5%85%B3"><span class="toc-number">4.1.2.</span> <span class="toc-text">文件夹相关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C%E7%9B%B8%E5%85%B3"><span class="toc-number">4.1.3.</span> <span class="toc-text">文件操作相关</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E5%AD%98%E6%98%A0%E5%B0%84%E6%96%87%E4%BB%B6"><span class="toc-number">4.2.</span> <span class="toc-text">内存映射文件</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Karcyril</div><div class="footer_custom_text"><span class="item-count" id="runtimeshow" data-publishdate="2020-09-30T16:00:00.000Z"></span><br/><span>皆さん、こんにちは<svg class="icon" aria-hidden="true"><use xlink:href="#icon003-sakura"></use></svg>Karcyrilのブログへようこそ～</span><br/><a class="beian" target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">鄂ICP备2020021450号-1</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>function loadWaline () {
+  function initWaline () {
+    const waline = new Waline(Object.assign({
+      el: '#waline-wrap',
+      serverURL: 'https://btkrc-waline.vercel.app/',
+      avatar: 'hide',
+      path: location.pathname,
+      emojiCDN: '',
+      emojiMaps: "",
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Waline === 'function') initWaline() 
+  else getScript('https://cdn.jsdelivr.net/gh/btkrc/resource@main/uploadsFile/Waline.min.js').then(initWaline)
+}
+
+if ('Waline' === 'Waline' || !true) {
+  if (true) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+  else setTimeout(loadWaline, 0)
+} else {
+  function loadOtherComment () {
+    loadWaline()
+  }
+}</script></div><script src="https://cdn.jsdelivr.net/gh/btkrc/resource@main/uploadsFile/APlayer.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/btkrc/resource@main/uploadsFile/APlayer.min.css"><div id="aplayer" class="aplayer no-destroy"></div><script src="https://cdn.jsdelivr.net/gh/btkrc/resource@main/uploadsFile/music2.js"></script><script src="https://cdn.jsdelivr.net/gh/btkrc/resource@main/uploadsFile/translation/mJsonp.js" data-pjax></script><script src="https://cdn.jsdelivr.net/gh/btkrc/resource@main/uploadsFile/encodeUrl.js" data-pjax></script><script src="https://cdn.jsdelivr.net/gh/btkrc/resource@main/uploadsFile/mouse_snow.min.js"></script><script src="https://cdn.jsdelivr.net/gh/btkrc/resource@main/uploadsFile/myUtils11.js" data-pjax></script><script src="https://cdn.jsdelivr.net/gh/btkrc/resource@main/uploadsFile/butterfly/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+
+document.addEventListener('pjax:send', function () {
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script></div><script src="https://cdn.jsdelivr.net/gh/btkrc/resource@main/live2dw/lib/L2Dwidget.min.js"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"live2dw/lib/","pluginModelPath":"live2dw/assets/","tagMode":false,"debug":false,"model":{"scale":1,"jsonPath":"https://cdn.jsdelivr.net/gh/btkrc/resource@main/dsr50_1801/dsr50_1801.model.json"},"display":{"position":"right","width":300,"height":450,"hOffset":-60,"vOffset":-180},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body></html>
