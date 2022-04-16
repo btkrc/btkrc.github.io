@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.btkrc.com/analysis/index.html</loc>
+    
+    <lastmod>2022-04-16</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.btkrc.com/posts/3c6dd2bb/</loc>
     
     <lastmod>2022-04-14</lastmod>
@@ -30,14 +37,14 @@
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/gallery/acg/index.html</loc>
+    <loc>https://www.btkrc.com/gallery/birds/index.html</loc>
     
     <lastmod>2022-04-12</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/gallery/birds/index.html</loc>
+    <loc>https://www.btkrc.com/gallery/acg/index.html</loc>
     
     <lastmod>2022-04-12</lastmod>
     
@@ -96,13 +103,6 @@
     <loc>https://www.btkrc.com/posts/4510d7e7/</loc>
     
     <lastmod>2022-04-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/analysis/index.html</loc>
-    
-    <lastmod>2022-03-28</lastmod>
     
   </url>
   
@@ -1488,13 +1488,6 @@
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/tags/%E7%BC%96%E7%A0%81/</loc>
-    <lastmod>2022-04-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.btkrc.com/tags/%E6%B1%87%E7%BC%96/</loc>
     <lastmod>2022-04-16</lastmod>
     <changefreq>daily</changefreq>
@@ -1510,6 +1503,13 @@
   
   <url>
     <loc>https://www.btkrc.com/tags/%E5%AF%84%E5%AD%98%E5%99%A8/</loc>
+    <lastmod>2022-04-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/%E7%BC%96%E7%A0%81/</loc>
     <lastmod>2022-04-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
