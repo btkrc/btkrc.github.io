@@ -1593,6 +1593,13 @@
   </url>
   
   <url>
+    <loc>https://www.btkrc.com/tags/NPM/</loc>
+    <lastmod>2022-04-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.btkrc.com/tags/%E5%86%85%E5%AD%98/</loc>
     <lastmod>2022-04-16</lastmod>
     <changefreq>daily</changefreq>
@@ -1601,13 +1608,6 @@
   
   <url>
     <loc>https://www.btkrc.com/tags/%E6%96%87%E4%BB%B6/</loc>
-    <lastmod>2022-04-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/tags/NPM/</loc>
     <lastmod>2022-04-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
