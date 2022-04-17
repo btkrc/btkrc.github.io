@@ -2,14 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://www.btkrc.com/gallery/photos/index.html</loc>
+    <loc>https://www.btkrc.com/gallery/index.html</loc>
     
     <lastmod>2022-04-17</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/gallery/index.html</loc>
+    <loc>https://www.btkrc.com/gallery/dolls/index.html</loc>
+    
+    <lastmod>2022-04-17</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/gallery/photos/index.html</loc>
     
     <lastmod>2022-04-17</lastmod>
     
@@ -59,13 +66,6 @@
   
   <url>
     <loc>https://www.btkrc.com/gallery/budgie/index.html</loc>
-    
-    <lastmod>2022-04-12</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/gallery/dolls/index.html</loc>
     
     <lastmod>2022-04-12</lastmod>
     
