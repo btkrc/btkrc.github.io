@@ -1250,13 +1250,6 @@
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/tags/DHCP/</loc>
-    <lastmod>2022-04-17</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.btkrc.com/tags/windows/</loc>
     <lastmod>2022-04-17</lastmod>
     <changefreq>daily</changefreq>
@@ -1271,6 +1264,13 @@
   </url>
   
   <url>
+    <loc>https://www.btkrc.com/tags/DHCP/</loc>
+    <lastmod>2022-04-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.btkrc.com/tags/vs-code/</loc>
     <lastmod>2022-04-17</lastmod>
     <changefreq>daily</changefreq>
@@ -1279,13 +1279,6 @@
   
   <url>
     <loc>https://www.btkrc.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
-    <lastmod>2022-04-17</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/tags/Hexo/</loc>
     <lastmod>2022-04-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1307,6 +1300,13 @@
   
   <url>
     <loc>https://www.btkrc.com/tags/%E5%90%8E%E7%AB%AF/</loc>
+    <lastmod>2022-04-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/Hexo/</loc>
     <lastmod>2022-04-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1516,14 +1516,14 @@
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/tags/%E5%8F%8D%E8%B0%83%E8%AF%95/</loc>
+    <loc>https://www.btkrc.com/tags/%E5%AF%84%E5%AD%98%E5%99%A8/</loc>
     <lastmod>2022-04-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/tags/%E5%AF%84%E5%AD%98%E5%99%A8/</loc>
+    <loc>https://www.btkrc.com/tags/%E5%8F%8D%E8%B0%83%E8%AF%95/</loc>
     <lastmod>2022-04-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1763,14 +1763,14 @@
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/categories/web%E5%89%8D%E7%AB%AF/</loc>
+    <loc>https://www.btkrc.com/categories/%E5%90%8E%E7%AB%AF/</loc>
     <lastmod>2022-04-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/categories/%E5%90%8E%E7%AB%AF/</loc>
+    <loc>https://www.btkrc.com/categories/web%E5%89%8D%E7%AB%AF/</loc>
     <lastmod>2022-04-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
