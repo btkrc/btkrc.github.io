@@ -2,16 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://www.btkrc.com/gallery/index.html</loc>
+    <loc>https://www.btkrc.com/gallery/photos/index.html</loc>
     
     <lastmod>2022-04-17</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/gallery/photos/index.html</loc>
+    <loc>https://www.btkrc.com/gallery/index.html</loc>
     
-    <lastmod>2022-04-16</lastmod>
+    <lastmod>2022-04-17</lastmod>
     
   </url>
   
@@ -1222,13 +1222,6 @@
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/tags/%E5%B7%A5%E5%85%B7/</loc>
-    <lastmod>2022-04-17</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.btkrc.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</loc>
     <lastmod>2022-04-17</lastmod>
     <changefreq>daily</changefreq>
@@ -1250,7 +1243,7 @@
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/tags/windows/</loc>
+    <loc>https://www.btkrc.com/tags/%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2022-04-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1258,6 +1251,13 @@
   
   <url>
     <loc>https://www.btkrc.com/tags/DHCP/</loc>
+    <lastmod>2022-04-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/windows/</loc>
     <lastmod>2022-04-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1649,14 +1649,14 @@
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/tags/jQuery/</loc>
+    <loc>https://www.btkrc.com/tags/HTML/</loc>
     <lastmod>2022-04-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/tags/HTML/</loc>
+    <loc>https://www.btkrc.com/tags/jQuery/</loc>
     <lastmod>2022-04-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1721,13 +1721,6 @@
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/categories/PYTHON/</loc>
-    <lastmod>2022-04-17</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.btkrc.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</loc>
     <lastmod>2022-04-17</lastmod>
     <changefreq>daily</changefreq>
@@ -1735,7 +1728,7 @@
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/categories/PYTHON/PYTHON%E5%9F%BA%E7%A1%80/</loc>
+    <loc>https://www.btkrc.com/categories/PYTHON/</loc>
     <lastmod>2022-04-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1743,6 +1736,13 @@
   
   <url>
     <loc>https://www.btkrc.com/categories/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</loc>
+    <lastmod>2022-04-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/categories/PYTHON/PYTHON%E5%9F%BA%E7%A1%80/</loc>
     <lastmod>2022-04-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
