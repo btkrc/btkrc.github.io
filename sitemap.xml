@@ -856,13 +856,6 @@
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/posts/e31aefe6/</loc>
-    
-    <lastmod>2020-12-13</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://www.btkrc.com/posts/35e8cdfd/</loc>
     
     <lastmod>2020-12-12</lastmod>
@@ -1129,13 +1122,6 @@
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/posts/e3e7859b/</loc>
-    
-    <lastmod>2020-10-15</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://www.btkrc.com/posts/ea50967e/</loc>
     
     <lastmod>2020-10-05</lastmod>
@@ -1179,13 +1165,6 @@
   
   <url>
     <loc>https://www.btkrc.com/posts/ee69e452/</loc>
-    
-    <lastmod>2020-06-15</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/posts/664d39f9/</loc>
     
     <lastmod>2020-06-15</lastmod>
     
@@ -1258,13 +1237,6 @@
   
   <url>
     <loc>https://www.btkrc.com/tags/%E9%98%B2%E7%81%AB%E5%A2%99/</loc>
-    <lastmod>2022-04-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/tags/%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2022-04-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1712,13 +1684,6 @@
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/tags/%E7%AC%94%E8%AE%B0%E7%9B%B8%E5%85%B3/</loc>
-    <lastmod>2022-04-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.btkrc.com/tags/%E5%B1%80%E5%9F%9F%E7%BD%91/</loc>
     <lastmod>2022-04-20</lastmod>
     <changefreq>daily</changefreq>
@@ -1770,14 +1735,14 @@
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/categories/PYTHON/PYTHON%E5%9F%BA%E7%A1%80/</loc>
+    <loc>https://www.btkrc.com/categories/PYTHON/%E7%88%AC%E8%99%AB/</loc>
     <lastmod>2022-04-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/categories/PYTHON/%E7%88%AC%E8%99%AB/</loc>
+    <loc>https://www.btkrc.com/categories/PYTHON/PYTHON%E5%9F%BA%E7%A1%80/</loc>
     <lastmod>2022-04-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1812,21 +1777,14 @@
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/categories/C/</loc>
+    <loc>https://www.btkrc.com/categories/C-C/</loc>
     <lastmod>2022-04-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/categories/%E6%B1%87%E7%BC%96/</loc>
-    <lastmod>2022-04-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/categories/%E6%B1%87%E7%BC%96/8086%E6%B1%87%E7%BC%96/</loc>
+    <loc>https://www.btkrc.com/categories/80x86%E6%B1%87%E7%BC%96/</loc>
     <lastmod>2022-04-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1840,14 +1798,14 @@
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/categories/C%E8%AF%AD%E8%A8%80/</loc>
+    <loc>https://www.btkrc.com/categories/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B/%E5%8F%8D%E6%B1%87%E7%BC%96/</loc>
     <lastmod>2022-04-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/categories/WIN32/</loc>
+    <loc>https://www.btkrc.com/categories/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B/WIN32/</loc>
     <lastmod>2022-04-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
