@@ -1695,13 +1695,6 @@
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/tags/github/</loc>
-    <lastmod>2022-05-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.btkrc.com/tags/DNS/</loc>
     <lastmod>2022-05-17</lastmod>
     <changefreq>weekly</changefreq>
@@ -1710,6 +1703,13 @@
   
   <url>
     <loc>https://www.btkrc.com/tags/%E6%BA%90%E7%A0%81/</loc>
+    <lastmod>2022-05-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/github/</loc>
     <lastmod>2022-05-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2017,14 +2017,14 @@
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/tags/%E6%B3%A8%E5%85%A5/</loc>
+    <loc>https://www.btkrc.com/tags/%E6%A8%A1%E5%9D%97/</loc>
     <lastmod>2022-05-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/tags/%E6%A8%A1%E5%9D%97/</loc>
+    <loc>https://www.btkrc.com/tags/%E6%B3%A8%E5%85%A5/</loc>
     <lastmod>2022-05-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
