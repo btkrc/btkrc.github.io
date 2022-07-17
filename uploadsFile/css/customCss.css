@@ -7,23 +7,27 @@
     fill: currentColor;
     overflow: hidden;
 }
-.iconfont.iconbilibili1{font-size: 22px !important;}
 
-#site_social_icons{
-display:block !important;
+.iconfont.iconbilibili1 {
+    font-size: 22px !important;
+}
+
+#site_social_icons {
+    display: block !important;
 }
 
 /*自定义字体*/
 
-@font-face{
-  font-family:'tiantianquanziti' ; 
-  src:url('https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/fontFamily/tiantianquanziti.ttf'); 
-  font-display : swap;
+@font-face {
+    font-family: 'tiantianquanziti';
+    src: url('https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/fontFamily/tiantianquanziti.ttf');
+    font-display: swap;
 }
 
-.copyright,.footer_custom_text,.recent-post-info,.card-widget,#post h1,#post h2,#post h3,#post h4,#post h5,#site-title,#subtitle,#blog_name,#menus,.pagination,.gallery-group,#post-info,.blog-slider__content,#sidebar-menus,.post-copyright,.tag_share,.reward-button,.pagination-post,#page,#post-comment{
-font-family:'tiantianquanziti',sans-serif;
+.copyright, .footer_custom_text, .recent-post-info, .card-widget, #post h1, #post h2, #post h3, #post h4, #post h5, #site-title, #subtitle, #blog_name, #menus, .pagination, .gallery-group, #post-info, .blog-slider__content, #sidebar-menus, .post-copyright, .tag_share, .reward-button, .pagination-post, #page, #post-comment {
+    font-family: 'tiantianquanziti', sans-serif;
 }
+
 /*自定义字体 end*/
 
 /*首页在最前*/
@@ -41,7 +45,7 @@ header.full_page {
 /*扫光字体 标题*/
 
 
-#post-info .post-title, .post-copyright__author .post-copyright-info a ,.saoguang{
+#post-info .post-title, .post-copyright__author .post-copyright-info a, .saoguang {
     background-image: -webkit-linear-gradient(right, red, orange, yellow, green, yellow, orange, red, orange, yellow, green, yellow, orange, red);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
@@ -53,6 +57,7 @@ header.full_page {
     0% {
         background-position: 0 0;
     }
+
     100% {
         background-position: -100% 0;
     }
@@ -71,8 +76,8 @@ header.full_page {
 /*扫光字体 end*/
 
 /*发白光字体*/
-.baiguang,.tag-cloud-list a{
-text-shadow:0 0 0.05em #FFFFFF, 0 0 0.2em #FFFFFF, 0 0 0.15em #FFFFFF, 0 0 0.2em #FFFFFF, 0 0 0.3em #FFFFFF, 0 0 0.4em #FFFFFF, 0 0 0.5em #FF1177, 0 0 0.75em #FFFFFF;
+.baiguang, .tag-cloud-list a {
+    text-shadow: 0 0 0.05em #FFFFFF, 0 0 0.2em #FFFFFF, 0 0 0.15em #FFFFFF, 0 0 0.2em #FFFFFF, 0 0 0.3em #FFFFFF, 0 0 0.4em #FFFFFF, 0 0 0.5em #FF1177, 0 0 0.75em #FFFFFF;
 }
 
 
@@ -199,7 +204,7 @@ hr {
     background: #EE6363 !important;
 }
 
-#go-up, #mobile-toc-button, .aplayer-miniswitcher,#to_comment {
+#go-up, #mobile-toc-button, .aplayer-miniswitcher, #to_comment {
     background: rgba(7, 17, 27, 0.15) !important;
 }
 
@@ -226,7 +231,7 @@ hr {
 
 /*透明背景*/
 
-.recent-post-item, #post, .card-info, #page, .card-announcement,.post-copyright {
+.recent-post-item, #post, .card-info, #page, .card-announcement, .post-copyright {
     background: rgba(0, 0, 0, 0.4) !important;
 }
 
@@ -244,13 +249,13 @@ hr {
 
 /*自定义鼠标*/
 
-body {
+/* body {
     cursor: url(https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/img/default.cur), default;
 }
 
 a, img {
     cursor: url(https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/img/pointer.cur), default !important;
-}
+} */
 
 /*daovoice */
 
@@ -293,7 +298,7 @@ a, img {
     color: #F7F7F7;
     width: 49%;
     height: 1.5rem;
-    margin-top:10px;
+    margin-top: 10px;
 }
 
 /*waline*/
@@ -325,33 +330,43 @@ a, img {
     0% {
         border-color: #ff69b4;
     }
+
     10% {
         border-color: #6495ed;
     }
+
     20% {
         border-color: #daa520;
     }
+
     30% {
         border-color: #7fffd4;
     }
+
     40% {
         border-color: #fa8072;
     }
+
     50% {
         border-color: #90ee90;
     }
+
     60% {
         border-color: #f4a460;
     }
+
     70% {
         border-color: #5B9600;
     }
+
     80% {
         border-color: #147B96;
     }
+
     90% {
         border-color: #f4a460;
     }
+
     100% {
         border-color: #ff69b4;
     }
@@ -361,20 +376,20 @@ a, img {
 
 /*公告栏*/
 
-.card-announcement{
-background:rgba(0,0,0,0.3) !important;
-color:#FFA500;
-font-weight:bolder;
+.card-announcement {
+    background: rgba(0, 0, 0, 0.3) !important;
+    color: #FFA500;
+    font-weight: bolder;
 }
 
 
 /*shake 文字*/
-.myShake,.author-info__name,#site-title{
-animation: shake-it .5s reverse infinite cubic-bezier(.68, -.55, .27, 1.55)
+.myShake, .author-info__name, #site-title {
+    animation: shake-it .5s reverse infinite cubic-bezier(.68, -.55, .27, 1.55)
 }
 
-.recent-post-info .article-title:hover{
-animation: shake-it .5s reverse infinite cubic-bezier(.68, -.55, .27, 1.55)
+.recent-post-info .article-title:hover {
+    animation: shake-it .5s reverse infinite cubic-bezier(.68, -.55, .27, 1.55)
 }
 
 
@@ -382,12 +397,15 @@ animation: shake-it .5s reverse infinite cubic-bezier(.68, -.55, .27, 1.55)
     0% {
         text-shadow: 0 0 rgba(0, 255, 255, 0.5), 0 0 rgba(255, 0, 0, 0.5)
     }
+
     25% {
         text-shadow: -2px 0 rgba(0, 255, 255, 0.5), 2px 0 rgba(255, 0, 0, 0.5)
     }
+
     50% {
         text-shadow: -5px 0 rgba(0, 255, 255, 0.5), 3px 0 rgba(255, 0, 0, 0.5)
     }
+
     100% {
         text-shadow: 3px 0 rgba(0, 255, 255, 0.5), 5px 0 rgba(255, 0, 0, 0.5)
     }
@@ -397,12 +415,15 @@ animation: shake-it .5s reverse infinite cubic-bezier(.68, -.55, .27, 1.55)
     0% {
         text-shadow: 0 0 rgba(0, 255, 255, 0.5), 0 0 rgba(255, 0, 0, 0.5)
     }
+
     25% {
         text-shadow: -2px 0 rgba(0, 255, 255, 0.5), 2px 0 rgba(255, 0, 0, 0.5)
     }
+
     50% {
         text-shadow: -5px 0 rgba(0, 255, 255, 0.5), 3px 0 rgba(255, 0, 0, 0.5)
     }
+
     100% {
         text-shadow: 3px 0 rgba(0, 255, 255, 0.5), 5px 0 rgba(255, 0, 0, 0.5)
     }
@@ -412,12 +433,15 @@ animation: shake-it .5s reverse infinite cubic-bezier(.68, -.55, .27, 1.55)
     0% {
         text-shadow: 0 0 rgba(0, 255, 255, 0.5), 0 0 rgba(255, 0, 0, 0.5)
     }
+
     25% {
         text-shadow: -2px 0 rgba(0, 255, 255, 0.5), 2px 0 rgba(255, 0, 0, 0.5)
     }
+
     50% {
         text-shadow: -5px 0 rgba(0, 255, 255, 0.5), 3px 0 rgba(255, 0, 0, 0.5)
     }
+
     100% {
         text-shadow: 3px 0 rgba(0, 255, 255, 0.5), 5px 0 rgba(255, 0, 0, 0.5)
     }
@@ -427,120 +451,150 @@ animation: shake-it .5s reverse infinite cubic-bezier(.68, -.55, .27, 1.55)
     0% {
         text-shadow: 0 0 rgba(0, 255, 255, 0.5), 0 0 rgba(255, 0, 0, 0.5)
     }
+
     25% {
         text-shadow: -2px 0 rgba(0, 255, 255, 0.5), 2px 0 rgba(255, 0, 0, 0.5)
     }
+
     50% {
         text-shadow: -5px 0 rgba(0, 255, 255, 0.5), 3px 0 rgba(255, 0, 0, 0.5)
     }
+
     100% {
         text-shadow: 3px 0 rgba(0, 255, 255, 0.5), 5px 0 rgba(255, 0, 0, 0.5)
     }
 }
+
 /*shake end*/
 
 /*美化waline*/
 
-#waline-wrap .vwrap,#waline-wrap .vinput,#waline-wrap .vbtn,#waline-wrap .vcard .vh{
-border-color:#999999;
+#waline-wrap .vwrap, #waline-wrap .vinput, #waline-wrap .vbtn, #waline-wrap .vcard .vh {
+    border-color: #999999;
 }
 
-#waline-wrap .vpanel .vright .vrow .vcol a{display:none;}
+#waline-wrap .vpanel .vright .vrow .vcol a {
+    display: none;
+}
 
 /*waline end*/
 
 /*置顶封面美化*/
-.full_page::before{content: '';pointer-events: none;position: absolute;top: 0;bottom: 0;left: 0;right: 0;z-index: 3;background-attachment: fixed;background-image: url(https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/img/dot.gif);transition: all 0.5s;}
+.full_page::before {
+    content: '';
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+    background-attachment: fixed;
+    background-image: url(https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/img/dot.gif);
+    transition: all 0.5s;
+}
 
 /*置顶封面 end*/
 
 /*dark模式下的封面图调亮 */
-.full_page:before{background-color:rgba(0,0,0,0) !important;}
+.full_page:before {
+    background-color: rgba(0, 0, 0, 0) !important;
+}
 
 /*页脚透明*/
-#footer{background:rgba(0,0,0,0);}
-#footer:before{background:rgba(0,0,0,0) !important;}
+#footer {
+    background: rgba(0, 0, 0, 0);
+}
+
+#footer:before {
+    background: rgba(0, 0, 0, 0) !important;
+}
 
 /*引用样式*/
-blockquote{border-left: 0.2rem solid #EE6A50;
-    background: rgba(238,106,80,0.1);}
+blockquote {
+    border-left: 0.2rem solid #EE6A50;
+    background: rgba(238, 106, 80, 0.1);
+}
 
 
 /*butterfly开启美化后的标题字体图标*/
 
 #article-container.post-content h1:before, h2:before, h3:before, h4:before, h5:before, h6:before {
-  -webkit-animation: avatar_turn_around 1s linear infinite;
-  -moz-animation: avatar_turn_around 1s linear infinite;
-  -o-animation: avatar_turn_around 1s linear infinite;
-  -ms-animation: avatar_turn_around 1s linear infinite;
-  animation: avatar_turn_around 1s linear infinite
+    -webkit-animation: avatar_turn_around 1s linear infinite;
+    -moz-animation: avatar_turn_around 1s linear infinite;
+    -o-animation: avatar_turn_around 1s linear infinite;
+    -ms-animation: avatar_turn_around 1s linear infinite;
+    animation: avatar_turn_around 1s linear infinite
 }
 
 @-moz-keyframes avatar_turn_around {
-  from {
-    -webkit-transform: rotate(0);
-    -moz-transform: rotate(0);
-    -o-transform: rotate(0);
-    -ms-transform: rotate(0);
-    transform: rotate(0)
-  }
-  to {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg)
-  }
+    from {
+        -webkit-transform: rotate(0);
+        -moz-transform: rotate(0);
+        -o-transform: rotate(0);
+        -ms-transform: rotate(0);
+        transform: rotate(0)
+    }
+
+    to {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg)
+    }
 }
 
 @-webkit-keyframes avatar_turn_around {
-  from {
-    -webkit-transform: rotate(0);
-    -moz-transform: rotate(0);
-    -o-transform: rotate(0);
-    -ms-transform: rotate(0);
-    transform: rotate(0)
-  }
-  to {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg)
-  }
+    from {
+        -webkit-transform: rotate(0);
+        -moz-transform: rotate(0);
+        -o-transform: rotate(0);
+        -ms-transform: rotate(0);
+        transform: rotate(0)
+    }
+
+    to {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg)
+    }
 }
 
 @-o-keyframes avatar_turn_around {
-  from {
-    -webkit-transform: rotate(0);
-    -moz-transform: rotate(0);
-    -o-transform: rotate(0);
-    -ms-transform: rotate(0);
-    transform: rotate(0)
-  }
-  to {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg)
-  }
+    from {
+        -webkit-transform: rotate(0);
+        -moz-transform: rotate(0);
+        -o-transform: rotate(0);
+        -ms-transform: rotate(0);
+        transform: rotate(0)
+    }
+
+    to {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg)
+    }
 }
 
 @keyframes avatar_turn_around {
-  from {
-    -webkit-transform: rotate(0);
-    -moz-transform: rotate(0);
-    -o-transform: rotate(0);
-    -ms-transform: rotate(0);
-    transform: rotate(0)
-  }
-  to {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg)
-  }
-}
+    from {
+        -webkit-transform: rotate(0);
+        -moz-transform: rotate(0);
+        -o-transform: rotate(0);
+        -ms-transform: rotate(0);
+        transform: rotate(0)
+    }
 
+    to {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg)
+    }
+}
