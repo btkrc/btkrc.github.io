@@ -1,3 +1,5 @@
+/*by Karcyril*/
+
 /*字体图标*/
 
 .icon {
@@ -20,7 +22,13 @@
 
 @font-face {
     font-family: 'tiantianquanziti';
-    src: url('https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/fontFamily/tiantianquanziti.ttf');
+    src: url('https://npm.elemecdn.com/btkrc-resource/fontFamily/tiantianquanziti.ttf');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'UnidreamLED';
+    src: url("https://npm.elemecdn.com/btkrc-resource/fontFamily/UnidreamLED.ttf");
     font-display: swap;
 }
 
@@ -93,8 +101,10 @@ header.full_page {
 
 /*标题h1 h2 h3 h4样式*/
 
+/*
+
 .post-content h1 {
-    background: #008080 !important;
+    background: #374ad6 !important;
     border-radius: 6px 6px 6px 6px;
     box-shadow: 0 0 0 1px #5F5A4B, 1px 1px 6px 1px rgba(10, 10, 0, 0.5);
     color: #FFFFFF;
@@ -114,6 +124,7 @@ header.full_page {
     padding: 5px 10px 5px 10px;
     text-shadow: 2px 2px 3px #222222;
 }
+
 
 .post-content h3 {
     background: #2B6600;
@@ -136,6 +147,8 @@ header.full_page {
     padding: 5px 10px 5px 10px;
     text-shadow: 2px 2px 3px #222222;
 }
+
+*/
 
 /*标题h1 h2 h3 h4样式 end*/
 
@@ -204,8 +217,10 @@ hr {
     background: #EE6363 !important;
 }
 
+/*播放器和右侧图标美化*/
+
 #go-up, #mobile-toc-button, .aplayer-miniswitcher, #to_comment {
-    background: rgba(7, 17, 27, 0.15) !important;
+    background: rgba(79, 103, 121, 0.3) !important;
 }
 
 .aplayer-body {
@@ -249,13 +264,16 @@ hr {
 
 /*自定义鼠标*/
 
-/* body {
-    cursor: url(https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/img/default.cur), default;
+/*
+body {
+    cursor: url(https://npm.elemecdn.com/btkrc-resource/img/default.cur), default;
 }
 
 a, img {
-    cursor: url(https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/img/pointer.cur), default !important;
-} */
+    cursor: url(https://npm.elemecdn.com/btkrc-resource/img/pointer.cur), default !important;
+}
+
+*/
 
 /*daovoice */
 
@@ -291,14 +309,6 @@ a, img {
     height: 100%;
     left: 0;
     top: 0;
-}
-
-.urlBtn {
-    border: 1px #FFFFFF solid;
-    color: #F7F7F7;
-    width: 49%;
-    height: 1.5rem;
-    margin-top: 10px;
 }
 
 /*waline*/
@@ -490,7 +500,7 @@ a, img {
     right: 0;
     z-index: 3;
     background-attachment: fixed;
-    background-image: url(https://cdn.jsdelivr.net/gh/btKrc1nx/resource@main/img/dot.gif);
+    background-image: url(https://npm.elemecdn.com/btkrc-resource/img/dot.gif);
     transition: all 0.5s;
 }
 
@@ -512,89 +522,159 @@ a, img {
 
 /*引用样式*/
 blockquote {
-    border-left: 0.2rem solid #EE6A50;
-    background: rgba(238, 106, 80, 0.1);
+    border-left: 5px solid #c08a3e !important;
+    color: #4c4948;
+    border-radius: 3px;
+    background: #cac6bb !important;
 }
 
 
 /*butterfly开启美化后的标题字体图标*/
-
+/*
 #article-container.post-content h1:before, h2:before, h3:before, h4:before, h5:before, h6:before {
-    -webkit-animation: avatar_turn_around 1s linear infinite;
-    -moz-animation: avatar_turn_around 1s linear infinite;
-    -o-animation: avatar_turn_around 1s linear infinite;
-    -ms-animation: avatar_turn_around 1s linear infinite;
-    animation: avatar_turn_around 1s linear infinite
+  -webkit-animation: avatar_turn_around 1s linear infinite;
+  -moz-animation: avatar_turn_around 1s linear infinite;
+  -o-animation: avatar_turn_around 1s linear infinite;
+  -ms-animation: avatar_turn_around 1s linear infinite;
+  animation: avatar_turn_around 1s linear infinite
 }
 
 @-moz-keyframes avatar_turn_around {
-    from {
-        -webkit-transform: rotate(0);
-        -moz-transform: rotate(0);
-        -o-transform: rotate(0);
-        -ms-transform: rotate(0);
-        transform: rotate(0)
-    }
-
-    to {
-        -webkit-transform: rotate(360deg);
-        -moz-transform: rotate(360deg);
-        -o-transform: rotate(360deg);
-        -ms-transform: rotate(360deg);
-        transform: rotate(360deg)
-    }
+  from {
+    -webkit-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -o-transform: rotate(0);
+    -ms-transform: rotate(0);
+    transform: rotate(0)
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg)
+  }
 }
 
 @-webkit-keyframes avatar_turn_around {
-    from {
-        -webkit-transform: rotate(0);
-        -moz-transform: rotate(0);
-        -o-transform: rotate(0);
-        -ms-transform: rotate(0);
-        transform: rotate(0)
-    }
-
-    to {
-        -webkit-transform: rotate(360deg);
-        -moz-transform: rotate(360deg);
-        -o-transform: rotate(360deg);
-        -ms-transform: rotate(360deg);
-        transform: rotate(360deg)
-    }
+  from {
+    -webkit-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -o-transform: rotate(0);
+    -ms-transform: rotate(0);
+    transform: rotate(0)
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg)
+  }
 }
 
 @-o-keyframes avatar_turn_around {
-    from {
-        -webkit-transform: rotate(0);
-        -moz-transform: rotate(0);
-        -o-transform: rotate(0);
-        -ms-transform: rotate(0);
-        transform: rotate(0)
-    }
-
-    to {
-        -webkit-transform: rotate(360deg);
-        -moz-transform: rotate(360deg);
-        -o-transform: rotate(360deg);
-        -ms-transform: rotate(360deg);
-        transform: rotate(360deg)
-    }
+  from {
+    -webkit-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -o-transform: rotate(0);
+    -ms-transform: rotate(0);
+    transform: rotate(0)
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg)
+  }
 }
 
 @keyframes avatar_turn_around {
+  from {
+    -webkit-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -o-transform: rotate(0);
+    -ms-transform: rotate(0);
+    transform: rotate(0)
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg)
+  }
+}
+*/
+
+/* input控件和btn美化 */
+.myBtn {
+    height: 30px;
+    width: auto;
+    background-color: #FF6A6A;
+    font-size: 14px;
+    line-height: 30px;
+    display: inline-block;
+    text-align: center;
+    color: #fff;
+    border-radius: 5px;
+    border: 1px solid #666666;
+    margin-left: 20px;
+    padding: 0 5px;
+}
+
+/*网站统计时间*/
+
+#runtimeshow {
+    width: 200px;
+    margin: auto;
+    display: inline-block;
+    color: #28b4c8;
+    padding-inline: 5px;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    font-family: 'UnidreamLED';
+    box-shadow: 0 0 5px rgba(28, 69, 218, 0.71);
+    animation: flashlight 1s linear infinite alternate;
+}
+
+@-moz-keyframes flashlight {
     from {
-        -webkit-transform: rotate(0);
-        -moz-transform: rotate(0);
-        -o-transform: rotate(0);
-        -ms-transform: rotate(0);
-        transform: rotate(0)
+        box-shadow: 0 0 5px #1478d2;
     }
 
     to {
-        -webkit-transform: rotate(360deg);
-        -moz-transform: rotate(360deg);
-        -o-transform: rotate(360deg);
-        -ms-transform: rotate(360deg);
-        transform: rotate(360deg)
+        box-shadow: 0 0 2px #1478d2;
+    }
+}
+
+@-webkit-keyframes flashlight {
+    from {
+        box-shadow: 0 0 5px #1478d2;
+    }
+
+    to {
+        box-shadow: 0 0 2px #1478d2;
+    }
+}
+
+@-o-keyframes flashlight {
+    from {
+        box-shadow: 0 0 5px #1478d2;
+    }
+
+    to {
+        box-shadow: 0 0 2px #1478d2;
+    }
+}
+
+@keyframes flashlight {
+    from {
+        box-shadow: 0 0 5px #1478d2;
+    }
+
+    to {
+        box-shadow: 0 0 2px #1478d2;
     }
 }
