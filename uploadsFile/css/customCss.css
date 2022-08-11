@@ -22,13 +22,13 @@
 
 @font-face {
     font-family: 'tiantianquanziti';
-    src: url('https://npm.elemecdn.com/btkrc-resource/fontFamily/tiantianquanziti.ttf');
+    src: url('https://cdn.jsdelivr.net/npm/btkrc-resource/fontFamily/tiantianquanziti.ttf');
     font-display: swap;
 }
 
 @font-face {
     font-family: 'UnidreamLED';
-    src: url("https://npm.elemecdn.com/btkrc-resource/fontFamily/UnidreamLED.ttf");
+    src: url("https://cdn.jsdelivr.net/npm/btkrc-resource/fontFamily/UnidreamLED.ttf");
     font-display: swap;
 }
 
@@ -266,11 +266,11 @@ hr {
 
 /*
 body {
-    cursor: url(https://npm.elemecdn.com/btkrc-resource/img/default.cur), default;
+    cursor: url(https://cdn.jsdelivr.net/npm/btkrc-resource/img/default.cur), default;
 }
 
 a, img {
-    cursor: url(https://npm.elemecdn.com/btkrc-resource/img/pointer.cur), default !important;
+    cursor: url(https://cdn.jsdelivr.net/npm/btkrc-resource/img/pointer.cur), default !important;
 }
 
 */
@@ -500,7 +500,7 @@ a, img {
     right: 0;
     z-index: 3;
     background-attachment: fixed;
-    background-image: url(https://npm.elemecdn.com/btkrc-resource/img/dot.gif);
+    background-image: url(https://cdn.jsdelivr.net/npm/btkrc-resource/img/dot.gif);
     transition: all 0.5s;
 }
 
