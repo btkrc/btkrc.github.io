@@ -56,7 +56,7 @@
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/gallery/budgie/index.html</loc>
+    <loc>https://www.btkrc.com/gallery/birds/index.html</loc>
     
     <lastmod>2022-09-17</lastmod>
     
@@ -65,7 +65,7 @@
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/gallery/birds/index.html</loc>
+    <loc>https://www.btkrc.com/gallery/budgie/index.html</loc>
     
     <lastmod>2022-09-17</lastmod>
     
@@ -1923,6 +1923,13 @@
   </url>
   
   <url>
+    <loc>https://www.btkrc.com/tags/%E7%BC%96%E7%A0%81/</loc>
+    <lastmod>2023-04-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://www.btkrc.com/tags/%E6%B1%87%E7%BC%96/</loc>
     <lastmod>2023-04-14</lastmod>
     <changefreq>weekly</changefreq>
@@ -1938,13 +1945,6 @@
   
   <url>
     <loc>https://www.btkrc.com/tags/%E5%AF%84%E5%AD%98%E5%99%A8/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/tags/%E7%BC%96%E7%A0%81/</loc>
     <lastmod>2023-04-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1986,14 +1986,14 @@
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/tags/%E7%BA%BF%E7%A8%8B/</loc>
+    <loc>https://www.btkrc.com/tags/%E8%BF%9B%E7%A8%8B/</loc>
     <lastmod>2023-04-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/tags/%E8%BF%9B%E7%A8%8B/</loc>
+    <loc>https://www.btkrc.com/tags/%E7%BA%BF%E7%A8%8B/</loc>
     <lastmod>2023-04-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
