@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.btkrc.com/gallery/dolls/index.html</loc>
+    
+    <lastmod>2023-04-15</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.btkrc.com/posts/ed33c37e/</loc>
     
     <lastmod>2023-04-14</lastmod>
@@ -38,7 +47,7 @@
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/gallery/dolls/index.html</loc>
+    <loc>https://www.btkrc.com/gallery/index.html</loc>
     
     <lastmod>2023-04-10</lastmod>
     
@@ -47,9 +56,9 @@
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/gallery/index.html</loc>
+    <loc>https://www.btkrc.com/posts/ac0f434b/</loc>
     
-    <lastmod>2023-04-10</lastmod>
+    <lastmod>2023-02-14</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -210,15 +219,6 @@
   
   <url>
     <loc>https://www.btkrc.com/posts/cf459526/</loc>
-    
-    <lastmod>2022-04-19</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/posts/ac0f434b/</loc>
     
     <lastmod>2022-04-19</lastmod>
     
@@ -1633,526 +1633,526 @@
 
   <url>
     <loc>https://www.btkrc.com/</loc>
-    <lastmod>2023-04-14</lastmod>
+    <lastmod>2023-04-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
   <url>
-    <loc>https://www.btkrc.com/tags/DHCP/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/tags/windows/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/tags/python/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/tags/vs-code/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/tags/%E7%88%AC%E8%99%AB/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/tags/Hexo/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/tags/%E6%AD%A3%E5%88%99/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/tags/PHP/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/tags/%E5%90%8E%E7%AB%AF/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/tags/wp/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/tags/DNS/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/tags/github/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/tags/%E6%BA%90%E7%A0%81/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/tags/Javascript/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/tags/gulp/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/tags/HTTP/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/tags/%E6%9D%82%E8%B0%88/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/tags/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/tags/C/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/tags/QT/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/tags/%E5%9F%9F/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/tags/PKI/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/tags/%E9%83%A8%E7%BD%B2/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/tags/%E7%89%A9%E7%90%86%E5%B1%82/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/tags/%E4%BA%A4%E6%8D%A2%E6%9C%BA/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/tags/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/tags/CSS/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/tags/%E7%BD%91%E7%BB%9C%E5%B1%82/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/tags/ARP/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/tags/%E7%BD%91%E7%BB%9C%E5%B7%A5%E7%A8%8B/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/tags/VLAN/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/tags/HSRP/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/tags/ACL/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/tags/%E7%BD%91%E7%BB%9C%E6%8B%93%E6%89%91%E8%A7%84%E5%88%92/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/tags/VPN/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/tags/%E7%BC%96%E7%A0%81/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/tags/%E6%B1%87%E7%BC%96/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/tags/8086%E6%B1%87%E7%BC%96/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/tags/%E5%AF%84%E5%AD%98%E5%99%A8/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/tags/%E5%8F%8D%E8%B0%83%E8%AF%95/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/tags/%E5%A0%86%E6%A0%88/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/tags/C%E8%AF%AD%E8%A8%80/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/tags/%E5%8F%8D%E6%B1%87%E7%BC%96/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/tags/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/tags/%E9%98%B2%E7%81%AB%E5%A2%99/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/tags/%E8%BF%9B%E7%A8%8B/</loc>
-    <lastmod>2023-04-14</lastmod>
+    <loc>https://www.btkrc.com/tags/PE%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/</loc>
+    <lastmod>2023-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.btkrc.com/tags/WIN32/</loc>
-    <lastmod>2023-04-14</lastmod>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/C%E8%AF%AD%E8%A8%80/</loc>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/C/</loc>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/DHCP/</loc>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</loc>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/windows/</loc>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/</loc>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/python/</loc>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/vs-code/</loc>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/%E7%88%AC%E8%99%AB/</loc>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/Hexo/</loc>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/%E6%AD%A3%E5%88%99/</loc>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/PHP/</loc>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/%E5%90%8E%E7%AB%AF/</loc>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/wp/</loc>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/DNS/</loc>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/github/</loc>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/Javascript/</loc>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/%E6%BA%90%E7%A0%81/</loc>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/gulp/</loc>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/HTTP/</loc>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/%E6%9D%82%E8%B0%88/</loc>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</loc>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/QT/</loc>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/</loc>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/%E5%9F%9F/</loc>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/PKI/</loc>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/%E9%83%A8%E7%BD%B2/</loc>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/%E7%89%A9%E7%90%86%E5%B1%82/</loc>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/%E4%BA%A4%E6%8D%A2%E6%9C%BA/</loc>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/</loc>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/CSS/</loc>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/</loc>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/%E7%BD%91%E7%BB%9C%E5%B1%82/</loc>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/%E7%BD%91%E7%BB%9C%E5%B7%A5%E7%A8%8B/</loc>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/ARP/</loc>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/VLAN/</loc>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/HSRP/</loc>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/ACL/</loc>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/%E7%BD%91%E7%BB%9C%E6%8B%93%E6%89%91%E8%A7%84%E5%88%92/</loc>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/VPN/</loc>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/%E7%BC%96%E7%A0%81/</loc>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/%E6%B1%87%E7%BC%96/</loc>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/8086%E6%B1%87%E7%BC%96/</loc>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/%E5%AF%84%E5%AD%98%E5%99%A8/</loc>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/%E5%A0%86%E6%A0%88/</loc>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/%E5%8F%8D%E8%B0%83%E8%AF%95/</loc>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/%E5%8F%8D%E6%B1%87%E7%BC%96/</loc>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B/</loc>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/%E9%98%B2%E7%81%AB%E5%A2%99/</loc>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/%E8%BF%9B%E7%A8%8B/</loc>
+    <lastmod>2023-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.btkrc.com/tags/%E7%BA%BF%E7%A8%8B/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/tags/CDN/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/tags/%E5%9B%BE%E5%BA%8A/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/tags/SSL/</loc>
-    <lastmod>2023-04-14</lastmod>
+    <lastmod>2023-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.btkrc.com/tags/NPM/</loc>
-    <lastmod>2023-04-14</lastmod>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/CDN/</loc>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/%E5%9B%BE%E5%BA%8A/</loc>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/SSL/</loc>
+    <lastmod>2023-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.btkrc.com/tags/%E5%86%85%E5%AD%98/</loc>
-    <lastmod>2023-04-14</lastmod>
+    <lastmod>2023-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.btkrc.com/tags/%E6%96%87%E4%BB%B6/</loc>
-    <lastmod>2023-04-14</lastmod>
+    <lastmod>2023-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.btkrc.com/tags/%E6%B3%A8%E5%85%A5/</loc>
-    <lastmod>2023-04-14</lastmod>
+    <lastmod>2023-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.btkrc.com/tags/%E6%A8%A1%E5%9D%97/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/tags/PE%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/tags/DOS%E5%91%BD%E4%BB%A4/</loc>
-    <lastmod>2023-04-14</lastmod>
+    <lastmod>2023-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.btkrc.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
-    <lastmod>2023-04-14</lastmod>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/DOS%E5%91%BD%E4%BB%A4/</loc>
+    <lastmod>2023-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.btkrc.com/tags/BAT%E8%84%9A%E6%9C%AC/</loc>
-    <lastmod>2023-04-14</lastmod>
+    <lastmod>2023-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.btkrc.com/tags/cisco/</loc>
-    <lastmod>2023-04-14</lastmod>
+    <lastmod>2023-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.btkrc.com/tags/HTML/</loc>
-    <lastmod>2023-04-14</lastmod>
+    <lastmod>2023-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.btkrc.com/tags/jQuery/</loc>
-    <lastmod>2023-04-14</lastmod>
+    <lastmod>2023-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.btkrc.com/tags/cdn/</loc>
-    <lastmod>2023-04-14</lastmod>
+    <lastmod>2023-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.btkrc.com/tags/mysql/</loc>
-    <lastmod>2023-04-14</lastmod>
+    <lastmod>2023-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.btkrc.com/tags/web%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%BC%80%E5%8F%91/</loc>
-    <lastmod>2023-04-14</lastmod>
+    <lastmod>2023-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.btkrc.com/tags/%E5%B1%80%E5%9F%9F%E7%BD%91/</loc>
-    <lastmod>2023-04-14</lastmod>
+    <lastmod>2023-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.btkrc.com/tags/%E5%BA%94%E7%94%A8%E5%B1%82/</loc>
-    <lastmod>2023-04-14</lastmod>
+    <lastmod>2023-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.btkrc.com/tags/%E8%BF%90%E8%BE%93%E5%B1%82/</loc>
-    <lastmod>2023-04-14</lastmod>
+    <lastmod>2023-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -2160,92 +2160,92 @@
 
   
   <url>
-    <loc>https://www.btkrc.com/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/categories/%E8%84%9A%E6%9C%AC%E8%AF%AD%E8%A8%80/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/categories/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/categories/web%E5%89%8D%E7%AB%AF/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/categories/%E6%9D%82%E8%B0%88/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/categories/C-C/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/categories/80x86%E6%B1%87%E7%BC%96/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.btkrc.com/categories/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B/</loc>
-    <lastmod>2023-04-14</lastmod>
+    <lastmod>2023-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/categories/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B/%E5%8F%8D%E6%B1%87%E7%BC%96/</loc>
-    <lastmod>2023-04-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/categories/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B/WIN32/</loc>
-    <lastmod>2023-04-14</lastmod>
+    <loc>https://www.btkrc.com/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/</loc>
+    <lastmod>2023-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.btkrc.com/categories/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B/PE%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/</loc>
-    <lastmod>2023-04-14</lastmod>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/categories/%E8%84%9A%E6%9C%AC%E8%AF%AD%E8%A8%80/</loc>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/categories/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</loc>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/categories/web%E5%89%8D%E7%AB%AF/</loc>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/categories/%E6%9D%82%E8%B0%88/</loc>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/categories/C-C/</loc>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</loc>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/categories/80x86%E6%B1%87%E7%BC%96/</loc>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/categories/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B/%E5%8F%8D%E6%B1%87%E7%BC%96/</loc>
+    <lastmod>2023-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/categories/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B/WIN32/</loc>
+    <lastmod>2023-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
