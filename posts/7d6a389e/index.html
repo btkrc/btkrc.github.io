@@ -1,0 +1,243 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>数据目录项学习：移动表和修复重定位表 | KARCYRIL'S BLOG</title><meta name="keywords" content="PE"><meta name="author" content="Karcyril"><meta name="copyright" content="Karcyril"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="为什么要移动表 程序启动时，系统会根据表做初始化工作。比如将DLL中的函数地址储存到IAT表中。为了保护程序，可以对二进制代码进行加密操作，但各种表的信息与客户字节的代码和数据都混在一起了，如果进行加密，那么系统无法完成初始化工作，程序也无法运行。  移动导出表步骤 计算导出表的大小（包含导出表、三个子表和AddressOfNames指向的所有字符串的大小）注意：AddressOfNames储存的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据目录项学习：移动表和修复重定位表">
+<meta property="og:url" content="https://www.btkrc.com/posts/7d6a389e/index.html">
+<meta property="og:site_name" content="KARCYRIL&#39;S BLOG">
+<meta property="og:description" content="为什么要移动表 程序启动时，系统会根据表做初始化工作。比如将DLL中的函数地址储存到IAT表中。为了保护程序，可以对二进制代码进行加密操作，但各种表的信息与客户字节的代码和数据都混在一起了，如果进行加密，那么系统无法完成初始化工作，程序也无法运行。  移动导出表步骤 计算导出表的大小（包含导出表、三个子表和AddressOfNames指向的所有字符串的大小）注意：AddressOfNames储存的">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://npm.elemecdn.com/btkrc-imgcover/cover/e4cbffd8585e52f517efbff35347fbc1.jpg">
+<meta property="article:published_time" content="2023-05-19T02:04:10.000Z">
+<meta property="article:modified_time" content="2023-05-20T05:14:20.000Z">
+<meta property="article:author" content="Karcyril">
+<meta property="article:tag" content="PE">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://npm.elemecdn.com/btkrc-imgcover/cover/e4cbffd8585e52f517efbff35347fbc1.jpg"><link rel="shortcut icon" href="/uploads/favicon.ico"><link rel="canonical" href="https://www.btkrc.com/posts/7d6a389e/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://npm.elemecdn.com/btkrc-resource/uploadsFile/butterfly/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":false,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":0,"languages":{"author":"作者: Karcyril","link":"链接: ","source":"来源: KARCYRIL'S BLOG","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://npm.elemecdn.com/btkrc-resource/uploadsFile/butterfly/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://npm.elemecdn.com/btkrc-resource/justifiedGallery/jquery.justifiedGallery.min.js',
+      css: 'https://npm.elemecdn.com/btkrc-resource/justifiedGallery/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://npm.elemecdn.com/btkrc-resource/fancybox/jquery.fancybox.min.js',
+      css: 'https://npm.elemecdn.com/btkrc-resource/fancybox/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: undefined,
+  isToc: true,
+  postUpdate: '2023-05-20 13:14:20'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><link rel="stylesheet" href="/uploadsFile/css/customCss.css"><script src="https://npm.elemecdn.com/btkrc-resource/uploadsFile/butterfly/jquery.min.js"></script><link rel="stylesheet" type="text/css" href="https://npm.elemecdn.com/btkrc-resource/myIconFont/iconfont.css"><script src="https://npm.elemecdn.com/btkrc-resource/myIconFont/iconfont.js"></script><meta name="generator" content="Hexo 5.2.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://npm.elemecdn.com/btkrc-imgcover/avatar/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">165</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">74</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://acg.btkrc.com"><i class="fa-fw fas fa-tv"></i><span> 我的电脑</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-book"></i><span> 笔记索引</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-wrench"></i><span> 在线工具</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/translation/"><i class="fa-fw iconfont iconfanyi"></i><span> 在线中英互译</span></a></li><li><a class="site-page child" href="/encodeUrl/"><i class="fa-fw fa fa-plug"></i><span> URL编码工具</span></a></li><li><a class="site-page child" href="/imgCompress/"><i class="fa-fw fas fa-hammer"></i><span> 在线图片压缩</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-image"></i><span> 相册</span></a></div><div class="menus_item"><a class="site-page" href="/analysis/"><i class="fa-fw fas fa-chart-bar"></i><span> 实验室</span></a></div><div class="menus_item"><a class="site-page" href="/message/"><i class="fa-fw fas fa-comment-dots"></i><span> 留言板</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://npm.elemecdn.com/btkrc-imgcover/cover/e4cbffd8585e52f517efbff35347fbc1.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">KARCYRIL'S BLOG</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://acg.btkrc.com"><i class="fa-fw fas fa-tv"></i><span> 我的电脑</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-book"></i><span> 笔记索引</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-wrench"></i><span> 在线工具</span><i class="fas fa-chevron-down expand hide"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/translation/"><i class="fa-fw iconfont iconfanyi"></i><span> 在线中英互译</span></a></li><li><a class="site-page child" href="/encodeUrl/"><i class="fa-fw fa fa-plug"></i><span> URL编码工具</span></a></li><li><a class="site-page child" href="/imgCompress/"><i class="fa-fw fas fa-hammer"></i><span> 在线图片压缩</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-image"></i><span> 相册</span></a></div><div class="menus_item"><a class="site-page" href="/analysis/"><i class="fa-fw fas fa-chart-bar"></i><span> 实验室</span></a></div><div class="menus_item"><a class="site-page" href="/message/"><i class="fa-fw fas fa-comment-dots"></i><span> 留言板</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">数据目录项学习：移动表和修复重定位表</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-05-19T02:04:10.000Z" title="发表于 2023-05-19 10:04:10">2023-05-19</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-05-20T05:14:20.000Z" title="更新于 2023-05-20 13:14:20">2023-05-20</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B/">逆向工程</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="为什么要移动表"><a href="#为什么要移动表" class="headerlink" title="为什么要移动表"></a>为什么要移动表</h2><blockquote>
+<p>程序启动时，系统会根据表做初始化工作。比如将DLL中的函数地址储存到IAT表中。为了保护程序，可以对二进制代码进行加密操作，但各种表的信息与客户字节的代码和数据都混在一起了，如果进行加密，那么系统无法完成初始化工作，程序也无法运行。</p>
+</blockquote>
+<h2 id="移动导出表步骤"><a href="#移动导出表步骤" class="headerlink" title="移动导出表步骤"></a>移动导出表步骤</h2><ol>
+<li>计算导出表的大小（包含导出表、三个子表和AddressOfNames指向的所有字符串的大小）<br>注意：<strong>AddressOfNames储存的是名称表地址的RVA，首先需要转换FOA后加DOS头得到名称表文件地址，而名称表里储存的依然是RVA，需要继续转换为FOA后加上DOS头才能得到函数字符串的文件地址</strong></li>
+<li>在DLL中新增一个节</li>
+<li>移动AddressOfFunctions<br>长度：AddressOfFunctions * 4</li>
+<li>移动AddressOfNameOrdinals<br>长度：AddressOfNameOrdinals * 2</li>
+<li>移动AddressOfNames<br>长度：AddressOfNames * 4，可以先直接复制，在移动函数名后将新的地址写入到AddressOfNames修复</li>
+<li>移动函数名，完成后修复AddressOfNames</li>
+<li>移动IMAGE_EXPORT_DIRECTORY</li>
+<li>修复导出表中的三个子表</li>
+<li>修复目录项，指向新的IMAGE_EXPORT_DIRECROTY</li>
+</ol>
+<h2 id="实现移动导出表"><a href="#实现移动导出表" class="headerlink" title="实现移动导出表"></a>实现移动导出表</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;Windows.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> OUTFILEPATH TEXT(<span class="meta-string">&quot;D:\\absolution\\temporary\\output.dll&quot;</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DLLPATH TEXT(<span class="meta-string">&quot;D:\\absolution\\temporary\\myDll.dll&quot;</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;PETool.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> comment(lib,<span class="meta-string">&quot;PETool.lib&quot;</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*计算导出表大小（包含三个子表和函数名称），以文件大小对齐*/</span></span><br><span class="line"><span class="function">DWORD <span class="title">computeExportSize</span><span class="params">(LPVOID lpFileBuffer)</span> </span>&#123;</span><br><span class="line">  PIMAGE_DOS_HEADER pDos =</span><br><span class="line">    (PIMAGE_DOS_HEADER)lpFileBuffer;</span><br><span class="line">  PIMAGE_NT_HEADERS pNT =</span><br><span class="line">    (PIMAGE_NT_HEADERS)((DWORD)lpFileBuffer + pDos-&gt;e_lfanew);</span><br><span class="line">  PIMAGE_FILE_HEADER pFile =</span><br><span class="line">    (PIMAGE_FILE_HEADER)((DWORD)pNT + <span class="number">4</span>);</span><br><span class="line">  PIMAGE_OPTIONAL_HEADER pOption =</span><br><span class="line">    (PIMAGE_OPTIONAL_HEADER)((DWORD)pFile + IMAGE_SIZEOF_FILE_HEADER);</span><br><span class="line"></span><br><span class="line">  <span class="comment">/*导出表IDD结构*/</span></span><br><span class="line">  IMAGE_DATA_DIRECTORY exportIDD = pOption-&gt;DataDirectory[<span class="number">0</span>];</span><br><span class="line">  <span class="comment">/*导出表地址是RVA，需要转换成FOA*/</span></span><br><span class="line">  PIMAGE_EXPORT_DIRECTORY pExportDir =</span><br><span class="line">    (PIMAGE_EXPORT_DIRECTORY)(RVA2FOA(lpFileBuffer, exportIDD.VirtualAddress) + (DWORD)lpFileBuffer);</span><br><span class="line"></span><br><span class="line">  <span class="comment">/*获取函数地址表、函数名称表、函数序号表的地址*/</span></span><br><span class="line">  PDWORD lpAddOfFns = (PDWORD)(RVA2FOA(lpFileBuffer, (DWORD)pExportDir-&gt;AddressOfFunctions) + (DWORD)lpFileBuffer);</span><br><span class="line">  PDWORD lpAddOfNames = (PDWORD)(RVA2FOA(lpFileBuffer, (DWORD)pExportDir-&gt;AddressOfNames) + (DWORD)lpFileBuffer);</span><br><span class="line">  <span class="comment">/*序号表的数据为2个字节*/</span></span><br><span class="line">  PWORD lpAddOfOrdinals = (PWORD)(RVA2FOA(lpFileBuffer, (DWORD)pExportDir-&gt;AddressOfNameOrdinals) + (DWORD)lpFileBuffer);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="comment">/*导出表和三个子表的大小*/</span></span><br><span class="line">  DWORD computeResult = <span class="keyword">sizeof</span>(IMAGE_EXPORT_DIRECTORY) +</span><br><span class="line">    pExportDir-&gt;NumberOfFunctions * <span class="number">4</span> +</span><br><span class="line">    pExportDir-&gt;NumberOfNames * <span class="number">2</span> +</span><br><span class="line">    pExportDir-&gt;NumberOfNames * <span class="number">4</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/*计算所有函数名的大小*/</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; pExportDir-&gt;NumberOfNames; i++) &#123;</span><br><span class="line">    LPCTSTR fnName = (LPCTSTR)(RVA2FOA(lpFileBuffer, lpAddOfNames[i]) + (DWORD)lpFileBuffer);</span><br><span class="line">    <span class="comment">/*大小+1储存\0结尾*/</span></span><br><span class="line">    DWORD strLen = <span class="built_in">strlen</span>(fnName) + <span class="number">1</span>;</span><br><span class="line">    computeResult += strLen;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="comment">/*返回对齐后的大小*/</span></span><br><span class="line">  <span class="keyword">return</span> PEAlign(computeResult, pOption-&gt;FileAlignment);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*移动导出表到最后一个新增的节*/</span></span><br><span class="line"><span class="function">DWORD <span class="title">moveExportDir</span><span class="params">(LPVOID lpFileBuffer)</span> </span>&#123;</span><br><span class="line">  PIMAGE_DOS_HEADER pDos =</span><br><span class="line">    (PIMAGE_DOS_HEADER)lpFileBuffer;</span><br><span class="line">  PIMAGE_NT_HEADERS pNT =</span><br><span class="line">    (PIMAGE_NT_HEADERS)((DWORD)lpFileBuffer + pDos-&gt;e_lfanew);</span><br><span class="line">  PIMAGE_FILE_HEADER pFile =</span><br><span class="line">    (PIMAGE_FILE_HEADER)((DWORD)pNT + <span class="number">4</span>);</span><br><span class="line">  PIMAGE_OPTIONAL_HEADER pOption =</span><br><span class="line">    (PIMAGE_OPTIONAL_HEADER)((DWORD)pFile + IMAGE_SIZEOF_FILE_HEADER);</span><br><span class="line">  PIMAGE_SECTION_HEADER pFirstSection =</span><br><span class="line">    PIMAGE_SECTION_HEADER((DWORD)pOption + pFile-&gt;SizeOfOptionalHeader);</span><br><span class="line">  <span class="comment">/*获取最后一个节表的地址*/</span></span><br><span class="line">  PIMAGE_SECTION_HEADER pLastSection =</span><br><span class="line">    PIMAGE_SECTION_HEADER((DWORD)pFirstSection + ((pFile-&gt;NumberOfSections - <span class="number">1</span>) * IMAGE_SIZEOF_SECTION_HEADER));</span><br><span class="line">  <span class="comment">/*导出表IDD结构*/</span></span><br><span class="line">  IMAGE_DATA_DIRECTORY exportIDD = pOption-&gt;DataDirectory[<span class="number">0</span>];</span><br><span class="line">  <span class="comment">/*导出表地址是RVA，需要转换成FOA*/</span></span><br><span class="line">  PIMAGE_EXPORT_DIRECTORY pExportDir =</span><br><span class="line">    (PIMAGE_EXPORT_DIRECTORY)(RVA2FOA(lpFileBuffer, exportIDD.VirtualAddress) + (DWORD)lpFileBuffer);</span><br><span class="line"></span><br><span class="line">  <span class="comment">/*获取函数地址表、函数名称表、函数序号表的地址*/</span></span><br><span class="line">  PDWORD lpAddOfFns = (PDWORD)(RVA2FOA(lpFileBuffer, (DWORD)pExportDir-&gt;AddressOfFunctions) + (DWORD)lpFileBuffer);</span><br><span class="line">  PDWORD lpAddOfNames = (PDWORD)(RVA2FOA(lpFileBuffer, (DWORD)pExportDir-&gt;AddressOfNames) + (DWORD)lpFileBuffer);</span><br><span class="line">  <span class="comment">/*序号表的数据为2个字节*/</span></span><br><span class="line">  PWORD lpAddOfOrdinals = (PWORD)(RVA2FOA(lpFileBuffer, (DWORD)pExportDir-&gt;AddressOfNameOrdinals) + (DWORD)lpFileBuffer);</span><br><span class="line"></span><br><span class="line">  <span class="comment">/*复制函数地址表*/</span></span><br><span class="line">  PDWORD lpNewAddOfFns = (PDWORD)(pLastSection-&gt;PointerToRawData + (DWORD)lpFileBuffer);</span><br><span class="line">  <span class="built_in">memcpy</span>(lpNewAddOfFns, lpAddOfFns, pExportDir-&gt;NumberOfFunctions * <span class="number">4</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">/*复制序号表*/</span></span><br><span class="line">  PDWORD lpNewAddOfOrdinals = (PDWORD)((DWORD)lpNewAddOfFns + pExportDir-&gt;NumberOfFunctions * <span class="number">4</span>);</span><br><span class="line">  <span class="built_in">memcpy</span>(lpNewAddOfOrdinals, lpAddOfOrdinals, pExportDir-&gt;NumberOfNames * <span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">/*复制名称表，需要修复*/</span></span><br><span class="line">  PDWORD lpNewAddOfNames = (PDWORD)((DWORD)lpNewAddOfOrdinals + pExportDir-&gt;NumberOfNames * <span class="number">2</span>);</span><br><span class="line">  <span class="comment">/*数据块，储存函数名字符串*/</span></span><br><span class="line">  PBYTE lpNameStrBlock = (PBYTE)((DWORD)lpNewAddOfNames + pExportDir-&gt;NumberOfNames * <span class="number">4</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">/*复制函数名字符串，并修复名称表*/</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; pExportDir-&gt;NumberOfNames; i++) &#123;</span><br><span class="line">    LPCTSTR tempStr = (LPCTSTR)(RVA2FOA(lpFileBuffer, lpAddOfNames[i]) + (DWORD)lpFileBuffer);</span><br><span class="line">    <span class="built_in">memcpy</span>(lpNameStrBlock, tempStr, <span class="built_in">strlen</span>(tempStr) + <span class="number">1</span>);</span><br><span class="line">    <span class="comment">/*修复名称表，储存字符串地址的RVA*/</span></span><br><span class="line">    lpNewAddOfNames[i] = FOA2RVA(lpFileBuffer, (DWORD)lpNameStrBlock - (DWORD)lpFileBuffer);</span><br><span class="line">    lpNameStrBlock += <span class="built_in">strlen</span>(tempStr) + <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/*复制导出表*/</span></span><br><span class="line">  PIMAGE_EXPORT_DIRECTORY pNewExportDir = (PIMAGE_EXPORT_DIRECTORY)lpNameStrBlock;</span><br><span class="line">  <span class="built_in">memcpy</span>(pNewExportDir, pExportDir, <span class="keyword">sizeof</span>(PIMAGE_EXPORT_DIRECTORY));</span><br><span class="line"></span><br><span class="line">  <span class="comment">/*修复导出表的三个子表*/</span></span><br><span class="line">  pNewExportDir-&gt;AddressOfFunctions = FOA2RVA(lpFileBuffer, (DWORD)lpNewAddOfFns - (DWORD)lpFileBuffer);</span><br><span class="line">  pNewExportDir-&gt;AddressOfNameOrdinals= FOA2RVA(lpFileBuffer, (DWORD)lpNewAddOfOrdinals - (DWORD)lpFileBuffer);</span><br><span class="line">  pNewExportDir-&gt;AddressOfNames= FOA2RVA(lpFileBuffer, (DWORD)lpNewAddOfNames - (DWORD)lpFileBuffer);</span><br><span class="line"></span><br><span class="line">  <span class="comment">/*修复目录项指向导出表的地址*/</span></span><br><span class="line">  exportIDD.VirtualAddress = FOA2RVA(lpFileBuffer, (DWORD)pNewExportDir - (DWORD)lpFileBuffer);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  LPVOID lpFileBuffer = <span class="literal">NULL</span>;</span><br><span class="line">  lpFileBuffer = createFileBuffer(DLLPATH);</span><br><span class="line">  DWORD exportSize = computeExportSize(lpFileBuffer);</span><br><span class="line"></span><br><span class="line">  PIMAGE_SECTION_HEADER lpNewSection = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">  LPVOID lpModifyBuffer = (PIMAGE_SECTION_HEADER)addNewSection(lpFileBuffer, exportSize);</span><br><span class="line"></span><br><span class="line">  moveExportDir(lpModifyBuffer);</span><br><span class="line"></span><br><span class="line">  PIMAGE_DOS_HEADER pDOS = (PIMAGE_DOS_HEADER)lpModifyBuffer;</span><br><span class="line">  PIMAGE_NT_HEADERS pNT = (PIMAGE_NT_HEADERS)((DWORD)pDOS + pDOS-&gt;e_lfanew);</span><br><span class="line">  PIMAGE_FILE_HEADER pFile = (PIMAGE_FILE_HEADER)((DWORD)pNT + <span class="number">4</span>);</span><br><span class="line">  PIMAGE_OPTIONAL_HEADER pOptional = (PIMAGE_OPTIONAL_HEADER)((DWORD)pFile + IMAGE_SIZEOF_FILE_HEADER);</span><br><span class="line">  PIMAGE_SECTION_HEADER pSections = (PIMAGE_SECTION_HEADER)((DWORD)pOptional + pFile-&gt;SizeOfOptionalHeader);</span><br><span class="line">  <span class="comment">//定位到新增节</span></span><br><span class="line">  PIMAGE_SECTION_HEADER pNewSection = (PIMAGE_SECTION_HEADER)((DWORD)pSections + (pFile-&gt;NumberOfSections - <span class="number">1</span>) * <span class="number">40</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  FILE *fp;</span><br><span class="line">  fopen_s(&amp;fp, OUTFILEPATH, <span class="string">&quot;wb+&quot;</span>);</span><br><span class="line">  <span class="keyword">if</span> (!fp) &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;fopen error\n&quot;</span>);</span><br><span class="line">    getchar();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  fseek(fp, <span class="number">0</span>, SEEK_SET);</span><br><span class="line"></span><br><span class="line">  DWORD count = fwrite(lpModifyBuffer, pNewSection-&gt;PointerToRawData + pNewSection-&gt;SizeOfRawData, <span class="number">1</span>, fp);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (count) &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;写入成功！！\n&quot;</span>);</span><br><span class="line">    getchar();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  fclose(fp);</span><br><span class="line"></span><br><span class="line">  <span class="built_in">free</span>(lpFileBuffer);</span><br><span class="line">  <span class="built_in">free</span>(lpModifyBuffer);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Karcyril</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://www.btkrc.com/posts/7d6a389e/">https://www.btkrc.com/posts/7d6a389e/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">署名-非商业性使用<svg class="icon" aria-hidden="true"><use xlink:href="#iconheike3-fuben"></use></svg>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.btkrc.com" target="_blank">KARCYRIL'S BLOG</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/PE/">PE</a></div><div class="post_share"><div class="social-share" data-image="https://npm.elemecdn.com/btkrc-imgcover/cover/e4cbffd8585e52f517efbff35347fbc1.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://npm.elemecdn.com/btkrc-resource/social-share2/css/share.min.css" media="print" onload="this.media='all'"><script src="https://npm.elemecdn.com/btkrc-resource/social-share2/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 请我喝杯咖啡吧</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/uploads/wechat.png" target="_blank"><img class="post-qr-code-img" src="/uploads/wechat.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/posts/776accd7/"><img class="next-cover" src="https://npm.elemecdn.com/btkrc-imgcover/cover/fekwiDWB3e.jpg" onerror="onerror=null;src='/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">数据目录项学习：重定位表</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://npm.elemecdn.com/btkrc-imgcover/avatar/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Karcyril</div><div class="author-info__description"><svg class="icon" aria-hidden="true"><use xlink:href="#icontaidixiongwanoukeai"></use></svg>擅长领域：网络工程，网络安全，前后端开发，逆向工程<br/><svg class="icon" aria-hidden="true"><use xlink:href="#iconhuahonghuazhiwuhuaduo"></use></svg>身高186的宅男，喜欢玩moba，看漫画<br/><svg class="icon" aria-hidden="true"><use xlink:href="#iconhuameiguihuaxianhua"></use></svg></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">165</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">74</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://acg.btkrc.com"><i class="fa fa-heart"></i><span>前往导航站</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/btkrc" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="https://space.bilibili.com/29980082" target="_blank" title="B站"><i class="iconfont iconbilibili1"></i></a><a class="social-icon" href="mailto:btkrc1nx@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%A7%BB%E5%8A%A8%E8%A1%A8"><span class="toc-number">1.</span> <span class="toc-text">为什么要移动表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A7%BB%E5%8A%A8%E5%AF%BC%E5%87%BA%E8%A1%A8%E6%AD%A5%E9%AA%A4"><span class="toc-number">2.</span> <span class="toc-text">移动导出表步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E7%A7%BB%E5%8A%A8%E5%AF%BC%E5%87%BA%E8%A1%A8"><span class="toc-number">3.</span> <span class="toc-text">实现移动导出表</span></a></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Karcyril</div><div class="footer_custom_text"><span class="item-count" id="runtimeshow" data-publishdate="2020-09-30T16:00:00.000Z"></span><br/><span>皆さん、こんにちは<svg class="icon" aria-hidden="true"><use xlink:href="#icon003-sakura"></use></svg>Karcyrilのブログへようこそ～</span><br/><a class="beian" target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">鄂ICP备2020021450号-1</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>function loadWaline () {
+  function initWaline () {
+    const waline = new Waline(Object.assign({
+      el: '#waline-wrap',
+      serverURL: 'https://comment.btkrc.com/',
+      avatar: 'hide',
+      path: location.pathname,
+      emojiCDN: '',
+      emojiMaps: "",
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Waline === 'function') initWaline() 
+  else getScript('https://npm.elemecdn.com/btkrc-resource/uploadsFile/Waline.min.js').then(initWaline)
+}
+
+if ('Waline' === 'Waline' || !true) {
+  if (true) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+  else setTimeout(loadWaline, 0)
+} else {
+  function loadOtherComment () {
+    loadWaline()
+  }
+}</script></div><script src="https://npm.elemecdn.com/btkrc-resource/uploadsFile/APlayer.min.js"></script><link rel="stylesheet" href="https://npm.elemecdn.com/btkrc-resource/uploadsFile/APlayer.min.css"><div id="aplayer" class="aplayer no-destroy"></div><script src="/uploadsFile/js/music.js"></script><script src="https://npm.elemecdn.com/btkrc-resource/uploadsFile/translation/mJsonp.js" data-pjax></script><script src="https://npm.elemecdn.com/btkrc-resource/uploadsFile/encodeUrl.js" data-pjax></script><script src="https://npm.elemecdn.com/btkrc-resource/uploadsFile/mouse_snow.min.js"></script><script src="https://npm.elemecdn.com/btkrc-resource/uploadsFile/myUtils11.js" data-pjax></script><script src="https://npm.elemecdn.com/btkrc-resource/uploadsFile/butterfly/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+
+document.addEventListener('pjax:send', function () {
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script></div><script src="https://npm.elemecdn.com/btkrc-resource/live2dw/lib/L2Dwidget.min.js"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"live2dw/lib/","pluginModelPath":"live2dw/assets/","tagMode":false,"debug":false,"model":{"scale":1,"jsonPath":"https://npm.elemecdn.com/btkrc-resource/dsr50_1801/dsr50_1801.model.json"},"display":{"position":"right","width":300,"height":450,"hOffset":-60,"vOffset":-180},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body></html>
