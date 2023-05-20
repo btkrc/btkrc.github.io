@@ -1884,13 +1884,6 @@
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/tags/CSS/</loc>
-    <lastmod>2023-05-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.btkrc.com/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/</loc>
     <lastmod>2023-05-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -1899,6 +1892,13 @@
   
   <url>
     <loc>https://www.btkrc.com/tags/%E7%BD%91%E7%BB%9C%E5%B1%82/</loc>
+    <lastmod>2023-05-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.btkrc.com/tags/CSS/</loc>
     <lastmod>2023-05-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2045,6 +2045,13 @@
   </url>
   
   <url>
+    <loc>https://www.btkrc.com/tags/NPM/</loc>
+    <lastmod>2023-05-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://www.btkrc.com/tags/CDN/</loc>
     <lastmod>2023-05-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -2060,13 +2067,6 @@
   
   <url>
     <loc>https://www.btkrc.com/tags/SSL/</loc>
-    <lastmod>2023-05-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/tags/NPM/</loc>
     <lastmod>2023-05-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2143,14 +2143,14 @@
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/tags/cdn/</loc>
+    <loc>https://www.btkrc.com/tags/mysql/</loc>
     <lastmod>2023-05-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.btkrc.com/tags/mysql/</loc>
+    <loc>https://www.btkrc.com/tags/cdn/</loc>
     <lastmod>2023-05-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
