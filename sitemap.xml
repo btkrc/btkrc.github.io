@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.btkrc.com/posts/843cce96/</loc>
+    
+    <lastmod>2026-11-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.btkrc.com/gallery/index.html</loc>
     
     <lastmod>2026-11-07</lastmod>
@@ -257,15 +266,6 @@
     <loc>https://www.btkrc.com/posts/f96fc3/</loc>
     
     <lastmod>2022-04-23</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.btkrc.com/posts/843cce96/</loc>
-    
-    <lastmod>2022-04-21</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
