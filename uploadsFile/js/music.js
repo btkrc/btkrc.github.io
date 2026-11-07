@@ -1,4 +1,4 @@
-/*by Karcyril*/
+/*by Zekalryn*/
 
 
 var ap = new APlayer({
@@ -23,10 +23,10 @@ var ap = new APlayer({
     url: 'http://music.163.com/song/media/outer/url?id=22677533',
     pic: 'http://p2.music.126.net/byXQIhAT-iS6xd6icx8EiA==/560750930187412.jpg?param=130y130',
   }, {
-    title: 'Lifestyle',
-    author: 'MAGES',
-    url: 'http://music.163.com/song/media/outer/url?id=1420745339',
-    pic: 'http://p1.music.126.net/UK8H6_DIXFye2KLW-j7ExA==/109951165230280769.jpg?param=130y130',
+    title: '娃娃脸（名井南进行曲）',
+    author: '后弦',
+    url: 'http://music.163.com/song/media/outer/url?id=3342918129',
+    pic: 'http://p2.music.126.net/k7jkZo2pfWZivHEf_SsvKg==/109951172641936083.jpg?param=130y130',
   }, {
     title: 'トルコ行進曲',
     author: '96猫',
@@ -48,10 +48,10 @@ var ap = new APlayer({
     url: 'http://music.163.com/song/media/outer/url?id=28941716',
     pic: 'http://p1.music.126.net/cZPx3peGTuWEI_GaZB5CDg==/8892850045794893.jpg?param=130y130',
   },  {
-    title: '夜に駆ける',
-    author: 'YOASOBI',
-    url: 'http://music.163.com/song/media/outer/url?id=1409311773',
-    pic: 'http://p2.music.126.net/3xWlqwYmfwRFebeiONUpGg==/109951164546210608.jpg?param=130y130',
+    title: '扑克摇I\'m So Hot7V',
+    author: '阿吉野马',
+    url: 'http://music.163.com/song/media/outer/url?id=2635226506',
+    pic: 'http://p2.music.126.net/QcElt0V5fiptEKJBBqEbdQ==/109951170032150566.jpg?param=130y130',
   }, {
     title: 'ふわふわ♪',
     author: '樹莓蛋奶酥',
@@ -83,15 +83,15 @@ var ap = new APlayer({
     url: 'http://music.163.com/song/media/outer/url?id=1854902495',
     pic: 'http://p1.music.126.net/GDxBDUX9OGoyxe2KRiV93A==/109951166105612973.jpg?param=130y130',
   }, {
-    title: '恋は渾沌の隷也',
-    author: '後ろから這いより隊G',
-    url: 'http://music.163.com/song/media/outer/url?id=31967343',
-    pic: 'http://p2.music.126.net/IAMMhbg3RZ0boK9j3LQFfQ==/18788454697228143.jpg?param=130y130',
+    title: 'Gimme×Gimme',
+    author: '初音ミク / 鏡音リン',
+    url: 'http://music.163.com/song/media/outer/url?id=1402830753',
+    pic: 'http://p2.music.126.net/j1aWfCfPtDKjdlWa4zo8hQ==/109951164481830838.jpg?param=130y130',
   }, {
-    title: '「交织together」',
-    author: 'DMYoung / Hanser / 泠鸢yousa',
-    url: 'http://music.163.com/song/media/outer/url?id=460478768',
-    pic: 'http://p1.music.126.net/JBo0QEBpHlzUNpTd5P4zuw==/109951162861954189.jpg?param=130y130',
+    title: '「南北组-世末歌者」',
+    author: '乐正绫 / 洛天依Official / COP',
+    url: 'http://music.163.com/song/media/outer/url?id=429460240',
+    pic: 'http://p1.music.126.net/sZGaAxUHHhuhQ1Zxa2jw4g==/17790098137764958.jpg?param=130y130',
   }, {
     title: 'カサネテク',
     author: 'Sakanya',
