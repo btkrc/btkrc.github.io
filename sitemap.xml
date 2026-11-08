@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.zkryn.com/gallery/acg/index.html</loc>
+    
+    <lastmod>2026-11-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.zkryn.com/posts/7819a34e/</loc>
     
     <lastmod>2026-11-08</lastmod>
@@ -50,42 +59,6 @@
     <loc>https://www.zkryn.com/gallery/index.html</loc>
     
     <lastmod>2026-11-07</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.zkryn.com/gallery/dolls/index.html</loc>
-    
-    <lastmod>2026-11-07</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.zkryn.com/gallery/acg/index.html</loc>
-    
-    <lastmod>2026-11-06</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.zkryn.com/gallery/budgie/index.html</loc>
-    
-    <lastmod>2026-11-06</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.zkryn.com/gallery/birds/index.html</loc>
-    
-    <lastmod>2026-11-06</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
