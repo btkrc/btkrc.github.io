@@ -1,4 +1,4 @@
-/*by Karcyril*/
+/*by Zekalryn*/
 
 function download(jsonp) {
   var tBody = $('.weather-info tbody');
