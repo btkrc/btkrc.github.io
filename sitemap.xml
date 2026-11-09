@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.zkryn.com/posts/5a8a6c8d/</loc>
+    
+    <lastmod>2026-11-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.zkryn.com/translation/index.html</loc>
     
     <lastmod>2026-11-09</lastmod>
@@ -1977,14 +1986,14 @@
   </url>
   
   <url>
-    <loc>https://www.zkryn.com/tags/%E8%BF%9B%E7%A8%8B/</loc>
+    <loc>https://www.zkryn.com/tags/%E7%BA%BF%E7%A8%8B/</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.zkryn.com/tags/%E7%BA%BF%E7%A8%8B/</loc>
+    <loc>https://www.zkryn.com/tags/%E8%BF%9B%E7%A8%8B/</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
