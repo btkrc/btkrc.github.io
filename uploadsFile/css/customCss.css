@@ -721,3 +721,87 @@ blockquote {
         box-shadow: 0 0 2px #1478d2;
     }
 }
+
+
+/* terminal特效 */
+/*在scripts中注册 */
+/* 终端外框 - 极深黑底 + 绿色荧光边框 */
+.mac-terminal {
+    background-color: #06090f !important; /* 极其深邃的暗黑蓝/黑 */
+    border: 1px solid #0f0 !important;   /* 荧光绿边框 */
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.2); /* 微微的绿色光晕，不刺眼 */
+    margin: 20px 0;
+    overflow: hidden;
+    font-family: 'Fira Code', 'JetBrains Mono', Consolas, monospace !important;
+    line-height: 1.6;
+}
+
+/* 顶部栏 - 暗色 */
+.mac-terminal .mac-terminal-header {
+    background-color: #0d1117 !important; 
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #0f0 !important;
+}
+
+/* 红黄绿按钮，调暗一点融入背景 */
+.mac-terminal .mac-btn {
+    width: 12px; height: 12px; border-radius: 50%; margin-right: 8px; display: inline-block;
+    opacity: 0.7;
+}
+.mac-terminal .mac-btn.close { background-color: #ff5f56 !important; }
+.mac-terminal .mac-btn.minimize { background-color: #ffbd2e !important; }
+.mac-terminal .mac-btn.maximize { background-color: #27c93f !important; }
+
+/* 顶部标题 */
+.mac-terminal .mac-title {
+    color: #8b949e !important;
+    font-size: 12px;
+    margin: 0 auto;
+    padding-right: 40px;
+}
+
+/* 内容区 */
+.mac-terminal .mac-terminal-body {
+    padding: 20px;
+    color: #e6edf3 !important; /*  核心：正文变成干净的灰白色，保护眼睛 */
+    font-size: 15px;
+    text-align: left !important;
+    word-break: break-all;
+}
+
+.mac-terminal .mac-line {
+    margin: 8px 0;
+}
+
+/* 提示符 (root@zkryn) - 亮荧光绿 */
+.mac-terminal .mac-prompt {
+    color: #39ff14 !important; /* 极其亮眼的黑客绿 */
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(57, 255, 20, 0.5); /* 给字加上一点发光效果 */
+}
+
+/* 你输入的命令 - 纯白色 */
+.mac-terminal .mac-cmd {
+    color: #ffffff !important;
+}
+
+/* 输出的结果 - 灰白色 */
+.mac-terminal .mac-output {
+    color: #c9d1d9 !important; 
+}
+
+/* 光标 - 绿色 */
+.mac-terminal .mac-cursor {
+    display: inline-block; width: 8px; height: 15px;
+    background-color: #39ff14 !important;
+    vertical-align: middle;
+    animation: mac-blink 1s step-end infinite;
+}
+
+@keyframes mac-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
