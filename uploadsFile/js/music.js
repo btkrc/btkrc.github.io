@@ -144,3 +144,63 @@ var ap = new APlayer({
     cover: 'http://p2.music.126.net/vBe87gzZIypoBIfr1Vh3eA==/109951165096412870.jpg?param=130y130',
   },]
 });
+
+
+// ==== Media Session API 锁屏与通知栏接管 (防连点优化版) ====
+if ('mediaSession' in navigator && typeof ap !== 'undefined') {
+  const ms = navigator.mediaSession;
+  const audio = ap.audio;
+  let updateTimer = null; // 用于防抖的定时器
+  let currentTrackName = ''; // 记录当前歌曲名，防止重复渲染
+
+  // 更新元数据
+  const updateMeta = () => {
+    // 如果已经有定时器，先清除，保证连续点击时只执行最后一次
+    if (updateTimer) clearTimeout(updateTimer);
+
+    updateTimer = setTimeout(() => {
+      const track = ap.list.audios[ap.list.index];
+      if (!track || track.name === currentTrackName) return;
+      
+      // 记录当前切换的歌曲，防止重复刷新
+      currentTrackName = track.name;
+
+      // 处理网易云封面：强制 HTTPS，并尝试把尺寸改大
+      let coverUrl = track.cover || '';
+      if (coverUrl.startsWith('http://')) {
+          coverUrl = coverUrl.replace('http://', 'https://');
+      }
+      if (coverUrl.includes('?param=')) {
+          coverUrl = coverUrl.replace(/\?param=\d+y\d+/, '?param=512y512');
+      }
+
+      ms.metadata = new MediaMetadata({
+        title: track.name || '未知歌曲',
+        artist: track.artist || 'Zekalryn',
+        album: track.album || 'Zekalryn\'s Blog',
+        artwork: [
+          { src: coverUrl, sizes: '512x512', type: 'image/png' }
+        ]
+      });
+    }, 300); // 延迟 300 毫秒执行，等 AP 的状态稳定下来
+  };
+
+  // 绑定锁屏硬件按键
+  ms.setActionHandler('play', () => ap.play());
+  ms.setActionHandler('pause', () => ap.pause());
+  ms.setActionHandler('previoustrack', () => ap.skipBack());
+  ms.setActionHandler('nexttrack', () => ap.skipForward());
+
+  // 状态同步
+  audio.addEventListener('play', () => ms.playbackState = 'playing');
+  audio.addEventListener('pause', () => ms.playbackState = 'paused');
+  
+  // 切歌刷新（现在由 updateMeta 内部的防抖接管）
+  ap.on('listswitch', () => {
+    updateMeta();
+    if (!audio.paused) ms.playbackState = 'playing';
+  });
+
+  // 初始化
+  updateMeta();
+}
