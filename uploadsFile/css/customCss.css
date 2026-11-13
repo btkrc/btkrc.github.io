@@ -1,5 +1,14 @@
 /*by Zekalryn*/
 
+/* 解决chrome移动端导航栏遮挡首页箭头 */
+@media screen and (max-width: 768px) {
+    #page-header.full_page {
+        height: 100vh; 
+        height: 100dvh; /* 动态视口高度，自动避开 Chrome 底部工具栏 */
+    }
+}
+
+
 /*字体图标*/
 
 .icon {
