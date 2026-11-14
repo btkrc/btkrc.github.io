@@ -740,10 +740,13 @@ blockquote {
     border: 1px solid #0f0 !important;   /* 荧光绿边框 */
     border-radius: 8px;
     box-shadow: 0 0 15px rgba(0, 255, 0, 0.2); /* 微微的绿色光晕，不刺眼 */
-    margin: 20px 0;
+    box-sizing: border-box;
+    width:100% !important;
+    max-width: 100% !important;
+    margin: 10px 0 20px 0;
     overflow: hidden;
     font-family: 'Fira Code', 'JetBrains Mono', Consolas, monospace !important;
-    line-height: 1.6;
+    line-height: 1.6 !important;
 }
 
 /* 顶部栏 - 暗色 */
@@ -813,4 +816,108 @@ blockquote {
 @keyframes mac-blink {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
+}
+
+/* 隐藏置顶卡片的标题和元数据 */
+#recent-posts > .recent-post-item:has(.mac-terminal) .post-title,
+#recent-posts > .recent-post-item:has(.mac-terminal) .post-meta,
+#recent-posts > .recent-post-item:has(.mac-terminal) .post-read-more {
+    display: none !important;
+}
+
+/* 让卡片外壳透明，让终端贴边 */
+#recent-posts > .recent-post-item:has(.mac-terminal) {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+}
+#recent-posts > .recent-post-item:has(.mac-terminal) .post-content {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+
+/* ================= 隐藏终端卡片的冗余信息 ================= */
+
+/* 1. 隐藏标题（前言） */
+#recent-posts > .recent-post-item:has(.mac-terminal) .article-title {
+    display: none !important;
+}
+
+/* 2. 隐藏发布时间、置顶图标、分类标签等整个区块 */
+#recent-posts > .recent-post-item:has(.mac-terminal) .article-meta-wrap {
+    display: none !important;
+}
+
+/* 3. 隐藏底部的“阅读全文”按钮 */
+#recent-posts > .recent-post-item:has(.mac-terminal) .post-read-more {
+    display: none !important;
+}
+
+/* 4. 确保外层卡片没有任何内边距干扰，让终端完美撑满 */
+#recent-posts > .recent-post-item:has(.mac-terminal) {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin-bottom: 20px !important; /* 保留一点底部间距，别和下一篇文章粘住 */
+}
+
+/* 5. 清除内部 content 的默认间距 */
+#recent-posts > .recent-post-item:has(.mac-terminal) .post-content {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+
+/* 确保置顶卡片的父容器在横屏下没有多余的横向内边距 */
+#recent-posts > .recent-post-item:has(.mac-terminal) .recent-post-info {
+    padding: 0 !important;
+    width: 100% !important;
+}
+
+/* 让终端占满整个卡片的显示区域 */
+#recent-posts > .recent-post-item:has(.mac-terminal) {
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* ================= 终极排版修复：自适应高度，不截断 ================= */
+
+/* 1. 强制卡片和内部的容器根据内容自动撑开高度 */
+#recent-posts > .recent-post-item:has(.mac-terminal),
+#recent-posts > .recent-post-item:has(.mac-terminal) .recent-post-info,
+#recent-posts > .recent-post-item:has(.mac-terminal) .post-content {
+    height: auto !important;
+    max-height: none !important;   /* 干掉最大高度限制 */
+    overflow: visible !important;  /* 允许内容溢出，千万别用 hidden */
+    display: block !important;     /* 强制单栏，防止横屏变左右分栏 */
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* 2. 给卡片留出一点点下边距，防止和下一篇文章粘在一起 */
+#recent-posts > .recent-post-item:has(.mac-terminal) {
+    margin-bottom: 20px !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+/* 3. 让终端框自适应父容器宽度，绝不溢出 */
+#recent-posts > .recent-post-item:has(.mac-terminal) .mac-terminal {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    /* 取消左右 margin，只留上下 */
+    margin: 10px 0 20px 0 !important; 
+    overflow: hidden; /* 这里用 hidden 是防止终端内部的按钮溢出 */
+}
+
+/* 4. 隐藏多余的标题和日期 */
+#recent-posts > .recent-post-item:has(.mac-terminal) .article-title,
+#recent-posts > .recent-post-item:has(.mac-terminal) .article-meta-wrap,
+#recent-posts > .recent-post-item:has(.mac-terminal) .post-read-more {
+    display: none !important;
 }
